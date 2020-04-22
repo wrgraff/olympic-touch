@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="{{ keywords }}" />
+
+    <link rel="stylesheet" href="/templates/olympic-touch/css/style.css">
+    <link rel="icon" href="/templates/olympic-touch/favicons/base-16x16.png" sizes="16x16">
+    <link rel="icon" href="/templates/olympic-touch/favicons/base-24x24.png" sizes="32x32">
+    <link rel="icon" href="/templates/olympic-touch/favicons/base-32x32.png" sizes="32x32">
+    <link rel="icon" href="/templates/olympic-touch/favicons/base-64x64.png" sizes="64x64">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Фитнес-клуб Olympic Touch">
+    <link rel="apple-touch-icon" sizes="120x120" href="/templates/olympic-touch/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/templates/olympic-touch/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/templates/olympic-touch/img/favicons/apple-touch-icon-180x180.png">
+    <!-- og -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:image" content="/templates/olympic-touch/favicons/og.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Фитнес-клуб Olympic Touch" />
+    {% if activePage == '/' %}
+        <meta property="og:url" content="https://frontend-design.ru/" />
+    {% else %}
+        <meta property="og:url" content="https://frontend-design.ru/{{ activePage }}/" />
+    {% endif %}
+    <meta property="og:locale" content="ru_RU" />
+</head>
+
+<body>
+
+</body>
+</html>

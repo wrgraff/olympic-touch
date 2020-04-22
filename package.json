@@ -1,0 +1,35 @@
+{
+  "name": "olympic-touch",
+  "version": "1.0.0",
+  "description": "Olympic Touch website",
+  "main": "README.md",
+  "scripts": {
+    "editorconfig": "editorconfig-cli",
+    "stylelint": "stylelint \"src/scss/**/*.scss\" --syntax scss",
+    "test": "npm run stylelint",
+    "build": "gulp build",
+    "start": "gulp start"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "Firefox ESR"
+  ],
+  "author": "Artur Trifonov",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-prettier": "^3.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-typograf": "^4.0.3",
+    "stylelint": "^13.3.3"
+  }
+}
