@@ -39,7 +39,7 @@ gulp.task('del', () => {
 
 gulp.task('serve', () => {
 	browserSync.init({
-        server: "./dist"
+        server: "dist"
     });
 
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
