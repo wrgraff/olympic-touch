@@ -1,0 +1,207 @@
+{% set title = 'Заказ карты фитнес-клуба Olympic Touch' %}
+{% set description = 'Заказ карты с абонементом на посещение фитнес-клуба Olympic Touch' %}
+{% set keywords = 'Заказ карты фитнес-клуба' %}
+{% set activeTopBar = 'order' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">Оформление карты</li>
+		</ul>
+
+		<h1 class="main-header__heading">Оформление карты</h1>
+	</header>
+
+	<section class="page-main__section">
+		<form action="/order/response/" class="order">
+			<fieldset class="order__subscriptions subscriptions">
+				<legend class="visually-hidden">Тип абонемента</legend>
+
+				<ul class="subscriptions__list">
+					<li class="subscriptions__item">
+						<label class="subscriptions__card">
+							<input type="radio" name="tariff" value="all-day" class="visually-hidden" checked>
+
+							<h3 class="subscriptions__heading">Весь день</h3>
+							<ul class="tariffs__schedule schedule">
+								<li class="schedule__item">
+									<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
+									<b class="schedule__time">7:00–24:00</b>
+								</li>
+								<li class="schedule__item">
+									<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
+									<b class="schedule__time">9:00–21:00</b>
+								</li>
+							</ul>
+						</label>
+					</li>
+					<li class="subscriptions__item">
+						<label class="subscriptions__card">
+							<input type="radio" name="tariff" value="morning" class="visually-hidden">
+
+							<h3 class="subscriptions__heading">Утро</h3>
+							<ul class="tariffs__schedule schedule">
+								<li class="schedule__item">
+									<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
+									<b class="schedule__time">7:00–16:00</b>
+								</li>
+								<li class="schedule__item">
+									<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
+									<b class="schedule__time">9:00–16:00</b>
+								</li>
+							</ul>
+						</label>
+					</li>
+					<li class="subscriptions__item">
+						<label class="subscriptions__card">
+							<input type="radio" name="tariff" value="day" class="visually-hidden">
+
+							<h3 class="subscriptions__heading">День</h3>
+							<ul class="tariffs__schedule schedule">
+								<li class="schedule__item">
+									<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
+									<b class="schedule__time">12:00–17:00</b>
+								</li>
+								<li class="schedule__item">
+									<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
+									<b class="schedule__time">12:00–17:00</b>
+								</li>
+							</ul>
+						</label>
+					</li>
+				</ul>
+			</fieldset>
+
+			<fieldset class="order__length length">
+				<legend class="visually-hidden">Тариф и длительность</legend>
+
+				<div class="length__group">
+					<h3 class="visually-hidden">Тариф "Весь день"</h3>
+
+					<label class="length__item">
+						<input type="radio" name="length" value="all-day_1" class="length__input">
+
+						<p class="length__text">1 месяц</p>
+						<p class="length__price currency">4 000 <span class="visually-hidden">рублей</span></p>
+					</label>
+
+					<label class="length__item">
+						<input type="radio" name="length" value="all-day_3" class="length__input">
+
+						<p class="length__text">3 месяца</p>
+						<p class="length__price currency">6 200 <span class="visually-hidden">рублей</span></p>
+					</label>
+
+					<label class="length__item">
+						<input type="radio" name="length" value="all-day_6" class="length__input">
+
+						<p class="length__text">6 месяцев</p>
+						<p class="length__price currency">7 500 <span class="visually-hidden">рублей</span></p>
+					</label>
+
+					<label class="length__item">
+						<input type="radio" name="length" value="all-day_12" class="length__input">
+
+						<p class="length__text">1 год</p>
+						<p class="length__price_old currency"><span class="visually-hidden">Цена до скидки:</span> 11 750 <span class="visually-hidden">рублей</span></p>
+						<p class="length__price currency"><span class="visually-hidden">Цена со скидкой:</span> 9 500 <span class="visually-hidden">рублей</span></p>
+					</label>
+				</div>
+
+				<div class="length__group">
+					<h3 class="visually-hidden">Тариф "День"</h3>
+
+					<label class="length__item">
+						<input type="radio" name="length" value="day_12" class="length__input">
+
+						<p class="length__text">1 год</p>
+						<p class="length__price currency">5 900 <span class="visually-hidden">рублей</span></p>
+					</label>
+				</div>
+
+				<div class="length__group">
+					<h3 class="visually-hidden">Тариф "Утро"</h3>
+
+					<label class="length__item">
+						<input type="radio" name="length" value="morning_12" class="length__input">
+
+						<p class="length__text">1 год</p>
+						<p class="length__price currency">8 500 <span class="visually-hidden">рублей</span></p>
+					</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="order__form form">
+				<legend class="visually-hidden">Контактные данные</legend>
+
+				<label class="form__label field">
+					<p class="field__text">Имя <small>обязательное поле</small></p>
+					<input type="text" name="name" class="field__input" placeholder="Укажите имя" required>
+				</label>
+
+				<label class="form__label field">
+					<p class="field__text">Фамилия <small>обязательное поле</small></p>
+					<input type="text" name="surname" class="field__input" placeholder="Укажите фамилию" required>
+				</label>
+
+				<label class="form__label field">
+					<p class="field__text">Отчество</p>
+					<input type="text" name="fathername" class="field__input" placeholder="Укажите отчество">
+				</label>
+
+				<label class="form__label field">
+					<p class="field__text">Электронная почта <small>обязательное поле</small></p>
+					<input type="email" name="email" class="field__input" placeholder="name@email.ru" required>
+				</label>
+
+				<label class="form__label field">
+					<p class="field__text">Телефон</p>
+					<input type="tel" name="phone" class="field__input" placeholder="8 999 213-45-67">
+				</label>
+
+				<label class="form__label field">
+					<p class="field__text">Комментарий</p>
+					<textarea name="message" rows="7" class="field__input" placeholder="Введите то, что хотите нам сообщить" required></textarea>
+				</label>
+
+				<label class="form__label checkbox">
+					<input type="checkbox" name="argeement" class="visually-hidden" required checked>
+					<p class="checkbox__text">Я согласен с условиями <a href="/about/files/" target="_blank">Договора</a>, <a href="/about/files/">Правилами техники безопасности</a>, <a href="/about/rules/">Правилами Клуба</a> и на <a href="/privacy/">обработку персональных данных</a></p>
+				</label>
+			</fieldset>
+
+			<div class="order__total total">
+				<div class="total__payments">
+					<p class="total__text">Максимально быстрая и безопасная оплата (PCI DSS, SSL, 3D Secure):</p>
+					<ul class="payment-system">
+						<li class="payment-system__item">
+							<span class="visually-hidden">МИР</span>
+						</li>
+						<li class="payment-system__item">
+							<span class="visually-hidden">VISA International</span>
+						</li>
+						<li class="payment-system__item">
+							<span class="visually-hidden">Mastercard Worldwide</span>
+						</li>
+						<li class="payment-system__item">
+							<span class="visually-hidden">JCB</span>
+						</li>
+					</ul>
+				</div>
+
+				<p class="total__price">Итого: <strong class="currency">9 500 <span class="visually-hidden">рублей</span></strong></p>
+
+				<button type="submit" class="order__button button">Перейти к оплате</button>
+			</div>
+		</form>
+	</section>
+
+
+{% endblock %}
