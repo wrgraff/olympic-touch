@@ -1,0 +1,27 @@
+{% set title = 'Страница не найдена: 404' %}
+{% set description = 'Страница не найдена: 404' %}
+{% set keywords = 'Страница не найдена, 404' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">Страница не найдена</li>
+		</ul>
+
+		<h1 class="main-header__heading">Страница не найдена</h1>
+	</header>
+
+	<section class="page-main__section content">
+		<div class="content__text">
+			<p>Что-то пошло не так, и страницы, на которую вы пытаетесь зайти, больше нет.</p>
+			<a href="/" class="button button_gray">Вернуться на главную</a>
+		</div>
+	</section>
+{% endblock %}
