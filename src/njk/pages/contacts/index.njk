@@ -1,0 +1,53 @@
+{% set title = 'Контакты фитнес-клуба Olympic Touch' %}
+{% set description = 'Контакты фитнес-клуба Olympic Touch' %}
+{% set keywords = 'Контакты, контактная информация' %}
+{% set activeTopBar = 'contacts' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">Контакты</li>
+		</ul>
+
+		<h1 class="main-header__heading">Контакты</h1>
+	</header>
+
+	<section class="page-main__section contact-info">
+		<h2 class="visually-hidden">Карта</h2>
+		<div class="contact-info__map"></div>
+
+		<img src="https://via.placeholder.com/378x350" alt="Фото входа Olympic Touch" class="contact-info__img">
+		<div class="contact-info__details">
+			<h2 class="visually-hidden">Контактная информация</h2>
+			<address class="header-info__address address">
+				<p class="address__place">ул. Доблести, д. 9, г. Санкт-Петербург, 198332</p>
+				<p class="address__time">
+					Время работы:<br>
+					7:00–24:00 по рабочим дням,<br>
+					9:00–21:00 по выходным и праздничным дням
+				</p>
+			</address>
+
+			<ul class="contacts">
+				<li class="contacts__item">
+					<a href="tel:89210984646" class="contacts__link">8 921 098-46-46</a>
+				</li>
+				<li class="contacts__item">
+					<a href="mailto:info@olympic-touch.ru" class="contacts__link">info@olympic-touch.ru</a>
+				</li>
+			</ul>
+
+			<div class="contact-info__buttons">
+				<a href="/order/" class="button">Написать нам</a>
+				<a href="/about/requisites/" class="button button_gray">Наши реквизиты</a>
+			</div>
+		</div>
+	</section>
+{% endblock %}
