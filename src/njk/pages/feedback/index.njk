@@ -1,0 +1,67 @@
+{% set title = 'Обратная связь с Olympic Touch' %}
+{% set description = 'Обратная связь с фитнес-клубом Olympic Touch для отзыва, вопроса или жалобы' %}
+{% set keywords = 'Обратная связь, отзыв, вопрос, жалоба' %}
+{% set activeTopBar = 'feedback' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">Обратная связь</li>
+		</ul>
+
+		<h1 class="main-header__heading">Обратная связь</h1>
+	</header>
+
+	<section class="page-main__section">
+		<form action="/feedback/response/" method="post" class="form">
+			<label class="form__label field field_select">
+				<p class="field__text">Причина обращения</p>
+				<select name="theme" class="field__input">
+					<option value="none">Без темы</option>
+					<option value="feedback">Отзыв</option>
+					<option value="question">Вопрос</option>
+					<option value="complaint">Жалоба</option>
+				</select>
+			</label>
+
+			<label class="form__label field">
+				<p class="field__text">Имя <small>обязательное поле</small></p>
+				<input type="text" name="name" class="field__input" placeholder="Укажите имя" required>
+			</label>
+
+			<label class="form__label field">
+				<p class="field__text">Фамилия</p>
+				<input type="text" name="surname" class="field__input" placeholder="Укажите фамилию">
+			</label>
+
+			<label class="form__label field">
+				<p class="field__text">Электронная почта</p>
+				<input type="email" name="email" class="field__input" placeholder="name@email.ru">
+			</label>
+
+			<label class="form__label field">
+				<p class="field__text">Телефон</p>
+				<input type="tel" name="phone" class="field__input" placeholder="8 999 213-45-67">
+			</label>
+
+			<label class="form__label field">
+				<p class="field__text">Сообщение <small>обязательное поле</small></p>
+				<textarea name="message" rows="7" class="field__input" placeholder="Введите то, что хотите нам сообщить" required></textarea>
+			</label>
+
+			<label class="form__label checkbox">
+				<input type="checkbox" name="argeement" class="visually-hidden" required checked>
+				<p class="checkbox__text">Я согласен с условиями <a href="/about/files/" target="_blank">Договора</a>, <a href="/about/files/">Правилами техники безопасности</a>, <a href="/about/rules/">Правилами Клуба</a> и на <a href="/privacy/">обработку персональных данных</a></p>
+			</label>
+
+			<button type="submit" class="button">Отправить</button>
+		</form>
+	</section>
+{% endblock %}

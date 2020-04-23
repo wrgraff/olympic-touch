@@ -1,0 +1,42 @@
+{% set title = 'Работа в фитнес-клубе Olympic Touch' %}
+{% set description = 'Вы можете присоединиться к команде фитнес-клуба Olympic Touch' %}
+{% set keywords = 'Вакансии в фитнес-клубе, вакансия тренера, вакансия администратора фитнес-клуба' %}
+{% set activeTopBar = 'jobs' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">
+				<a href="/jobs/" class="breadcrumbs__link">Вакансии</a>
+			</li>
+			<li class="breadcrumbs__item">
+				<a href="/jobs/request/" class="breadcrumbs__link">Отправка резюме</a>
+			</li>
+			<li class="breadcrumbs__item">Результат отправки</li>
+		</ul>
+
+		<h1 class="main-header__heading">Результат отправки</h1>
+	</header>
+
+	<section class="page-main__section response">
+		<h2 class="page-main__heading">Ваше сообщение успешно отправлено!</h2>
+
+		<p class="response__text">Мы ответим на ваше обращение в ближайшее время. Вы также можете связаться с нами любым из доступных способов:</p>
+		<ul class="contacts">
+			<li class="contacts__item">
+				<a href="tel:89210984646" class="contacts__link">8 921 098-46-46</a>
+			</li>
+			<li class="contacts__item">
+				<a href="mailto:info@olympic-touch.ru" class="contacts__link">info@olympic-touch.ru</a>
+			</li>
+		</ul>
+		<a href="/" class="button button_gray">Вернуться на главную</a>
+	</section>
+{% endblock %}
