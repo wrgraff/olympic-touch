@@ -1,0 +1,76 @@
+{% set title = 'Работа в фитнес-клубе Olympic Touch' %}
+{% set description = 'Вы можете присоединиться к команде фитнес-клуба Olympic Touch' %}
+{% set keywords = 'Вакансии в фитнес-клубе, вакансия тренера, вакансия администратора фитнес-клуба' %}
+{% set activeTopBar = 'jobs' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">Вакансии</li>
+		</ul>
+
+		<h1 class="main-header__heading">Вакансии</h1>
+	</header>
+
+	<section class="page-main__section jobs">
+		<h2 class="visually-hidden">Список вакансий</h2>
+		<div class="jobs__list">
+			<article class="jobs__item vacancy">
+				<h3 class="vacancy__heading">Администратор рецепции фитнес-клуба</h3>
+				<p class="vacancy__employment">Полная занятость</p>
+				<p class="vacancy__salary currency">от 40 000 <span class="visually-hidden">рублей</span></p>
+				<div class="vacancy__text">
+					<p>В обязанности искомого работника входит следующее: Встреча клиентов и гостей клуба Предоставление клиентам информации о клубе Ведение отчетной документации Прием и распределение всей входящей информации Продажа услуг, работа с кассой и терминалом</p>
+				</div>
+				<ul class="vacancy__responsibilities">
+					<li>Встреча клиентов и гостей клуба</li>
+					<li>Предоставление клиентам информации о клубе</li>
+					<li>Ведение отчетной документации</li>
+					<li>Прием и распределение всей входящей информации</li>
+					<li>Продажа услуг, работа с кассой и терминалом</li>
+				</ul>
+				<a href="/jobs/request/" class="button button_secondary">Отправить резюме</a>
+				<a href="#" class="vacancy__link" rel="nofollow" target="_blank">Вакансия на hh.ru</a>
+			</article>
+
+			<article class="jobs__item vacancy">
+				<h3 class="vacancy__heading">Администратор рецепции фитнес-клуба</h3>
+				<p class="vacancy__employment">Полная занятость</p>
+				<p class="vacancy__salary currency">от 40 000 <span class="visually-hidden">рублей</span></p>
+				<div class="vacancy__text">
+					<p>В обязанности искомого работника входит следующее: Встреча клиентов и гостей клуба Предоставление клиентам информации о клубе Ведение отчетной документации Прием и распределение всей входящей информации Продажа услуг, работа с кассой и терминалом</p>
+				</div>
+				<ul class="vacancy__responsibilities">
+					<li>Встреча клиентов и гостей клуба</li>
+					<li>Предоставление клиентам информации о клубе</li>
+					<li>Ведение отчетной документации</li>
+					<li>Прием и распределение всей входящей информации</li>
+					<li>Продажа услуг, работа с кассой и терминалом</li>
+				</ul>
+				<a href="/jobs/request/" class="button button_secondary">Отправить резюме</a>
+				<a href="#" class="vacancy__link" rel="nofollow" target="_blank">Вакансия на superjob.ru</a>
+			</article>
+		</div>
+
+		<div class="jobs__terms aside aside_gray">
+			<h2 class="aside__heading">Условия работы у нас:</h2>
+
+			<div class="aside__text">
+				<ul>
+					<li>Гибкий график работы</li>
+					<li>Стабильная заработная плата</li>
+					<li>Дружный коллектив</li>
+					<li>Официальное трудоустройство</li>
+					<li>Возможность бесплатно заниматься в свободное время</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+{% endblock %}
