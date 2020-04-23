@@ -1,0 +1,30 @@
+{% set submenuItems = [
+    {
+        name: "Оплата",
+        address: 'payment'
+    },{
+        name: "Правила поведения",
+        address: 'rules'
+    },{
+        name: "Правила поведения с детьми",
+        address: 'rules-kids'
+    },{
+        name: "Реквизиты",
+        address: 'requisites'
+    },{
+        name: "Документы",
+        address: 'documents'
+    }
+] %}
+
+{% macro addSubmenuItem(name, address) %}
+    <li class="submenu__item{{ ' submenu__item_active' if (activeSubmenu == address) }}">
+        <a href="/about/{{ address }}/" class="submenu__link">{{ name }}</a>
+    </li>
+{% endmacro %}
+
+<ul class="main-header__submenu submenu" aria-label="Подменю">
+    {% for item in submenuItems %}
+        {{ addSubmenuItem(item.name, item.address) }}
+    {% endfor %}
+</ul>

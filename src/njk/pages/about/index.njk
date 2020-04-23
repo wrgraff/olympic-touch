@@ -1,0 +1,60 @@
+{% set title = 'Информация о клубе Olympic Touch' %}
+{% set description = 'Информация о тренировках, оборудовании и миссии клуба Olympic Touch' %}
+{% set keywords = 'Информация о фитнес-клубе' %}
+{% set activeTopBar = 'about' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">О нас</li>
+		</ul>
+
+		<h1 class="main-header__heading">О клубе <strong>Olympic Touch</strong></h1>
+
+	    {% include "blocks/submenu.njk" %}
+	</header>
+
+	<section class="page-main__section about">
+		<h2 class="visually-hidden">О клубе Olympic Touch</h2>
+
+		<p class="about__hero">Olympic Touch — современный фитнес-центр на юго-западе Санкт-Петербурга</p>
+		<div class="about__text">
+			<p>Демократичные цены, профессиональное оборудование, просторные залы, команда высококлассных тренеров, обширная программа тренировок и настоящая атмосфера олимпийских свершений.</p>
+			<p>Фитнес-клубы Olympic Touch — это ваш путь к олимпийской мечте!</p>
+		</div>
+	</section>
+
+	<section class="page-main__section text-block text-block_mission">
+		<h2 class="page-main__heading">Миссия и ценности</h2>
+
+		<div class="text-block__text">
+			<p>Olympic Touch выбирает лучшее из того, что может предложить фитнес-индустрия для создания и поддержания у людей здорового образа жизни и приобщения нации к спорту и активному отдыху. Мы помогаем воплощать самые смелые идеи всем, кто занимается спортом и фитнесом.</p>
+			<p>Наши ценности — порядок, дисциплина, исполнительность, профессионализм, командный дух, уважение, честность, открытость и индивидуальный подход к каждому клиенту.</p>
+		</div>
+	</section>
+
+	<section class="page-main__section text-block">
+		<h2 class="page-main__heading">Программы тренировок</h2>
+
+		<div class="text-block__text text-block__text_mission">
+			<p>Программы тренировок Olympic Touch соответствуют высочайшим мировым стандартам. К вашим услугам: силовые тренеровки разных классов интенсивности, аэробные программы тренировок, индивидуальные программы, программы единоборств, танцевальные уроки, программы йоги и пилатеса, а также авторские программы и методики наших инструкторов и специальные программы для беременных. Программы тренировок постоянно добавляются, модернизируются и развиваются.</p>
+		</div>
+	</section>
+
+	<section class="page-main__section text-block">
+		<h2 class="page-main__heading">Оборудование и услуги</h2>
+
+		<div class="text-block__text text-block__text_mission">
+			<p>Наши клиенты занимаются на высококачественном передовом американском оборудовании для фитнеса и бодибилдинга. К вашим услугам: тренажеры фирмы Atlantis, кардиотренажеры фирм Woodway, Nautilus и Aerofit; велотренажёры.</p>
+			<p>Nautilus и Impulse; степперы фирм Staimaster и Impulse; элипсойды фирмы Precor; оборудование для тяжелой атлетики и пауэрлифтинга фирм Barbell и Ivanko.</p>
+			<p>Клиенты Olympic Touch пользуются саунами, соляриями, турецкими банями, массажными кабинетами, фитнес-барами и кабинетами аппаратной косметологии. Для клиентов с детьми в клубе работает детская комната.</p>
+		</div>
+	</section>
+{% endblock %}

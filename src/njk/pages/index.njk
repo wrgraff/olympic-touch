@@ -1,6 +1,226 @@
 {% set title = 'Фитнес-клуб Olympic Touch' %}
 {% set description = 'Фитнес-клубы Olympic Touch в Красносельском районе' %}
 {% set keywords = 'Olympic Touch, Олимпик Тач, фитнес, фитнес-клуб, спорт-клуб' %}
-{% set activePage = '/' %}
+{% set activeTopBar = '/' %}
 
 {% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<h1 class="visually-hidden">Фитнес-клуб Olympic Touch</h1>
+
+	<section class="page-main__section promo">
+		<h2 class="visually-hidden">О клубе Olympic Touch</h2>
+		<div class="promo__slider slider">
+			<ul class="slider__list">
+				<li class="slider__item slider__item_active"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+				<li class="slider__item"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img"></li>
+			</ul>
+
+			<div class="slider__controls">
+				<button type="button" class="slider__button">
+					<span class="visually-hidden">Предыдущий слайд</span>
+				</button>
+				<button type="button" class="slider__button">
+					<span class="visually-hidden">Следующий слайд</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="promo__hero">
+			<p class="promo__heading">Атмосфера олимпийских свершений</p>
+			<p class="promo__text">Современный фитнес-центр на юго-западе Санкт-Петербурга</p>
+			<a href="/order/" class="button button_secondary">Оформить карту</a>
+		</div>
+
+		<h3 class="visually-hidden">В фитнес-клубе есть:</h3>
+		<ul class="promo__list block-list">
+			<li class="block-list__item block-list__item_ico_training">Тренажерный зал</li>
+			<li class="block-list__item block-list__item_ico_cardio">Кардиозона</li>
+			<li class="block-list__item block-list__item_ico_aerobic">Аэробный зал</li>
+			<li class="block-list__item block-list__item_ico_sauna">Сауна</li>
+			<li class="block-list__item block-list__item_ico_box">Зал для единоборств</li>
+		</ul>
+	</section>
+
+	<section class="page-main__section actions">
+		<h2 class="visually-hidden">Акции</h2>
+
+		<ul class="actions__slider">
+			<li class="actions__item actions__item_active">
+				<h3 class="actions__title">Скидка для смелых!</h3>
+				<p class="actions__text">Безлимитный год за 9 500 ₽</p>
+				<p class="actions__details">Стоимость за годовой абонемент на полный день</p>
+				<p class="actions__terms">Срок проведения акции до 25 марта</p>
+				<a href="/order/" class="button">Оформить карту</a>
+			</li>
+			<li class="actions__item">
+				<h3 class="actions__title">Скидка для смелых!</h3>
+				<p class="actions__text">Безлимитный год за 9 500 ₽</p>
+				<p class="actions__details">Стоимость за годовой абонемент на полный день</p>
+				<p class="actions__terms">Срок проведения акции до 25 марта</p>
+				<a href="/order/" class="button">Оформить карту</a>
+			</li>
+		</ul>
+
+		<div class="actions__nav slider-nav">
+			<button type="button" class="slider-nav__button slider-nav__button_active">
+				<span class="visually-hidden">Слайд №1</span>
+			</button>
+			
+			<button type="button" class="slider-nav__button">
+				<span class="visually-hidden">Слайд №2</span>
+			</button>
+		</div>
+	</section>
+
+	<section class="page-main__section services">
+		<h2 class="page-main__heading">Клубная карта</h2>
+
+		<section class="services__included">
+			<h3 class="visually-hidden">В карту включено:</h3>
+
+			<ul class="block-list">
+				<li class="block-list__item">Посещение тренажерного зала</li>
+				<li class="block-list__item">Первый инструктаж</li>
+				<li class="block-list__item">Групповые занятия</li>
+				<li class="block-list__item">Посещение сауны</li>swsws
+			</ul>
+
+			<p class="services__text">Карта позволяет заниматься в клубе без ограничений в рабочие часы клуба или в соответствии с вашим тарифом</p>
+		</section>
+
+		<section class="services__tariffs tariffs">
+			<h3 class="visually-hidden">Тарифы</h3>
+
+			<ul class="tariffs__list">
+				<li class="tariffs__item">
+					<h4 class="tariffs__heading">Утро</h4>
+
+					<h5 class="visually-hidden">Расписание</h5>
+					<ul class="tariffs__schedule schedule">
+						<li class="schedule__item">
+							<span class="schedule__days">Будние дни</span>
+							<b class="schedule__time">7:00–16:00</b>
+						</li>
+						<li class="schedule__item">
+							<span class="schedule__days">Выходные дни</span>
+							<b class="schedule__time">9:00–16:00</b>
+						</li>
+					</ul>
+
+					<h5 class="visually-hidden">Цены</h5>
+					<ul class="tariffs__price price">
+						<li class="price__item">
+							<b class="price__term">1 год</b>
+							<strong class="price__cost currency">8 500 <span class="visually-hidden">рублей</span></strong>
+						</li>
+					</ul>
+
+					<a href="/order/" class="tariffs__button button button_secondary">Оформить карту</a>
+				</li>
+
+				<li class="tariffs__item">
+					<h4 class="tariffs__heading">Весь день</h4>
+					<span class="tariffs__label">Скидка</span>
+
+					<h5 class="visually-hidden">Расписание</h5>
+					<ul class="tariffs__schedule schedule">
+						<li class="schedule__item">
+							<span class="schedule__days">Будние дни</span>
+							<b class="schedule__time">7:00–24:00</b>
+						</li>
+						<li class="schedule__item">
+							<span class="schedule__days">Выходные дни</span>
+							<b class="schedule__time">9:00–21:00</b>
+						</li>
+					</ul>
+
+					<h5 class="visually-hidden">Цены</h5>
+					<ul class="tariffs__price price">
+						<li class="price__item">
+							<b class="price__term">1 месяц</b>
+							<strong class="price__cost currency">4 000 <span class="visually-hidden">рублей</span></strong>
+						</li>
+						<li class="price__item">
+							<b class="price__term">3 месяца</b>
+							<strong class="price__cost currency">6 200 <span class="visually-hidden">рублей</span></strong>
+						</li>
+						<li class="price__item">
+							<b class="price__term">6 месяцев</b>
+							<strong class="price__cost currency">7 500 <span class="visually-hidden">рублей</span></strong>
+						</li>
+						<li class="price__item">
+							<b class="price__term">1 год</b>
+							<span class="price__cost price__cost_old currency">11 750 <span class="visually-hidden">рублей</span></span>
+							<strong class="price__cost currency">9 500 <span class="visually-hidden">рублей</span></strong>
+						</li>
+					</ul>
+
+					<a href="/order/" class="tariffs__button button">Оформить карту</a>
+				</li>
+
+				<li class="tariffs__item">
+					<h4 class="tariffs__heading">День</h4>
+
+					<h5 class="visually-hidden">Расписание</h5>
+					<ul class="tariffs__schedule schedule">
+						<li class="schedule__item">
+							<span class="schedule__days">Будние дни</span>
+							<b class="schedule__time">12:00–17:00</b>
+						</li>
+						<li class="schedule__item">
+							<span class="schedule__days">Выходные дни</span>
+							<b class="schedule__time">12:00–17:00</b>
+						</li>
+					</ul>
+
+					<h5 class="visually-hidden">Цены</h5>
+					<ul class="tariffs__price price">
+						<li class="price__item">
+							<b class="price__term">1 год</b>
+							<strong class="price__cost currency">5 900 <span class="visually-hidden">рублей</span></strong>
+						</li>
+					</ul>
+
+					<a href="/order/" class="tariffs__button button button_secondary">Оформить карту</a>
+				</li>
+			</ul>
+		</section>
+
+		<section class="services__additional additional">
+			<h3 class="services__heading">Дополнительные услуги</h3>
+
+			<ul class="additional__list">
+				<li class="additional__item">
+					<p class="additional__heading">Персональные тренировки</p>
+					<strong class="additional__price currency">от 1000 <span class="visually-hidden">рублей</span></strong>
+				</li>
+				<li class="additional__item">
+					<p class="additional__heading">Дополнительный инструктаж</p>
+					<strong class="additional__price currency">от 1000 <span class="visually-hidden">рублей</span></strong>
+				</li>
+				<li class="additional__item">
+					<p class="additional__heading">Солярий</p>
+					<strong class="additional__price currency">от 1800 <span class="visually-hidden">рублей</span></strong>
+				</li>
+				<li class="additional__item">
+					<p class="additional__heading">Полотенца</p>
+					<strong class="additional__price currency">от 500 <span class="visually-hidden">рублей</span></strong>
+				</li>
+			</ul>
+		</section>
+	</section>
+{% endblock %}

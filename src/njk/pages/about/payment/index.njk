@@ -1,0 +1,66 @@
+{% set title = 'Способы оплаты' %}
+{% set description = 'Информация cпособах оплаты услуг клуба Olympic Touch' %}
+{% set keywords = 'Способы оплаты' %}
+{% set activeTopBar = 'about' %}
+{% set activeSubmenu = 'payment' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">
+				<a href="/about/" class="breadcrumbs__link">О нас</a>
+			</li>
+			<li class="breadcrumbs__item">Оплата</li>
+		</ul>
+
+		<h1 class="main-header__heading">Способы оплаты</h1>
+
+	    {% include "blocks/submenu.njk" %}
+	</header>
+
+	<section class="page-main__section text-block">
+		<h2 class="page-main__heading">Наличный расчёт</h2>
+
+		<div class="text-block__text">
+			<p>Оплата осуществляется наличными в кассе клуба расположенной по адресу, город Санкт-Петербург, индекс 198328, улица Доблести, дом 9, помещение 3-Н при оформлении абонемента.</p>
+		</div>
+	</section>
+
+	<section class="page-main__section text-block">
+		<h2 class="page-main__heading">Банковской картой</h2>
+
+		<div class="text-block__text">
+			<p>Оплатить товар с помощью банковской карты можно на соответствующей странице нашего сайта. Перейдите в <a href="/payment/">раздел оплаты</a>, выберите интересующий вас вид услуги, заполните данные и нажмите кнопку "Перейти к оплате". Оплата происходит через ПАО СБЕРБАНК с использованием банковских карт следующих платёжных систем:</p>
+			<ul class="payment-system">
+				<li class="payment-system__item">
+					<span class="visually-hidden">МИР</span>
+				</li>
+				<li class="payment-system__item">
+					<span class="visually-hidden">VISA International</span>
+				</li>
+				<li class="payment-system__item">
+					<span class="visually-hidden">Mastercard Worldwide</span>
+				</li>
+				<li class="payment-system__item">
+					<span class="visually-hidden">JCB</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="page-main__section text-block">
+		<h2 class="page-main__heading">Описание процесса передачи данных</h2>
+
+		<div class="text-block__text text-block__text_mission">
+			<p>Для оплаты (ввода реквизитов Вашей карты) Вы будете перенаправлены на платёжный шлюз ПАО СБЕРБАНК. Соединение с платёжным шлюзом и передача информации осуществляется в защищённом режиме с использованием протокола шифрования SSL. В случае если Ваш банк поддерживает технологию безопасного проведения интернет-платежей Verified By Visa, MasterCard SecureCode, MIR Accept, J-Secure для проведения платежа также может потребоваться ввод специального пароля.</p>
+			<p>Настоящий сайт поддерживает 256-битное шифрование. Конфиденциальность сообщаемой персональной информации обеспечивается ПАО СБЕРБАНК. Введённая информация не будет предоставлена третьим лицам за исключением случаев, предусмотренных законодательством РФ. Проведение платежей по банковским картам осуществляется в строгом соответствии с требованиями платёжных систем МИР, Visa Int., MasterCard Europe Sprl, JCB.</p>
+		</div>
+	</section>
+{% endblock %}

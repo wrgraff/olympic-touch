@@ -1,0 +1,34 @@
+{% set topBarItems = [
+    {
+        name: "О клубе",
+        address: 'about'
+    },{
+        name: "Обратная связь",
+        address: 'feedback'
+    },{
+        name: "Заморозка карты",
+        address: 'freeze'
+    },{
+        name: "Вакансии",
+        address: 'jobs'
+    },{
+        name: "Контакты",
+        address: 'contacts'
+    }
+] %}
+
+{% macro addTopBarItem(name, address) %}
+    <li class="top-bar__item{{ ' top-bar__item_active' if (activeTopBar == address) }}">
+        <a href="/{{ address }}/" class="top-bar__link">{{ name }}</a>
+    </li>
+{% endmacro %}
+
+<nav class="page-header__nav top-bar">
+    <ul class="top-bar__list">
+        {% for item in topBarItems %}
+            {{ addTopBarItem(item.name, item.address) }}
+        {% endfor %}
+    </ul>
+
+    <a href="/order/" class="button top-bar__button">Оформить карту</a>
+</nav>
