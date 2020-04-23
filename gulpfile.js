@@ -17,10 +17,10 @@ gulp.task('scss', () => {
 		.pipe(sass())
 		.pipe(postcss([ autoprefixer() ]))
         .pipe(gulp.dest('dist/templates/olympic-touch/css/'))
+        .pipe(browserSync.stream())
 		.pipe(csso())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('dist/templates/olympic-touch/css/'))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('dist/templates/olympic-touch/css/'));
 });
 
 gulp.task('njk', () => {
