@@ -30,7 +30,8 @@ gulp.task('njk', () => {
 		}))
 		.pipe(typograf({ locale: ['ru', 'en-US'], htmlEntity: { type: 'name' } }))
         .pipe(prettier({ proseWrap: 'never', printWidth: 800, tabWidth: 4, useTabs: true }))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist/'))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('del', () => {
@@ -44,8 +45,6 @@ gulp.task('serve', () => {
 
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
 	gulp.watch('src/njk/**/*.njk', gulp.series('njk'));
-
-	gulp.watch('dist/**/*.html').on('change', browserSync.reload);
 });
 
 gulp.task('build', gulp.series(
