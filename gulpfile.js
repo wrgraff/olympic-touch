@@ -34,6 +34,11 @@ gulp.task('njk', () => {
         .pipe(browserSync.stream());
 });
 
+gulp.task('fonts', () => {
+	return gulp.src('src/fonts/**/*{woff,woff2}')
+        .pipe(gulp.dest('dist/templates/olympic-touch/fonts'));
+});
+
 gulp.task('del', () => {
 	return del('dist');
 });
@@ -50,7 +55,8 @@ gulp.task('serve', () => {
 gulp.task('build', gulp.series(
 	'del',
 	'scss',
-	'njk'
+	'njk',
+	'fonts'
 ));
 
 gulp.task('start', gulp.series(
