@@ -21,4 +21,4 @@ $unicode-ranges: (
 }
 
 @include font-face($font-family, '../fonts/OpenSans-Regular', 400, normal);
-// @include font-face($font-family, '../fonts/gotham-medium', 500, normal);
+@include font-face($font-family, '../fonts/OpenSans-SemiBold', 600, normal);

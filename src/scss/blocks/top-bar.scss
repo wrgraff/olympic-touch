@@ -1,0 +1,20 @@
+.top-bar__list {
+    margin: 0;
+    padding: 8px 0;
+
+    list-style: none;
+}
+
+.top-bar__link {
+    display: block;
+    padding: 8px 20px;
+
+    color: $white-color;
+
+    transition: background-color 200ms;
+
+    &:hover {
+        color: $white-color;
+        background-color: rgba($white-color, .1);
+    }
+}

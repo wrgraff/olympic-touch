@@ -1,0 +1,26 @@
+.social {
+	display: flex;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.social__item {
+	margin-right: 12px;
+}
+
+.social__link {
+	display: block;
+	width: 44px;
+	height: 44px;
+
+	background-color: rgba($white-color, .1);
+	border-radius: 50%;
+
+	transition: background-color 200ms;
+
+	&:hover {
+		background-color: rgba($white-color, .3);
+	}
+}

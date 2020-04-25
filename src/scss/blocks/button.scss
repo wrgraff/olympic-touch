@@ -1,0 +1,24 @@
+.button {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 12px 32px;
+
+	color: $white-color;
+	background-color: $primary-color;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5), inset 0 0 0 0 rgba(10, 10, 10, 0);
+
+	text-align: center;
+	font-weight: 600;
+
+	transition: background-color 200ms, box-shadow 200ms;
+
+	&:hover {
+		color: $white-color;
+		background-color: lighten($color: $primary-color, $amount: 5%);
+	}
+
+	&:active {
+		box-shadow: 0 0 0 0 rgba(10, 10, 10, 0), inset 0 10px 20px -10px rgba(10, 10, 10, .5);
+	}
+}

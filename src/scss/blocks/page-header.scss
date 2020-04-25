@@ -1,0 +1,35 @@
+.page-header {
+	position: relative;
+
+	padding-bottom: 72px;
+
+	color: $white-color;
+	background-color: $secondaty-color;
+}
+
+.page-header__nav {
+	padding: 8px 0;
+	border-bottom: 4px solid rgba($white-color, .1);
+}
+
+.page-header__info {
+	a {
+		color: $white-color;
+
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}
+
+.page-header__button {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+
+	display: block;
+	width: calc(100% - 40px);
+	max-width: 400px;
+
+	transform: translateX(-50%);
+}
