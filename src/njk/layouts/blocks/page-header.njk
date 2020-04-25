@@ -1,3 +1,17 @@
+<header class="mobile-bar">
+    <button class="mobile-bar__button ico-button ico-button_menu">
+        <span class="visually-hidden">Открыть меню</span>
+    </button>
+
+    <a href="/" class="mobile-bar__logo logo">
+        <img src="https://via.placeholder.com/180x41" alt="Olympic Touch" class="logo__img">
+    </a>
+
+    <a href="/contacts/" class="mobile-bar__button ico-button ico-button_address">
+        <span class="visually-hidden">Контакты</span>
+    </a>
+</header>
+
 <header class="page__header page-header">
     {% include "blocks/top-bar.njk" %}
 
@@ -38,18 +52,8 @@
             </ul>
         </div>
     </div>
-</header>
 
-<header class="mobile-bar">
-    <button class="mobile-bar__button mobile-bar__button_menu">
-        <span class="visually-hidden">Открыть меню</span>
+    <button class="page-header__close ico-button ico-button_close">
+        <span class="visually-hidden">Закрыть меню</span>
     </button>
-
-    <a href="/" class="mobile-bar__logo logo">
-        <img src="https://via.placeholder.com/180x41" alt="Olympic Touch" class="logo__img">
-    </a>
-
-    <a href="/contacts/" class="mobile-bar__button mobile-bar__button_address">
-        <span class="visually-hidden">Контакты</span>
-    </a>
 </header>

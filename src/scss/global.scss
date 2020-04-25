@@ -17,7 +17,11 @@ a {
 	}
 
 	&:hover {
-		color: $secondaty-color;
+		color: $secondary-color;
+	}
+
+	&:focus {
+		@include outline;
 	}
 }
 

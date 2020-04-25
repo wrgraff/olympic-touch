@@ -1,9 +1,17 @@
+@import 'visually-hidden';
 @import 'button';
+@import 'logo';
 @import 'address';
 @import 'contacts';
 @import 'social';
-@import 'visually-hidden';
+@import 'dev';
+@import 'block-list';
 // grid blocks
 @import 'page-header';
+@import 'page-main';
+@import 'page-footer';
 @import 'header-info';
 @import 'top-bar';
+@import 'mobile-bar';
+@import 'slider';
+@import 'promo';

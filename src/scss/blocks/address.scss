@@ -2,6 +2,11 @@
 	position: relative;
 
 	font-style: normal;
+
+	&:focus-within {
+		@include outline;
+		outline-offset: 8px;
+	}
 }
 
 .address__place {
@@ -29,5 +34,9 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
+	}
+
+	&:focus {
+		outline: none;
 	}
 }

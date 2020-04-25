@@ -1,0 +1,23 @@
+.dev {
+	position: relative;
+
+	color: rgba($white-color, .3);
+}
+
+.dev__link {
+	color: rgba($white-color, .3);
+	border-bottom: 1px solid;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	&:hover {
+		color: rgba($white-color, .7);
+	}
+}

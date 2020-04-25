@@ -7,7 +7,9 @@
 }
 
 .social__item {
-	margin-right: 12px;
+	&:not(:last-child) {
+		margin-right: 12px;
+	}
 }
 
 .social__link {

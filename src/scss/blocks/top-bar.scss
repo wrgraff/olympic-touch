@@ -17,4 +17,8 @@
         color: $white-color;
         background-color: rgba($white-color, .1);
     }
+
+    &:focus {
+        outline-offset: -2px;
+    }
 }

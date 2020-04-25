@@ -18,7 +18,26 @@
 		background-color: lighten($color: $primary-color, $amount: 5%);
 	}
 
+	&:focus {
+		outline: none;
+		box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5), inset 0 0 0 0 rgba(10, 10, 10, 0), 0 0 0 4px rgba($primary-color, .3);
+		transition: background-color 200ms;
+	}
+
 	&:active {
 		box-shadow: 0 0 0 0 rgba(10, 10, 10, 0), inset 0 10px 20px -10px rgba(10, 10, 10, .5);
+		transition: background-color 200ms, box-shadow 200ms;
+	}
+}
+
+.button_secondary {
+	background-color: $secondary-color;
+
+	&:hover {
+		background-color: lighten($color: $secondary-color, $amount: 5%);
+	}
+
+	&:focus {
+		box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5), inset 0 0 0 0 rgba(10, 10, 10, 0), 0 0 0 4px rgba($secondary-color, .3);
 	}
 }

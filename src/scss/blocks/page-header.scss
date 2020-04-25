@@ -4,7 +4,7 @@
 	padding-bottom: 72px;
 
 	color: $white-color;
-	background-color: $secondaty-color;
+	background-color: $secondary-color;
 }
 
 .page-header__nav {
@@ -32,4 +32,10 @@
 	max-width: 400px;
 
 	transform: translateX(-50%);
+}
+
+.page-header__close {
+	.no-js & {
+		display: none;
+	}
 }
