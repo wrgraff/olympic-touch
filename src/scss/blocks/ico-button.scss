@@ -1,0 +1,42 @@
+.ico-button {
+	display: inline-flex;
+	vertical-align: middle;
+	align-items: center;
+	justify-content: center;
+
+	width: 48px;
+	height: 48px;
+
+	background-color: $white-color;
+	border: none;
+	border-radius: 50%;
+
+	transition: background-color 200ms;
+
+	&:hover {
+		background-color: $gray-100-color;
+	}
+
+	&:focus {
+		outline: none;
+
+		box-shadow: 0 0 0 4px rgba($primary-color, .3);
+	}
+}
+
+.ico-button_menu {
+	&::after {
+		content: '';
+		width: 32px;
+		height: 2px;
+
+		background-color: $primary-color;
+		box-shadow: 0 -6px $primary-color, 0 6px $primary-color;
+
+		transition: box-shadow 200ms;
+	}
+
+	&:hover::after {
+		box-shadow: 0 -8px $primary-color, 0 8px $primary-color;
+	}
+}

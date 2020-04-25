@@ -18,10 +18,13 @@
 }
 
 .slider__controls {
-	display: none;
-	// display: flex;
+	display: flex;
 	margin-bottom: 20px;
 	margin-left: 20px;
+
+	.no-js & {
+		display: none;
+	}
 }
 
 .slider__button {

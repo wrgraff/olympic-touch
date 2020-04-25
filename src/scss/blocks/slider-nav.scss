@@ -1,0 +1,39 @@
+.slider-nav {
+	display: flex;
+	justify-content: center;
+}
+
+.slider-nav__button {
+	display: flex;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+
+	background-color: $white-color;
+	border: 2px solid $secondary-color;
+	border-radius: 50%;
+
+	&:not(:last-child) {
+		margin-right: 8px;
+	}
+
+	&::after {
+		content: '';
+
+		display: block;
+		width: 8px;
+		height: 8px;
+		margin: auto;
+
+		border-radius: 50%;
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 4px rgba($secondary-color, .3);
+	}
+}
+
+.slider-nav__button_active::after {
+	background-color: $primary-color;
+}
