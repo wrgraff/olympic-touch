@@ -1,5 +1,5 @@
 .main-header {
-	padding: 20px 20px 32px;
+	padding: 20px 20px 0;
 
 	background-color: $gray-100-color;
 }
@@ -20,6 +20,13 @@
 
 	&:last-child {
 		margin-bottom: 0;
+
+		&::after {
+			content: '';
+
+			display: block;
+			height: 32px;
+		}
 	}
 
 	strong {
@@ -30,4 +37,9 @@
 .main-header__submenu {
 	position: relative;
 	z-index: 2;
+
+	margin-top: -24px;
+	margin-bottom: 32px;
+
+	transform: translateY(32px);
 }

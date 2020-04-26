@@ -1,0 +1,15 @@
+.vacancy {
+	padding: 20px;
+
+	background-color: $gray-100-color;
+	border-radius: 10px;
+}
+
+.vacancy__heading {
+	margin: 0 0 12px;
+
+	color: $secondary-color;
+
+	font-size: 18px;
+	font-weight: 600;
+}
