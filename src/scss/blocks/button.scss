@@ -1,7 +1,8 @@
 .button {
 	display: inline-block;
 	vertical-align: middle;
-	padding: 12px 32px;
+	min-width: 200px;
+	padding: 11px 32px 13px;
 
 	color: $white-color;
 	background-color: $primary-color;
@@ -11,6 +12,7 @@
 
 	text-align: center;
 	font-weight: 600;
+	line-height: 1.5;
 
 	transition: background-color 200ms, box-shadow 200ms;
 
@@ -44,5 +46,6 @@
 }
 
 .button_small {
+	min-width: 180px;
 	padding: 7px 24px 9px;
 }

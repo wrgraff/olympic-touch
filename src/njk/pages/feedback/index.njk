@@ -23,7 +23,7 @@
 		<form action="/feedback/response/" method="post" class="form">
 			<label class="form__label field field_select">
 				<p class="field__text">Причина обращения</p>
-				<select name="theme" class="field__input">
+				<select name="theme" class="field__input field__input_select">
 					<option value="none">Без темы</option>
 					<option value="feedback">Отзыв</option>
 					<option value="question">Вопрос</option>
@@ -53,7 +53,7 @@
 
 			<label class="form__label field">
 				<p class="field__text">Сообщение <small>обязательное поле</small></p>
-				<textarea name="message" rows="7" class="field__input" placeholder="Введите то, что хотите нам сообщить" required></textarea>
+				<textarea name="message" rows="7" class="field__input field__input_textarea" placeholder="Введите то, что хотите нам сообщить" required></textarea>
 			</label>
 
 			<label class="form__label checkbox">
@@ -61,7 +61,7 @@
 				<p class="checkbox__text">Я согласен с условиями <a href="/about/files/" target="_blank">Договора</a>, <a href="/about/files/">Правилами техники безопасности</a>, <a href="/about/rules/">Правилами Клуба</a> и на <a href="/privacy/">обработку персональных данных</a></p>
 			</label>
 
-			<button type="submit" class="button">Отправить</button>
+			<button type="submit" class="form__button button">Отправить</button>
 		</form>
 	</section>
 {% endblock %}

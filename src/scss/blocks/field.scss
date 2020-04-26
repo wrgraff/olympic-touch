@@ -1,0 +1,52 @@
+.field__text {
+	margin-bottom: 6px;
+	margin-left: 20px;
+
+	font-weight: 600;
+
+	small {
+		color: $gray-500-color;
+
+		font-size: 12px;
+		font-weight: 400;
+	}
+}
+
+.field__input {
+	width: 100%;
+	height: 56px;
+	padding: 10px 16px;
+
+	border: 4px solid $gray-200-color;
+	border-radius: 10px;
+
+	line-height: 20px;
+
+	transition: border-color 200ms;
+
+	&:hover {
+		border-color: $gray-500-color;
+	}
+
+	&:focus {
+		border-color: $secondary-color;
+		outline: none;
+	}
+}
+
+.field__input_textarea {
+	height: auto;
+}
+
+.field__input_select {
+	appearance: none;
+
+	background-repeat: no-repeat;
+	background-position: right 12px top 50%;
+	background-image: url('https://via.placeholder.com/24x24');
+
+	&:-moz-focusring {
+		color: transparent;
+		text-shadow: 0 0 0 #000;
+	}
+}

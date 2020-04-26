@@ -1,0 +1,13 @@
+.form {
+	text-align: center;
+}
+
+.form__label {
+	display: block;
+
+	text-align: left;
+
+	&:not(:last-child) {
+		margin-bottom: 24px;
+	}
+}
