@@ -1,0 +1,41 @@
+.additional {
+	padding: 20px;
+
+	background-color: $white-color;
+	border-radius: 10px;
+}
+
+.additional__heading {
+	margin-top: 0;
+
+	color: $secondary-color;
+}
+
+.additional__list {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.additional__item {
+	&:not(:last-child) {
+		margin-bottom: 16px;
+	}
+}
+
+.additional__title {
+	margin-bottom: 0;
+
+	color: $secondary-color;
+
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.additional__price {
+	color: $gray-500-color;
+
+	font-size: 14px;
+	font-weight: 600;
+}

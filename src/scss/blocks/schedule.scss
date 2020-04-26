@@ -1,0 +1,20 @@
+.schedule {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.schedule__item {
+	display: flex;
+	justify-content: space-between;
+	padding: 4px 0;
+
+	&:not(:last-child) {
+		border-bottom: 4px solid $gray-100-color;
+	}
+}
+
+.schedule__time {
+	font-weight: 600;
+}

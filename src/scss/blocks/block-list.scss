@@ -6,6 +6,8 @@
 
 	font-weight: 600;
 	line-height: 1.3;
+
+	counter-reset: block-list;
 }
 
 .block-list__item {
@@ -27,8 +29,28 @@
 		height: 64px;
 		margin-top: -12px;
 		margin-right: 16px;
+	}
 
+	&[class*='block-list__item_ico']::before {
 		background-color: $secondary-color;
 		border-radius: 10px;
+	}
+
+	&:not([class*='block-list__item_ico'])::before {
+		color: $gray-200-color;
+
+		text-align: right;
+		font-size: 56px;
+		font-weight: 800;
+		line-height: 1;
+
+		transform: translateY(-8px);
+
+		counter-increment: block-list;
+		content: '0' counter(block-list);
+	}
+
+	.block-list_white & {
+		background-color: $white-color;
 	}
 }

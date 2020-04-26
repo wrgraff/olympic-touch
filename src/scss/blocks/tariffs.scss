@@ -1,0 +1,66 @@
+.tariffs__list {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.tariffs__item {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 40px;
+	padding: 20px 20px 0;
+
+	background-color: $white-color;
+	border-radius: 10px;
+
+	&:nth-child(2) {
+		order: -1;
+	}
+
+	&:focus-within {
+		box-shadow: 0 0 0 4px rgba($secondary-color, .3);
+	}
+}
+
+.tariffs__heading {
+	margin-top: 0;
+	margin-bottom: 20px;
+
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.tariffs__label {
+	position: absolute;
+	top: -12px;
+	right: 20px;
+
+	padding: 6px 14px;
+	color: $white-color;
+	background-color: $primary-color;
+	border-radius: 5px;
+
+	font-size: 12px;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+.tariffs__schedule {
+	margin-bottom: 20px;
+}
+
+.tariffs__price {
+	margin-bottom: 20px;
+}
+
+.tariffs__button {
+	align-self: center;
+	margin-top: -12px;
+
+	transform: translateY(50%);
+}

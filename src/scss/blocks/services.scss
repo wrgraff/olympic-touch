@@ -1,3 +1,30 @@
 .services {
 	background-color: $gray-100-color;
 }
+
+.services__card {
+	content: '';
+	display: block;
+	margin-bottom: 40px;
+	padding-bottom: 63%; // percent for card ratio
+
+	background-color: $secondary-color;
+	background-repeat: no-repeat;
+	background-position: 50% 32%;
+	background-size: 57% auto, auto auto;
+	background-image: url('https://via.placeholder.com/160x90'), linear-gradient($secondary-color 80%, $primary-color 80%);
+	border-radius: 10px;
+	box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5);
+}
+
+.services__list {
+	margin-bottom: 24px;
+}
+
+.services__included {
+	margin-bottom: 40px;
+}
+
+.services__tariffs {
+	margin-bottom: 16px;
+}

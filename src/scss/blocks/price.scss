@@ -1,0 +1,40 @@
+.price {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.price__item {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	padding: 4px 0;
+
+	&:not(:last-child) {
+		border-bottom: 2px solid $gray-100-color;
+	}
+}
+
+.price__term {
+	font-weight: 600;
+}
+
+.price__cost {
+	margin-left: 8px;
+
+	color: $secondary-color;
+
+	font-weight: 600;
+
+	.price__cost_old + & {
+		color: $primary-color;
+	}
+}
+
+.price__cost_old {
+	margin-left: auto;
+
+	font-size: 12px;
+	font-weight: 400;
+}
