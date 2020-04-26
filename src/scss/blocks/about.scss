@@ -1,0 +1,32 @@
+.about {
+	padding-top: 0;
+
+	&::before {
+		content: '';
+		display: block;
+		height: 300px;
+		margin: 0 -20px -28px;
+
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 0;
+		background-image: url('https://via.placeholder.com/1200x800');
+	}
+}
+
+.about__hero {
+	margin-bottom: 28px;
+	padding: 20px;
+
+	color: $white-color;
+	background-color: $primary-color;
+	border-radius: 10px;
+
+	font-weight: 600;
+}
+
+.about__text {
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
