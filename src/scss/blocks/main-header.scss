@@ -1,5 +1,5 @@
 .main-header {
-	padding: 20px;
+	padding: 20px 20px 32px;
 
 	background-color: $gray-100-color;
 }
@@ -24,6 +24,4 @@
 .main-header__submenu {
 	position: relative;
 	z-index: 2;
-
-	margin-bottom: -48px;
 }

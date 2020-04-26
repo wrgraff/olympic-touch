@@ -1,0 +1,89 @@
+.files {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	text-align: center;
+	font-weight: 600;
+}
+
+.files__item {
+	margin-bottom: 20px;
+}
+
+.files__link {
+	display: block;
+	padding: 24px;
+
+	color: $secondary-color;
+	background-color: $gray-100-color;
+	border-radius: 10px;
+
+	line-height: 1.3;
+
+	&::before {
+		content: 'file';
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 64px;
+		height: 64px;
+		margin: 0 auto 24px;
+
+		background-color: rgba($secondary-color, .1);
+		border-radius: 10px;
+
+		font-size: 20px;
+		text-transform: uppercase;
+
+		transition: background-color 200ms;
+	}
+
+	&[href$='.pdf']::before {
+		content: 'pdf';
+		color: $primary-color;
+		background-color: rgba($primary-color, .1);
+	}
+
+	&[href$='.doc']::before,
+	&[href$='.docx']::before {
+		content: 'doc';
+		color: $blue-color;
+		background-color: rgba($blue-color, .1);
+	}
+
+	&[href$='.xls']::before,
+	&[href$='.xlsx']::before {
+		content: 'xls';
+		color: $green-color;
+		background-color: rgba($green-color, .1);
+	}
+
+	&:hover {
+		color: $primary-color;
+
+		&::before {
+			background-color: rgba($secondary-color, .2);
+		}
+
+		&[href$='.pdf']::before {
+			background-color: rgba($primary-color, .2);
+		}
+
+		&[href$='.doc']::before,
+		&[href$='.docx']::before {
+			background-color: rgba($blue-color, .2);
+		}
+
+		&[href$='.xls']::before,
+		&[href$='.xlsx']::before {
+			background-color: rgba($green-color, .2);
+		}
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 4px rgba($secondary-color, .3);
+	}
+}

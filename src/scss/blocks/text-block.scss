@@ -1,4 +1,7 @@
 .text-block {
+	padding-top: 24px;
+	padding-bottom: 24px;
+
 	background-color: $gray-100-color;
 }
 
@@ -8,4 +11,10 @@
 	background-repeat: no-repeat;
 	background-position: right 20px top 100%;
 	background-image: url('https://via.placeholder.com/137x134');
+}
+
+.text-block__text {
+	p:last-child {
+		margin-bottom: 0;
+	}
 }
