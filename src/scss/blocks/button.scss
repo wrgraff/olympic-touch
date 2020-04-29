@@ -49,6 +49,17 @@
 	}
 }
 
+.button_gray {
+	color: $secondary-color;
+	background-color: $gray-100-color;
+	box-shadow: 0 0 0 0 rgba(10, 10, 10, 0), inset 0 0 0 0 rgba(10, 10, 10, 0);
+
+	&:hover {
+		color: $secondary-color;
+		background-color: $gray-200-color;
+	}
+}
+
 .button_small {
 	min-width: 180px;
 	padding: 7px 24px 9px;

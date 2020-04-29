@@ -1,0 +1,31 @@
+.contact-info__map {
+	height: 350px;
+	margin: -32px -20px 0;
+
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-image: url('https://via.placeholder.com/1200x350');
+}
+
+.contact-info__img {
+	width: 100%;
+	margin: -32px 0 24px;
+}
+
+.contact-info__address {
+	margin-bottom: 16px;
+}
+
+.contact-info__contacts {
+	margin-bottom: 24px;
+}
+
+.contact-info__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.button {
+		margin-bottom: 16px;
+	}
+}

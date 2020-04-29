@@ -12,3 +12,11 @@
 		margin-bottom: 4px;
 	}
 }
+
+.contacts__link {
+	color: $black-color;
+
+	&:hover {
+		color: $primary-color;
+	}
+}
