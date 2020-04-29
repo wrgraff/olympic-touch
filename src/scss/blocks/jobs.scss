@@ -1,5 +1,9 @@
+.jobs__list {
+	margin-bottom: 48px;
+}
+
 .jobs__item {
 	&:not(:last-child) {
-		margin-bottom: 20px;
+		margin-bottom: 48px;
 	}
 }

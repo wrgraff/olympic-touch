@@ -1,8 +1,14 @@
 .vacancy {
-	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	padding: 20px 20px 0;
 
 	background-color: $gray-100-color;
 	border-radius: 10px;
+
+	&:focus-within {
+		box-shadow: 0 0 0 4px rgba($secondary-color, .3);
+	}
 }
 
 .vacancy__heading {
@@ -12,4 +18,76 @@
 
 	font-size: 18px;
 	font-weight: 600;
+}
+
+.vacancy__employment,
+.vacancy__salary {
+	display: inline-block;
+	margin-bottom: 22px;
+	padding-left: 36px;
+
+	color: $gray-500-color;
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	background-image: url('https://via.placeholder.com/24x24');
+}
+
+.vacancy__employment {
+	margin-right: 32px;
+	margin-bottom: 16px;
+}
+
+.vacancy__text {
+	margin-bottom: 16px;
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.vacancy__responsibilities {
+	margin-bottom: 16px;
+	padding-left: 24px;
+
+	list-style: none;
+
+	li {
+		position: relative;
+		margin-bottom: 8px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 9px;
+			left: -16px;
+
+			display: block;
+			width: 8px;
+			height: 8px;
+
+			background-color: $primary-color;
+			border-radius: 50%;
+		}
+	}
+}
+
+.vacancy__button {
+	order: 1;
+	align-self: center;
+	margin-top: -12px;
+
+	transform: translateY(50%);
+}
+
+.vacancy__link {
+	align-self: center;
+	display: inline-block;
+	margin-bottom: 12px;
+
+	color: $secondary-color;
+	border-bottom: 1px solid;
+
+	&:hover {
+		color: $primary-color;
+	}
 }

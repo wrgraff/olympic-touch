@@ -1,8 +1,24 @@
+.aside_gray {
+	padding: 20px;
+
+	background-color: $gray-100-color;
+	border-radius: 10px;
+}
+
 .aside__heading {
+	margin-top: 0;
 	margin-bottom: 16px;
 
 	color: $secondary-color;
 
 	font-size: 20px;
 	font-weight: 800;
+}
+
+.aside__text {
+	p:last-child,
+	ul:last-child,
+	ol:last-child {
+		margin-bottom: 0;
+	}
 }
