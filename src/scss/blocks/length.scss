@@ -1,0 +1,147 @@
+.length {
+	border-radius: 10px;
+
+	&:focus-within {
+		box-shadow: 0 0 0 4px $white-color, 0 0 0 8px rgba($secondary-color, .3);
+	}
+}
+
+.length__group {
+	&:not(:last-child) {
+		margin-bottom: 24px;
+	}
+}
+
+.length__heading {
+	margin: 0 0 8px 36px;
+
+	color: $secondary-color;
+
+	font-weight: 600;
+}
+
+.length__item {
+	position: relative;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	padding-left: 36px;
+
+	transition: color 200ms;
+
+	&:not(:last-child) {
+		padding-bottom: 16px;
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 2px;
+	}
+
+	&::before {
+		left: 0;
+		z-index: 2;
+
+		display: block;
+		width: 24px;
+		height: 24px;
+
+		background-color: $white-color;
+		border: 4px solid $gray-200-color;
+		border-radius: 50%;
+
+		transition: background-color 200ms, border-color 200ms;
+	}
+
+	&::after {
+		bottom: -3px;
+		left: 10px;
+
+		width: 4px;
+		background-color: $gray-200-color;
+
+		transition: background-color 200ms;
+	}
+
+	&:last-child::after {
+		display: none;
+	}
+
+	&:hover {
+		color: $primary-color;
+
+		&::before {
+			border-color: $gray-500-color;
+		}
+	}
+
+	input:checked ~ & {
+		// on border for every label in group with checked input
+		&::before {
+			border-color: $primary-color;
+		}
+
+		// on line for every label in group with checked input
+		&::after {
+			background-color: $primary-color;
+		}
+	}
+
+	@for $i from 1 through 6 {
+		input:nth-of-type(#{$i}):checked ~ &:nth-of-type(#{$i}) {
+			// on fill for checked label
+			&::before {
+				background-color: $primary-color;
+			}
+
+			// fill for line in checked label to next label
+			&::after {
+				background-color: $gray-200-color;
+			}
+
+			// off border for every label after checked label
+			& ~ .length__item::before {
+				border-color: $gray-200-color;
+			}
+
+			& ~ .length__item:hover::before {
+				border-color: $gray-500-color;
+			}
+
+			// off line for every label after checked label
+			& ~ .length__item::after {
+				background-color: $gray-200-color;
+			}
+		}
+	}
+}
+
+.length__text {
+	flex-basis: 100%;
+	margin-bottom: 0;
+
+	font-weight: 600;
+}
+
+.length__price {
+	display: inline-block;
+	margin-right: 8px;
+	margin-bottom: 0;
+
+	color: $secondary-color;
+
+	font-weight: 600;
+
+	.length__price_old + & {
+		color: $primary-color;
+	}
+}
+
+.length__price_old {
+	order: 1;
+
+	font-size: 14px;
+}

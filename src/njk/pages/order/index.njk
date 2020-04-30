@@ -26,54 +26,57 @@
 
 				<ul class="subscriptions__list">
 					<li class="subscriptions__item">
-						<label class="subscriptions__card">
+						<label class="subscriptions__label">
 							<input type="radio" name="tariff" value="all-day" class="visually-hidden" checked>
-
-							<h3 class="subscriptions__heading">Весь день</h3>
-							<ul class="tariffs__schedule schedule">
-								<li class="schedule__item">
-									<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
-									<b class="schedule__time">7:00–24:00</b>
-								</li>
-								<li class="schedule__item">
-									<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
-									<b class="schedule__time">9:00–21:00</b>
-								</li>
-							</ul>
+							<div class="subscriptions__card">
+								<h3 class="subscriptions__heading">Весь день</h3>
+								<ul class="subscriptions__schedule schedule">
+									<li class="schedule__item">
+										<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
+										<b class="schedule__time">7:00–24:00</b>
+									</li>
+									<li class="schedule__item">
+										<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
+										<b class="schedule__time">9:00–21:00</b>
+									</li>
+								</ul>
+							</div>
 						</label>
 					</li>
 					<li class="subscriptions__item">
-						<label class="subscriptions__card">
+						<label class="subscriptions__label">
 							<input type="radio" name="tariff" value="morning" class="visually-hidden">
-
-							<h3 class="subscriptions__heading">Утро</h3>
-							<ul class="tariffs__schedule schedule">
-								<li class="schedule__item">
-									<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
-									<b class="schedule__time">7:00–16:00</b>
-								</li>
-								<li class="schedule__item">
-									<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
-									<b class="schedule__time">9:00–16:00</b>
-								</li>
-							</ul>
+							<div class="subscriptions__card">
+								<h3 class="subscriptions__heading">Утро</h3>
+								<ul class="subscriptions__schedule schedule">
+									<li class="schedule__item">
+										<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
+										<b class="schedule__time">7:00–16:00</b>
+									</li>
+									<li class="schedule__item">
+										<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
+										<b class="schedule__time">9:00–16:00</b>
+									</li>
+								</ul>
+							</div>
 						</label>
 					</li>
 					<li class="subscriptions__item">
-						<label class="subscriptions__card">
+						<label class="subscriptions__label">
 							<input type="radio" name="tariff" value="day" class="visually-hidden">
-
-							<h3 class="subscriptions__heading">День</h3>
-							<ul class="tariffs__schedule schedule">
-								<li class="schedule__item">
-									<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
-									<b class="schedule__time">12:00–17:00</b>
-								</li>
-								<li class="schedule__item">
-									<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
-									<b class="schedule__time">12:00–17:00</b>
-								</li>
-							</ul>
+							<div class="subscriptions__card">
+								<h3 class="subscriptions__heading">День</h3>
+								<ul class="subscriptions__schedule schedule">
+									<li class="schedule__item">
+										<span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
+										<b class="schedule__time">12:00–17:00</b>
+									</li>
+									<li class="schedule__item">
+										<span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
+										<b class="schedule__time">12:00–17:00</b>
+									</li>
+								</ul>
+							</div>
 						</label>
 					</li>
 				</ul>
@@ -83,55 +86,49 @@
 				<legend class="visually-hidden">Тариф и длительность</legend>
 
 				<div class="length__group">
-					<h3 class="visually-hidden">Тариф "Весь день"</h3>
+					<h3 class="length__heading">Тариф "Весь день"</h3>
 
-					<label class="length__item">
-						<input type="radio" name="length" value="all-day_1" class="length__input">
+					<input type="radio" name="length" value="all-day_1" id="all-day_1" class="visually-hidden">
+					<input type="radio" name="length" value="all-day_3" id="all-day_3" class="visually-hidden">
+					<input type="radio" name="length" value="all-day_6" id="all-day_6" class="visually-hidden">
+					<input type="radio" name="length" value="all-day_12" id="all-day_12" class="visually-hidden">
 
+					<label class="length__item" for="all-day_1">
 						<p class="length__text">1 месяц</p>
 						<p class="length__price currency">4 000 <span class="visually-hidden">рублей</span></p>
 					</label>
-
-					<label class="length__item">
-						<input type="radio" name="length" value="all-day_3" class="length__input">
-
+					<label class="length__item" for="all-day_3">
 						<p class="length__text">3 месяца</p>
 						<p class="length__price currency">6 200 <span class="visually-hidden">рублей</span></p>
 					</label>
-
-					<label class="length__item">
-						<input type="radio" name="length" value="all-day_6" class="length__input">
-
+					<label class="length__item" for="all-day_6">
 						<p class="length__text">6 месяцев</p>
 						<p class="length__price currency">7 500 <span class="visually-hidden">рублей</span></p>
 					</label>
-
-					<label class="length__item">
-						<input type="radio" name="length" value="all-day_12" class="length__input">
-
+					<label class="length__item" for="all-day_12">
 						<p class="length__text">1 год</p>
-						<p class="length__price_old currency"><span class="visually-hidden">Цена до скидки:</span> 11 750 <span class="visually-hidden">рублей</span></p>
+						<s class="length__price length__price_old currency"><span class="visually-hidden">Цена до скидки:</span> 11 750 <span class="visually-hidden">рублей</span></s>
 						<p class="length__price currency"><span class="visually-hidden">Цена со скидкой:</span> 9 500 <span class="visually-hidden">рублей</span></p>
 					</label>
 				</div>
 
 				<div class="length__group">
-					<h3 class="visually-hidden">Тариф "День"</h3>
+					<h3 class="length__heading">Тариф "День"</h3>
 
-					<label class="length__item">
-						<input type="radio" name="length" value="day_12" class="length__input">
+					<input type="radio" name="length" value="day_12" id="day_12" class="visually-hidden">
 
+					<label class="length__item" for="day_12">
 						<p class="length__text">1 год</p>
 						<p class="length__price currency">5 900 <span class="visually-hidden">рублей</span></p>
 					</label>
 				</div>
 
 				<div class="length__group">
-					<h3 class="visually-hidden">Тариф "Утро"</h3>
+					<h3 class="length__heading">Тариф "Утро"</h3>
 
-					<label class="length__item">
-						<input type="radio" name="length" value="morning_12" class="length__input">
-
+					<input type="radio" name="length" value="morning_12" id="morning_12" class="visually-hidden">
+					
+					<label class="length__item" for="morning_12">
 						<p class="length__text">1 год</p>
 						<p class="length__price currency">8 500 <span class="visually-hidden">рублей</span></p>
 					</label>
@@ -168,7 +165,7 @@
 
 				<label class="form__label field">
 					<p class="field__text">Комментарий</p>
-					<textarea name="message" rows="7" class="field__input" placeholder="Введите то, что хотите нам сообщить" required></textarea>
+					<textarea name="message" rows="7" class="field__input field__input_textarea" placeholder="Введите то, что хотите нам сообщить" required></textarea>
 				</label>
 
 				<label class="form__label checkbox">
@@ -180,17 +177,17 @@
 			<div class="order__total total">
 				<div class="total__payments">
 					<p class="total__text">Максимально быстрая и безопасная оплата (PCI DSS, SSL, 3D Secure):</p>
-					<ul class="payment-system">
-						<li class="payment-system__item">
+					<ul class="total__systems payment-systems">
+						<li class="payment-systems__item payment-systems__item_mir">
 							<span class="visually-hidden">МИР</span>
 						</li>
-						<li class="payment-system__item">
+						<li class="payment-systems__item payment-systems__item_visa">
 							<span class="visually-hidden">VISA International</span>
 						</li>
-						<li class="payment-system__item">
+						<li class="payment-systems__item payment-systems__item_mastercard">
 							<span class="visually-hidden">Mastercard Worldwide</span>
 						</li>
-						<li class="payment-system__item">
+						<li class="payment-systems__item payment-systems__item_jcb">
 							<span class="visually-hidden">JCB</span>
 						</li>
 					</ul>
@@ -198,7 +195,7 @@
 
 				<p class="total__price">Итого: <strong class="currency">9 500 <span class="visually-hidden">рублей</span></strong></p>
 
-				<button type="submit" class="order__button button">Перейти к оплате</button>
+				<button type="submit" class="total__button button">Перейти к оплате</button>
 			</div>
 		</form>
 	</section>

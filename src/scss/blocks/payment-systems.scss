@@ -1,0 +1,43 @@
+.payment-systems {
+	display: flex;
+	justify-content: center;
+	margin-right: -6px;
+	margin-left: -6px;
+	padding: 0;
+
+	list-style: none;
+}
+
+.payment-systems__item {
+	width: 74px;
+	height: 36px;
+	margin: auto 6px;
+
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	opacity: .7;
+}
+
+.payment-systems__item_mir {
+	width: 74px;
+
+	background-image: url(../img/payment/mir.svg);
+}
+
+.payment-systems__item_mastercard {
+	width: 57px;
+
+	background-image: url(../img/payment/mastercard.svg);
+}
+
+.payment-systems__item_visa {
+	width: 67px;
+
+	background-image: url(../img/payment/visa.svg);
+}
+
+.payment-systems__item_jcb {
+	width: 43px;
+
+	background-image: url(../img/payment/jcb.svg);
+}

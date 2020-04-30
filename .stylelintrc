@@ -7,7 +7,8 @@
         "include",
         "content",
         "rules",
-        "each"
+        "each",
+        "for"
       ]
     }],
     "block-no-empty": true,

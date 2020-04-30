@@ -1,0 +1,31 @@
+.total {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 20px 20px 0;
+
+	color: $gray-900-color;
+	background-color: $gray-100-color;
+
+	text-align: center;
+}
+
+.total__systems {
+	margin-bottom: 24px;
+}
+
+.total__price {
+	font-size: 20px;
+
+	strong {
+		font-size: 26px;
+		font-weight: 800;
+	}
+}
+
+.total__button {
+	align-self: center;
+	margin-top: -12px;
+
+	transform: translateY(50%);
+}

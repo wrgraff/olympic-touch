@@ -1,0 +1,102 @@
+.subscriptions {
+	.no-js & {
+		display: none;
+	}
+}
+
+.subscriptions__list {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	border-radius: 10px;
+
+	&:focus-within {
+		box-shadow: 0 0 0 4px $white-color, 0 0 0 8px rgba($secondary-color, .3);
+	}
+}
+
+.subscriptions__card {
+	position: relative;
+
+	padding-top: 18px;
+
+	background-color: $gray-100-color;
+	border-radius: 10px;
+
+	transition: color 200ms, background-color 200ms, box-shadow 200ms;
+
+	&:not(:last-child) {
+		margin-bottom: 16px;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 17px;
+		left: -16px;
+
+		display: block;
+		width: 32px;
+		height: 32px;
+
+		background-color: $white-color;
+		border: 4px solid $primary-color;
+		border-radius: 50%;
+		opacity: 0;
+	}
+
+	&::after {
+		content: 'Абонемент';
+
+		display: block;
+		padding: 5px 26px 7px;
+
+		color: rgba($black-color, .7);
+		background-color: rgba($secondary-color, .1);
+		border-radius: 0 0 10px 10px;
+
+		font-size: 14px;
+		text-transform: lowercase;
+
+		transition: color 200ms, background-color 200ms;
+	}
+
+	&:hover {
+		background-color: $gray-200-color;
+	}
+
+	input:checked + & {
+		color: $white-color;
+		background-color: $primary-color;
+		box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5);
+
+		&::before {
+			opacity: 1;
+			transition: opacity 200ms;
+		}
+
+		&::after {
+			color: rgba($white-color, .7);
+			background-color: $secondary-color;
+		}
+
+		&:hover {
+			background-color: lighten($color: $primary-color, $amount: 5%);
+		}
+	}
+}
+
+.subscriptions__heading {
+	margin: 0 26px 10px;
+
+	font-weight: 600;
+}
+
+.subscriptions__schedule {
+	margin-bottom: 10px;
+	padding: 0 26px;
+
+	font-size: 14px;
+}
