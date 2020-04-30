@@ -8,6 +8,7 @@ var gulp = require('gulp'),
 	nunjucks = require('gulp-nunjucks-render'),
 	prettier = require('gulp-prettier'),
 	typograf = require('gulp-typograf'),
+	imagemin = require('gulp-imagemin'),
 	del = require('del'),
     browserSync = require('browser-sync').create();
 
@@ -39,6 +40,18 @@ gulp.task('fonts', () => {
         .pipe(gulp.dest('dist/templates/olympic-touch/fonts'));
 });
 
+gulp.task('img', () => {
+	return gulp.src('src/img/**/*{jpg,png,svg}')
+		.pipe(imagemin([
+			imagemin.svgo({
+				plugins: [
+					{cleanupIDs: true}
+				]
+			})
+		]))
+        .pipe(gulp.dest('dist/templates/olympic-touch/img'));
+});
+
 gulp.task('del', () => {
 	return del('dist');
 });
@@ -48,6 +61,7 @@ gulp.task('serve', () => {
         server: "dist"
     });
 
+    gulp.watch('src/img/**/*{jpg,png,svg}', gulp.series('img'));
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
 	gulp.watch('src/njk/**/*.njk', gulp.series('njk'));
 });
@@ -56,7 +70,8 @@ gulp.task('build', gulp.series(
 	'del',
 	'scss',
 	'njk',
-	'fonts'
+	'fonts',
+	'img'
 ));
 
 gulp.task('start', gulp.series(
