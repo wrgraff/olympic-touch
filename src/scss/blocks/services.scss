@@ -6,6 +6,10 @@
 	max-width: 380px;
 	margin: 0 auto 40px;
 
+	@include breakpoint(large) {
+		max-width: none;
+	}
+
 	&::after {
 		content: '';
 		display: block;
@@ -21,12 +25,30 @@
 	}
 }
 
-.services__list {
-	margin-bottom: 24px;
-}
-
 .services__included {
 	margin-bottom: 40px;
+
+	@include breakpoint(medium) {
+		display: flex;
+	}
+
+	@include breakpoint(large) {
+		display: block;
+	}
+}
+
+.services__list {
+	margin-bottom: 24px;
+
+	@include breakpoint(medium) {
+		flex-grow: 1;
+		margin-right: 24px;
+	}
+}
+
+.services__text {
+	flex-basis: 220px;
+	min-width: 200px;
 }
 
 .services__tariffs {
