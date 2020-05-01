@@ -1,0 +1,90 @@
+$flex-grid-columns: 12;
+$flex-grid-gaps: (
+	small: 20px,
+	medium: 24px,
+	large: 32px
+);
+
+.flex-grid {
+	display: flex;
+	flex-wrap: wrap;
+
+	// compensate gaps
+	@each $breakpoint, $gap in $flex-grid-gaps {
+		@include breakpoint($breakpoint) {
+			margin: 0 ($gap / -2);
+		}
+	}
+}
+
+.flex-grid__column {
+	flex-grow: 1;
+	flex-shrink: 0;
+	max-width: 100%;
+
+	// add gaps
+	@each $breakpoint, $gap in $flex-grid-gaps {
+		@include breakpoint($breakpoint) {
+			margin: 0 ($gap / 2);
+
+			// add columns sizes
+			@for $i from 2 through $flex-grid-columns {
+				@if ($breakpoint == small) {
+					// columns sizes for each grid size
+					.flex-grid > &_#{$i} {
+						flex-basis: 320px / $flex-grid-columns * $i;
+						flex-basis: calc(#{100% / $flex-grid-columns * $i} - #{$gap});
+						max-width: calc(#{100% / $flex-grid-columns * $i} - #{$gap});
+					}
+				}
+
+				@if ($breakpoint != small) {
+					// for each grid size
+					.flex-grid > &_#{$breakpoint}_#{$i} {
+						flex-basis: map-get($breakpoints, $breakpoint) / $flex-grid-columns * $i;
+						flex-basis: calc(#{100% / $flex-grid-columns * $i} - #{$gap});
+						max-width: calc(#{100% / $flex-grid-columns * $i} - #{$gap});
+					}
+				}
+
+				@for $j from 1 through $i {
+					@if ($breakpoint == small) {
+						// columns sizes for each grid size
+						.flex-grid_#{$i} > &_#{$j} {
+							flex-basis: 320px / $i * $j;
+							flex-basis: calc(#{100% / $i * $j} - #{$gap});
+							max-width: calc(#{100% / $i * $j} - #{$gap});
+						}
+					}
+
+					// with breakpoints
+					@if ($breakpoint != small) {
+						// columns sizes with setted breakpoint
+						// for each grid size
+						.flex-grid_#{$i} > &_#{$breakpoint}_#{$j} {
+							flex-basis: map-get($breakpoints, $breakpoint) / $i * $j;
+							flex-basis: calc(#{100% / $i * $j} - #{$gap});
+							max-width: calc(#{100% / $i * $j} - #{$gap});
+						}
+
+						// columns sizes
+						// for each grid size with setted breakpoint
+						.flex-grid_#{$breakpoint}_#{$i} > &_#{$j} {
+							flex-basis: map-get($breakpoints, $breakpoint) / $i * $j;
+							flex-basis: calc(#{100% / $i} - #{$gap});
+							max-width: calc(#{100% / $i} - #{$gap});
+						}
+
+						// columns sizes with setted breakpoint
+						// for each grid size with setted breakpoint
+						.flex-grid_#{$breakpoint}_#{$i} > &_#{$breakpoint}_#{$j} {
+							flex-basis: map-get($breakpoints, $breakpoint) / $i * $j;
+							flex-basis: calc(#{100% / $i} - #{$gap});
+							max-width: calc(#{100% / $i} - #{$gap});
+						}
+					}
+				}
+			}
+		}
+	}
+}
