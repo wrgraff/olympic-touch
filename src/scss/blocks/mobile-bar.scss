@@ -1,15 +1,41 @@
 .mobile-bar {
 	display: flex;
 	justify-content: space-between;
-	padding: 16px;
+	padding: 16px 20px;
+
+	@include breakpoint(medium) {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
 }
 
-.mobile-bar__button {
+.mobile-bar__menu {
 	.no-js & {
-		display: none;
+		visibility: hidden;
+	}
+
+	@include breakpoint(medium) {
+		margin-right: 160px;
 	}
 }
 
 .mobile-bar__logo {
 	margin: auto;
+}
+
+.mobile-bar__address {
+	display: none;
+	flex-basis: 208px;
+
+	text-align: right;
+
+	@include breakpoint(medium) {
+		display: block;
+	}
+}
+
+.mobile-bar__contacts {
+	@include breakpoint(medium) {
+		display: none;
+	}
 }

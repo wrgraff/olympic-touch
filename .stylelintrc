@@ -8,7 +8,10 @@
         "content",
         "rules",
         "each",
-        "for"
+        "for",
+        "if",
+        "else",
+        "warn"
       ]
     }],
     "block-no-empty": true,
@@ -51,6 +54,9 @@
         ],
         "ignore": [
           "after-comment"
+        ],
+        "ignoreAtRules": [
+          "else"
         ]
       }
     ],
@@ -58,7 +64,15 @@
     "at-rule-name-space-after": "always-single-line",
     "at-rule-semicolon-newline-after": "always",
     "block-closing-brace-empty-line-before": "never",
-    "block-closing-brace-newline-after": "always",
+    "block-closing-brace-newline-after": [
+      "always",
+      {
+        "ignoreAtRules": [
+          "if",
+          "else"
+        ]
+      }
+    ],
     "block-closing-brace-newline-before": "always-multi-line",
     "block-closing-brace-space-before": "always-single-line",
     "block-opening-brace-newline-after": "always-multi-line",

@@ -1,10 +1,32 @@
 @mixin outline($inset: false) {
     outline-width: 2px;
     outline-style: solid;
+    outline-color: rgba($primary-color, .5);
+
     @if ($inset == 'inset') {
         outline-offset: -2px;
     } @else {
         outline-offset: 2px;
     }
-    outline-color: rgba($primary-color, .5);
+}
+
+@mixin breakpoint($props) {
+    $breakpoint: nth($props, 1);
+    $direction: if(length($props) > 1, nth($props, 2), false);
+
+    @if (map-get($breakpoints, $breakpoint)) {
+        $breakpoint: map-get($breakpoints, $breakpoint);
+    } @else {
+        @warn 'breakpoint "#{$props}" is not defined in $breakpoints variables';
+    }
+
+    @if ($direction == down) {
+        @media screen and (max-width: $breakpoint) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: $breakpoint) {
+            @content;
+        }
+    }
 }

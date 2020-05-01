@@ -12,7 +12,7 @@
 	padding: 4px 0;
 
 	&:not(:last-child) {
-		border-bottom: 2px solid $gray-100-color;
+		border-bottom: 2px solid rgba($secondary-color, .1);
 	}
 }
 

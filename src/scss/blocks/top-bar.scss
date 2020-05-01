@@ -29,4 +29,9 @@
 			background-color: rgba($white-color, .1);
 		}
 	}
+
+	@include breakpoint(medium) {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
 }

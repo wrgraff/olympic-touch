@@ -1,5 +1,10 @@
 .page-main__section {
 	padding: 32px 20px;
+
+	@include breakpoint(medium) {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
 }
 
 .page-main__heading {

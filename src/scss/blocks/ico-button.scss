@@ -8,6 +8,8 @@
 	height: 48px;
 
 	background-color: $white-color;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
 	border: none;
 	border-radius: 50%;
 
@@ -39,4 +41,8 @@
 	&:hover::after {
 		box-shadow: 0 -8px $primary-color, 0 8px $primary-color;
 	}
+}
+
+.ico-button_address {
+	background-image: url(../img/ico/place.svg);
 }

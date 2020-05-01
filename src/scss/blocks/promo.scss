@@ -1,5 +1,10 @@
 .promo__slider {
 	margin: -32px -20px 0;
+
+	@include breakpoint(medium) {
+		margin-right: -24px;
+		margin-left: -24px;
+	}
 }
 
 .promo__hero {
@@ -14,12 +19,20 @@
 	color: $white-color;
 	background-color: $primary-color;
 	border-radius: 10px;
+
+	@include breakpoint(medium) {
+		padding: 28px 32px 0;
+	}
 }
 
 .promo__heading {
 	font-size: 25px;
 	font-weight: 800;
 	line-height: 1.3;
+
+	@include breakpoint(medium) {
+		font-size: 36px;
+	}
 }
 
 .promo__button {
@@ -27,4 +40,8 @@
 	margin-top: -12px;
 
 	transform: translateY(50%);
+
+	@include breakpoint(medium) {
+		align-self: flex-start;
+	}
 }

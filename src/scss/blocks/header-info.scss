@@ -1,5 +1,9 @@
 .header-info {
 	padding: 24px 20px;
+
+	@include breakpoint(medium) {
+		padding: 24px;
+	}
 }
 
 .header-info__address {
