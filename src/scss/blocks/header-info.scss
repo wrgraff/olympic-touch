@@ -4,16 +4,37 @@
 	@include breakpoint(medium) {
 		padding: 24px;
 	}
+
+	@include breakpoint(large) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 32px;
+	}
 }
 
 .header-info__address {
 	margin-bottom: 20px;
+
+	@include breakpoint(large) {
+		margin-bottom: 4px;
+	}
 }
 
 .header-info__logo {
 	display: none;
+
+	@include breakpoint(large) {
+		display: block;
+	}
 }
 
 .header-info__contacts {
 	margin-bottom: 20px;
+
+	@include breakpoint(large) {
+		margin-bottom: 14px;
+
+		text-align: right;
+	}
 }

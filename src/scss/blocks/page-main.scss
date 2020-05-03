@@ -1,9 +1,34 @@
 .page-main__section {
-	padding: 32px 20px;
+	padding: 32px 0;
+
+	@include breakpoint(large) {
+		padding: 56px 0;
+	}
+}
+
+.page-main__container {
+	max-width: $page-max-width;
+	margin: 0 auto;
+	padding-right: 20px;
+	padding-left: 20px;
 
 	@include breakpoint(medium) {
 		padding-right: 24px;
 		padding-left: 24px;
+	}
+
+	@include breakpoint(large) {
+		padding-right: 32px;
+		padding-left: 32px;
+	}
+}
+
+.page-main__container_grid {
+	// compensate gaps
+	@each $breakpoint, $gap in $flex-grid-gaps {
+		@include breakpoint($breakpoint) {
+			max-width: $page-max-width + $gap;
+		}
 	}
 }
 
@@ -19,5 +44,9 @@
 		margin-bottom: 28px;
 
 		font-size: 30px;
+	}
+
+	@include breakpoint(large) {
+		font-size: 36px;
 	}
 }

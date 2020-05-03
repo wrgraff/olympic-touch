@@ -5,6 +5,12 @@
 		margin-right: -24px;
 		margin-left: -24px;
 	}
+
+	@include breakpoint(large) {
+		margin-right: -32px;
+		margin-bottom: -72px;
+		margin-left: -32px;
+	}
 }
 
 .promo__hero {
@@ -23,6 +29,10 @@
 	@include breakpoint(medium) {
 		padding: 28px 32px 0;
 	}
+
+	@include breakpoint(large) {
+		margin-bottom: 0;
+	}
 }
 
 .promo__heading {
@@ -32,6 +42,12 @@
 
 	@include breakpoint(medium) {
 		font-size: 36px;
+	}
+}
+
+.promo__text {
+	@include breakpoint(large) {
+		margin-bottom: 16px;
 	}
 }
 

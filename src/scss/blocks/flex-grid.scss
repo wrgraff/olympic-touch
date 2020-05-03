@@ -17,6 +17,10 @@ $flex-grid-gaps: (
 	}
 }
 
+.flex-grid_align_start {
+	align-items: flex-start;
+}
+
 .flex-grid__column {
 	flex-grow: 1;
 	flex-shrink: 0;

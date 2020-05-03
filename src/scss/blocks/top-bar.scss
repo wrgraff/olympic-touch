@@ -1,8 +1,24 @@
+.top-bar {
+	@include breakpoint(large) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 32px;
+	}
+}
+
 .top-bar__list {
+	max-width: $page-max-width;
 	margin: 0;
 	padding: 8px 0;
 
 	list-style: none;
+
+	@include breakpoint(large) {
+		display: flex;
+		margin: 0 16px 0 -16px;
+		padding: 0;
+	}
 }
 
 .top-bar__link {
@@ -33,5 +49,16 @@
 	@include breakpoint(medium) {
 		padding-right: 24px;
 		padding-left: 24px;
+	}
+
+	@include breakpoint(large) {
+		margin-left: auto;
+		padding: 20px 16px;
+		color: $gray-900-color;
+
+		&:hover {
+			color: $primary-color;
+			background-color: $gray-100-color;
+		}
 	}
 }

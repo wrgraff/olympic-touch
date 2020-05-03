@@ -60,7 +60,18 @@
 	}
 }
 
-.button_small {
-	min-width: 180px;
-	padding: 7px 24px 9px;
+.button {
+	&_small {
+		min-width: 180px;
+		padding: 7px 24px 9px;
+	}
+
+	@each $breakpoint, $size in $breakpoints {
+		@include breakpoint($breakpoint) {
+			&_#{$breakpoint}_small {
+				min-width: 180px;
+				padding: 7px 24px 9px;
+			}
+		}
+	}
 }

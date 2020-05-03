@@ -23,12 +23,14 @@
     </li>
 {% endmacro %}
 
-<nav class="page-header__nav top-bar">
-    <ul class="top-bar__list">
-        {% for item in topBarItems %}
-            {{ addTopBarItem(item.name, item.address) }}
-        {% endfor %}
-    </ul>
+<nav class="page-header__nav">
+    <div class="page-header__container top-bar">
+        <ul class="top-bar__list">
+            {% for item in topBarItems %}
+                {{ addTopBarItem(item.name, item.address) }}
+            {% endfor %}
+        </ul>
 
-    <a href="/order/" class="page-header__button top-bar__button button">Оформить карту</a>
+        <a href="/order/" class="page-header__button top-bar__button button button_large_small">Оформить карту</a>
+    </div>
 </nav>

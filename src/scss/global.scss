@@ -134,3 +134,7 @@ table:not([class]) {
 		background-color: $gray-100-color;
 	}
 }
+
+::selection {
+	background-color: rgba(lighten($color: $primary-color, $amount: 20%), .7);
+}

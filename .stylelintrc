@@ -11,7 +11,9 @@
         "for",
         "if",
         "else",
-        "warn"
+        "warn",
+        "return",
+        "function"
       ]
     }],
     "block-no-empty": true,

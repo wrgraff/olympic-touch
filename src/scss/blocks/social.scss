@@ -6,6 +6,12 @@
 	list-style: none;
 }
 
+.social_header {
+	@include breakpoint(large) {
+		justify-content: flex-end;
+	}
+}
+
 .social__item {
 	&:not(:last-child) {
 		margin-right: 12px;
@@ -24,5 +30,18 @@
 
 	&:hover {
 		background-color: rgba($white-color, .3);
+	}
+
+	.social_header & {
+		@include breakpoint(large) {
+			width: 38px;
+			height: 38px;
+
+			background-color: $secondary-color;
+
+			&:hover {
+				background-color: lighten($color: $secondary-color, $amount: 5%);
+			}
+		}
 	}
 }

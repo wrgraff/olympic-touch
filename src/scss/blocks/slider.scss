@@ -7,14 +7,17 @@
 
 .slider__item {
 	display: none;
+	max-height: 570px;
+}
+
+.slider__item_active {
+	display: flex;
 }
 
 .slider__img {
 	display: block;
-}
-
-.slider__item_active {
-	display: block;
+	width: 100%;
+	object-fit: cover;
 }
 
 .slider__controls {
