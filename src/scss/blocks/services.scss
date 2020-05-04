@@ -42,7 +42,13 @@
 
 	@include breakpoint(medium) {
 		flex-grow: 1;
+		margin-top: 0;
 		margin-right: 24px;
+	}
+
+	@include breakpoint(large) {
+		margin-right: 0;
+		margin-bottom: 32px;
 	}
 }
 

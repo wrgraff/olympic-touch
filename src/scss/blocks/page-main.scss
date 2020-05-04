@@ -23,15 +23,6 @@
 	}
 }
 
-.page-main__container_grid {
-	// compensate gaps
-	@each $breakpoint, $gap in $flex-grid-gaps {
-		@include breakpoint($breakpoint) {
-			max-width: $page-max-width + $gap;
-		}
-	}
-}
-
 .page-main__heading {
 	margin: 0 0 16px;
 

@@ -1,7 +1,4 @@
 .tariffs__list {
-	display: flex;
-	flex-direction: column;
-	margin: 0;
 	padding: 0;
 
 	list-style: none;
@@ -12,18 +9,22 @@
 
 	display: flex;
 	flex-direction: column;
+	min-width: 280px;
 	margin-bottom: 40px;
 	padding: 20px 20px 0;
 
 	background-color: $white-color;
 	border-radius: 10px;
 
-	&:nth-child(2) {
-		order: -1;
-	}
-
 	&:focus-within {
 		box-shadow: 0 0 0 4px rgba($secondary-color, .3);
+	}
+
+	@include breakpoint(medium down) {
+		&:nth-child(2) {
+			flex-basis: 70%;
+			order: -1;
+		}
 	}
 }
 
@@ -55,6 +56,7 @@
 }
 
 .tariffs__price {
+	flex-grow: 1;
 	margin-bottom: 20px;
 }
 
@@ -63,4 +65,17 @@
 	margin-top: -12px;
 
 	transform: translateY(50%);
+	transition: background-color 200ms, box-shadow 200ms, opacity 200ms, transform 200ms;
+
+	@include breakpoint(large) {
+		opacity: 0;
+		transform: translateY(80%);
+
+		&:focus,
+		.tariffs__item:hover &,
+		.tariffs__item:nth-child(2) & {
+			opacity: 1;
+			transform: translateY(50%);
+		}
+	}
 }

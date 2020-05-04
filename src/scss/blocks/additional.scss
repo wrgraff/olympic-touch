@@ -3,24 +3,66 @@
 
 	background-color: $white-color;
 	border-radius: 10px;
+
+	@include breakpoint(medium) {
+		padding: 28px;
+	}
+
+	@include breakpoint(large) {
+		padding: 32px;
+	}
 }
 
 .additional__heading {
 	margin-top: 0;
 
 	color: $secondary-color;
+
+	font-size: 18px;
+
+	@include breakpoint(medium) {
+		font-size: 24px;
+	}
 }
 
 .additional__list {
-	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin: 0 -48px -16px 0;
 	padding: 0;
 
 	list-style: none;
+
+	@include breakpoint(medium) {
+		margin-bottom: -32px;
+	}
 }
 
 .additional__item {
-	&:not(:last-child) {
-		margin-bottom: 16px;
+	position: relative;
+	flex-basis: 40%;
+	flex-grow: 1;
+	min-width: 240px;
+	margin-right: 48px;
+	margin-bottom: 16px;
+
+	@include breakpoint(medium) {
+		margin-bottom: 32px;
+
+		&:nth-child(2n) {
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: -26px;
+
+				width: 4px;
+
+				background-color: $gray-100-color;
+			}
+		}
 	}
 }
 

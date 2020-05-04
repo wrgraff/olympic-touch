@@ -1,15 +1,9 @@
 .promo__slider {
-	margin: -32px -20px 0;
-
-	@include breakpoint(medium) {
-		margin-right: -24px;
-		margin-left: -24px;
-	}
+	margin: -32px 0 -24px;
 
 	@include breakpoint(large) {
-		margin-right: -32px;
+		margin-top: -56px;
 		margin-bottom: -72px;
-		margin-left: -32px;
 	}
 }
 
