@@ -22,8 +22,9 @@ $flex-grid-gaps: (
 }
 
 .flex-grid__column {
+	flex-basis: 0;
 	flex-grow: 1;
-	flex-shrink: 0;
+	flex-shrink: 1;
 	max-width: 100%;
 
 	// add gaps
@@ -91,4 +92,8 @@ $flex-grid-gaps: (
 			}
 		}
 	}
+}
+
+[class*=flex-grid__column_] {
+	flex-basis: auto;
 }

@@ -1,17 +1,32 @@
 .about {
 	margin-top: -32px;
-	padding-top: 0;
+	margin-bottom: 32px;
+	padding: 0 20px;
 
 	&::before {
 		content: '';
 		display: block;
+		flex-basis: 100%;
+		flex-grow: 1;
 		height: 300px;
 		margin: 0 -20px -40px;
 
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: 50% 0;
+		background-position: 50% 50%;
 		background-image: url('https://via.placeholder.com/1200x800');
+	}
+
+	@include breakpoint(medium) {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: center;
+		padding: 0 24px;
+
+		&::before {
+			margin: 0 -24px -28px;
+		}
 	}
 }
 
@@ -24,10 +39,39 @@
 	border-radius: 10px;
 
 	font-weight: 600;
+
+	@include breakpoint(medium) {
+		flex-basis: 255px;
+		flex-basis: calc(#{100% / 8 * 3} - 24px);
+		max-width: 296px;
+		margin-right: 24px;
+		padding: 24px;
+
+		font-size: 18px;
+	}
+
+	@include breakpoint(large) {
+		flex-basis: calc(#{100% / 8 * 3} - 32px);
+		max-width: $page-max-width / 8 * 3 - 64px;
+		margin-right: 32px;
+		padding: 32px;
+	}
 }
 
 .about__text {
+	max-width: $page-max-width / 8 * 5 - 32px;
+
 	p:last-child {
 		margin-bottom: 0;
+	}
+
+	@include breakpoint(medium) {
+		flex-basis: 0;
+		flex-grow: 1;
+		margin-top: 48px;
+	}
+
+	@include breakpoint(medium) {
+		margin-top: 56px;
 	}
 }

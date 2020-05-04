@@ -6,6 +6,10 @@
 	}
 }
 
+.page-main__section_shrinked {
+	padding-top: 0;
+}
+
 .page-main__container {
 	max-width: $page-max-width;
 	margin: 0 auto;
@@ -39,5 +43,17 @@
 
 	@include breakpoint(large) {
 		font-size: 36px;
+	}
+}
+
+.page-main__text-block {
+	margin-bottom: 20px;
+
+	@include breakpoint(medium) {
+		margin-bottom: 24px;
+	}
+
+	@include breakpoint(large) {
+		margin-bottom: 32px;
 	}
 }

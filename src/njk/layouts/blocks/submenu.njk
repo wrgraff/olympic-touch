@@ -23,7 +23,7 @@
     </li>
 {% endmacro %}
 
-<ul class="main-header__submenu submenu" aria-label="Подменю">
+<ul class="submenu" aria-label="Подменю">
     {% for item in submenuItems %}
         {{ addSubmenuItem(item.name, item.address) }}
     {% endfor %}

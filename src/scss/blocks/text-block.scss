@@ -1,8 +1,16 @@
 .text-block {
-	padding-top: 24px;
-	padding-bottom: 24px;
+	padding: 20px;
 
 	background-color: $gray-100-color;
+	border-radius: 10px;
+
+	@include breakpoint(medium) {
+		padding: 24px;
+	}
+
+	@include breakpoint(large) {
+		padding: 32px;
+	}
 }
 
 .text-block_mission {
@@ -11,6 +19,39 @@
 	background-repeat: no-repeat;
 	background-position: right 20px top 100%;
 	background-image: url('https://via.placeholder.com/137x134');
+
+	@include breakpoint(medium) {
+		padding-right: 186px;
+		padding-bottom: 24px;
+
+		background-position: right 24px top 100%;
+	}
+
+	@include breakpoint(large) {
+		padding-bottom: 32px;
+		padding-right: 200px;
+
+		background-position: right 32px top 100%;
+	}
+}
+
+.text-block__heading {
+	margin: 0 0 16px;
+
+	color: $secondary-color;
+
+	font-size: 22px;
+	line-height: 1.3;
+
+	@include breakpoint(medium) {
+		margin-bottom: 18px;
+
+		font-size: 28px;
+	}
+
+	@include breakpoint(large) {
+		font-size: 32px;
+	}
 }
 
 .text-block__text {

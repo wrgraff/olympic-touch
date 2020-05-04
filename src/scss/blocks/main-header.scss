@@ -2,15 +2,26 @@
 	padding: 20px 20px 0;
 
 	background-color: $gray-100-color;
+
+	@include breakpoint(medium) {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
+
+	@include breakpoint(large) {
+		padding-right: 32px;
+		padding-left: 32px;
+	}
 }
 
 .main-header__breadcrumbs {
-	margin-bottom: 18px;
+	max-width: $page-max-width - 64px;
+	margin: 0 auto 18px;
 }
 
 .main-header__heading {
-	margin-top: 0;
-	margin-bottom: 18px;
+	max-width: $page-max-width - 64px;
+	margin: 0 auto 18px;
 
 	color: $secondary-color;
 
@@ -32,14 +43,25 @@
 	strong {
 		text-transform: uppercase;
 	}
+
+	@include breakpoint(medium) {
+		font-size: 36px;
+	}
 }
 
 .main-header__submenu {
 	position: relative;
 	z-index: 2;
 
-	margin-top: -24px;
-	margin-bottom: 32px;
+	max-width: $page-max-width - 64px;
+	margin: -24px auto 32px;
 
 	transform: translateY(32px);
+
+	@include breakpoint(medium) {
+		display: flex;
+		margin-top: -8px;
+
+		transform: translateY(24px);
+	}
 }

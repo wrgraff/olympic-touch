@@ -44,6 +44,14 @@
 		&:hover {
 			background-color: rgba($white-color, .1);
 		}
+
+		@include breakpoint(large) {
+			background-color: $gray-100-color;
+
+			&:hover {
+				background-color: $gray-100-color;
+			}
+		}
 	}
 
 	@include breakpoint(medium) {
