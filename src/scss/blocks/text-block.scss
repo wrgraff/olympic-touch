@@ -59,3 +59,15 @@
 		margin-bottom: 0;
 	}
 }
+
+.text-block__payment-systems {
+	margin: 0;
+
+	@include breakpoint(medium) {
+		margin-top: 18px;
+	}
+
+	@include breakpoint(large) {
+		margin-top: 24px;
+	}
+}
