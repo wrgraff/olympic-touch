@@ -12,6 +12,10 @@
 .address__place {
 	margin: 0 0 4px;
 	font-weight: 600;
+
+	@include breakpoint(medium) {
+		font-size: 18px;
+	}
 }
 
 .address__time {

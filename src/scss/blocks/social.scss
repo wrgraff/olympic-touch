@@ -6,6 +6,10 @@
 	list-style: none;
 }
 
+.social_center {
+	justify-content: center;
+}
+
 .social_header {
 	@include breakpoint(large) {
 		justify-content: flex-end;
