@@ -47,6 +47,15 @@
 			box-shadow: 10px 0 20px -10px rgba(10, 10, 10, .5);
 		}
 	}
+
+	@include breakpoint(large) {
+		padding-bottom: 32px;
+		padding-left: calc(#{100% / 12 * 5} - 16px);
+
+		&::before {
+			right: calc(#{100% / 12 * 7} + 16px);
+		}
+	}
 }
 
 .actions__heading {
@@ -63,6 +72,11 @@
 		margin-left: 24px;
 
 		font-size: 36px;
+	}
+
+	@include breakpoint(large) {
+		margin-right: 32px;
+		margin-left: 32px;
 	}
 }
 
@@ -83,6 +97,11 @@
 
 		font-size: 24px;
 	}
+
+	@include breakpoint(large) {
+		margin-right: 32px;
+		margin-left: 32px;
+	}
 }
 
 .actions__details {
@@ -93,6 +112,11 @@
 	@include breakpoint(medium) {
 		margin-right: 24px;
 		margin-left: 24px;
+	}
+
+	@include breakpoint(large) {
+		margin-right: 32px;
+		margin-left: 32px;
 	}
 }
 
@@ -107,6 +131,11 @@
 		margin-right: 24px;
 		margin-bottom: 32px;
 		margin-left: 24px;
+	}
+
+	@include breakpoint(large) {
+		margin-right: 32px;
+		margin-left: 32px;
 	}
 }
 
@@ -123,6 +152,11 @@
 		margin-left: 24px;
 
 		transform: translateY(0);
+	}
+
+	@include breakpoint(large) {
+		margin-right: 32px;
+		margin-left: 32px;
 	}
 }
 
