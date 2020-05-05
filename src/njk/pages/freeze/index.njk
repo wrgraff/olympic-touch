@@ -20,53 +20,59 @@
 	</header>
 
 	<section class="page-main__section">
-		<form action="/freeze/response/" method="post" class="form">
-			<label class="form__label field">
-				<p class="field__text">Имя <small>обязательное поле</small></p>
-				<input type="text" name="name" class="field__input" placeholder="Укажите имя" required>
-			</label>
+		<div class="page-main__container">
+			<div class="content flex-grid flex-grid_8 flex-grid_large_12">
+				<div class="content__text flex-grid__column flex-grid__column_8 flex-grid__column_large_9">
+					<form action="/freeze/response/" method="post" class="form">
+						<label class="form__label field">
+							<p class="field__text">Имя <small>обязательное поле</small></p>
+							<input type="text" name="name" class="field__input" placeholder="Укажите имя" required>
+						</label>
 
-			<label class="form__label field">
-				<p class="field__text">Фамилия <small>обязательное поле</small></p>
-				<input type="text" name="surname" class="field__input" placeholder="Укажите фамилию" required>
-			</label>
+						<label class="form__label field">
+							<p class="field__text">Фамилия <small>обязательное поле</small></p>
+							<input type="text" name="surname" class="field__input" placeholder="Укажите фамилию" required>
+						</label>
 
-			<label class="form__label field">
-				<p class="field__text">Отчество</p>
-				<input type="text" name="fathername" class="field__input" placeholder="Укажите отчество">
-			</label>
+						<label class="form__label field">
+							<p class="field__text">Отчество</p>
+							<input type="text" name="fathername" class="field__input" placeholder="Укажите отчество">
+						</label>
 
-			<label class="form__label field">
-				<p class="field__text">Электронная почта <small>обязательное поле</small></p>
-				<input type="email" name="email" class="field__input" placeholder="name@email.ru" required>
-			</label>
+						<label class="form__label field">
+							<p class="field__text">Электронная почта <small>обязательное поле</small></p>
+							<input type="email" name="email" class="field__input" placeholder="name@email.ru" required>
+						</label>
 
-			<label class="form__label field">
-				<p class="field__text">Телефон</p>
-				<input type="tel" name="phone" class="field__input" placeholder="8 999 213-45-67">
-			</label>
+						<label class="form__label field">
+							<p class="field__text">Телефон</p>
+							<input type="tel" name="phone" class="field__input" placeholder="8 999 213-45-67">
+						</label>
 
-			<label class="form__label field field_select">
-				<p class="field__text">Причина заморозки</p>
-				<select name="cause" class="field__input field__input_select">
-					<option value="none" selected disabled>Не указана</option>
-					<option value="disease">Болезнь</option>
-					<option value="regnancy">Беременность</option>
-					<option value="other">Другое (укажите причину в комментарии)</option>
-				</select>
-			</label>
+						<label class="form__label field field_select">
+							<p class="field__text">Причина заморозки</p>
+							<select name="cause" class="field__input field__input_select">
+								<option value="none" selected disabled>Не указана</option>
+								<option value="disease">Болезнь</option>
+								<option value="regnancy">Беременность</option>
+								<option value="other">Другое (укажите причину в комментарии)</option>
+							</select>
+						</label>
 
-			<label class="form__label field">
-				<p class="field__text">Комментарий</p>
-				<textarea name="message" rows="7" class="field__input field__input_textarea" placeholder="Введите то, что хотите нам сообщить"></textarea>
-			</label>
+						<label class="form__label field">
+							<p class="field__text">Комментарий</p>
+							<textarea name="message" rows="7" class="field__input field__input_textarea" placeholder="Введите то, что хотите нам сообщить"></textarea>
+						</label>
 
-			<label class="form__label checkbox">
-				<input type="checkbox" name="argeement" class="visually-hidden" required checked>
-				<p class="checkbox__text">Я согласен с условиями <a href="/about/files/" target="_blank">Договора</a>, <a href="/about/files/">Правилами техники безопасности</a>, <a href="/about/rules/">Правилами Клуба</a> и на <a href="/privacy/">обработку персональных данных</a></p>
-			</label>
+						<label class="form__label checkbox">
+							<input type="checkbox" name="argeement" class="visually-hidden" required checked>
+							<p class="checkbox__text">Я согласен с условиями <a href="/about/files/" target="_blank">Договора</a>, <a href="/about/files/">Правилами техники безопасности</a>, <a href="/about/rules/">Правилами Клуба</a> и на <a href="/privacy/">обработку персональных данных</a></p>
+						</label>
 
-			<button type="submit" class="button">Отправить</button>
-		</form>
+						<button type="submit" class="form__button button">Отправить</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</section>
 {% endblock %}

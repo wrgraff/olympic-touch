@@ -7,3 +7,15 @@
 .page__main {
 	margin-bottom: auto;
 }
+
+.page__footer {
+	margin-top: 20px;
+
+	@include breakpoint(medium) {
+		margin-top: 24px;
+	}
+
+	@include breakpoint(large) {
+		margin-top: 32px;
+	}
+}

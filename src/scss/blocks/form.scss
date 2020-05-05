@@ -1,5 +1,9 @@
 .form {
 	text-align: center;
+
+	@include breakpoint(large) {
+		text-align: left;
+	}
 }
 
 .form__label {
@@ -9,5 +13,11 @@
 
 	&:not(:last-child) {
 		margin-bottom: 24px;
+	}
+}
+
+.form__button {
+	.form__label + & {
+		margin-top: 24px;
 	}
 }

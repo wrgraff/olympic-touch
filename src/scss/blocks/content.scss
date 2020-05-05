@@ -1,3 +1,7 @@
 .content__text {
 	margin-bottom: 40px;
+
+	@include breakpoint(medium) {
+		margin-bottom: 0;
+	}
 }
