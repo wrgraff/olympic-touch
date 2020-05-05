@@ -9,6 +9,15 @@
 	&:focus-within {
 		box-shadow: 0 0 0 4px rgba($secondary-color, .3);
 	}
+
+	@include breakpoint(medium) {
+		display: block;
+		padding: 24px 24px 0;
+	}
+
+	@include breakpoint(large) {
+		padding: 32px 32px 0;
+	}
 }
 
 .vacancy__heading {
@@ -77,11 +86,16 @@
 	margin-top: -12px;
 
 	transform: translateY(50%);
+
+	@include breakpoint(medium) {
+		margin-right: 24px;
+	}
 }
 
 .vacancy__link {
 	align-self: center;
 	display: inline-block;
+	vertical-align: middle;
 	margin-bottom: 12px;
 
 	color: $secondary-color;
@@ -89,5 +103,11 @@
 
 	&:hover {
 		color: $primary-color;
+	}
+
+	@include breakpoint(medium) {
+		margin-bottom: 0;
+
+		transform: translateY(50%);
 	}
 }
