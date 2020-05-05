@@ -1,19 +1,60 @@
 .files {
-	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -10px -20px;
 	padding: 0;
 
 	list-style: none;
 
 	text-align: center;
 	font-weight: 600;
+
+	@include breakpoint(medium) {
+		margin: 0 -12px -24px;
+	}
+
+	@include breakpoint(large) {
+		margin: 0 -16px -32px;
+	}
+
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+		grid-gap: 20px;
+		margin: 0;
+
+		@include breakpoint(medium) {
+			grid-gap: 24px;
+		}
+
+		@include breakpoint(large) {
+			grid-gap: 32px;
+		}
+	}
 }
 
 .files__item {
-	margin-bottom: 20px;
+	flex-basis: 228px;
+	flex-grow: 1;
+	margin: 0 10px 20px;
+
+	@include breakpoint(medium) {
+		margin: 0 12px 24px;
+	}
+
+	@include breakpoint(large) {
+		margin: 0 16px 32px;
+	}
+
+	@supports (display: grid) {
+		margin: 0;
+	}
 }
 
 .files__link {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	padding: 24px;
 
 	color: $secondary-color;

@@ -4,6 +4,14 @@
 	@include breakpoint(large) {
 		padding: 56px 0;
 	}
+
+	.page-main__header + & {
+		margin-top: -32px;
+
+		&:not(.page-main__section_shrinked) {
+			padding-top: 56px;
+		}
+	}
 }
 
 .page-main__section_shrinked {

@@ -71,21 +71,33 @@ $flex-grid-gaps: (
 							flex-basis: calc(#{100% / $i * $j} - #{$gap});
 							max-width: calc(#{100% / $i * $j} - #{$gap});
 						}
+					}
+				}
+			}
 
+			@for $i from 2 through $flex-grid-columns {
+				@for $j from 1 through $i {
+					@if ($breakpoint != small) {
 						// columns sizes
 						// for each grid size with setted breakpoint
 						.flex-grid_#{$breakpoint}_#{$i} > &_#{$j} {
 							flex-basis: map-get($breakpoints, $breakpoint) / $i * $j;
-							flex-basis: calc(#{100% / $i} - #{$gap});
-							max-width: calc(#{100% / $i} - #{$gap});
+							flex-basis: calc(#{100% / $i * $j} - #{$gap});
+							max-width: calc(#{100% / $i * $j} - #{$gap});
 						}
+					}
+				}
+			}
 
+			@for $i from 2 through $flex-grid-columns {
+				@for $j from 1 through $i {
+					@if ($breakpoint != small) {
 						// columns sizes with setted breakpoint
 						// for each grid size with setted breakpoint
 						.flex-grid_#{$breakpoint}_#{$i} > &_#{$breakpoint}_#{$j} {
 							flex-basis: map-get($breakpoints, $breakpoint) / $i * $j;
-							flex-basis: calc(#{100% / $i} - #{$gap});
-							max-width: calc(#{100% / $i} - #{$gap});
+							flex-basis: calc(#{100% / $i * $j} - #{$gap});
+							max-width: calc(#{100% / $i * $j} - #{$gap});
 						}
 					}
 				}
