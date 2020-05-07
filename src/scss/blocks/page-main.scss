@@ -1,6 +1,10 @@
 .page-main__section {
 	padding: 32px 0;
 
+	&:last-child {
+		padding-bottom: 52px;
+	}
+
 	.page-main__header + & {
 		margin-top: -32px;
 
@@ -9,8 +13,18 @@
 		}
 	}
 
+	@include breakpoint(medium) {
+		&:last-child {
+			padding-bottom: 56px;
+		}
+	}
+
 	@include breakpoint(large) {
 		padding: 56px 0;
+
+		&:last-child {
+			padding-bottom: 64px;
+		}
 
 		.page-main__header + &:not(.page-main__section_shrinked) {
 			padding-top: 64px;

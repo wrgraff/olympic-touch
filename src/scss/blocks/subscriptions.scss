@@ -1,6 +1,6 @@
 .subscriptions {
 	.no-js & {
-		display: none;
+		// display: none;
 	}
 }
 
@@ -14,6 +14,35 @@
 
 	&:focus-within {
 		box-shadow: 0 0 0 4px $white-color, 0 0 0 8px rgba($secondary-color, .3);
+	}
+
+	@include breakpoint(medium) {
+		display: flex;
+	}
+
+	@include breakpoint(large) {
+		flex-direction: column;
+	}
+}
+
+.subscriptions__item {
+	&:not(:last-child) {
+		margin-bottom: 16px;
+	}
+
+	@include breakpoint(medium) {
+		flex-grow: 1;
+
+		&:not(:last-child) {
+			margin-right: 24px;
+			margin-bottom: 0;
+		}
+	}
+
+	@include breakpoint(large) {
+		&:not(:last-child) {
+			margin-right: 0;
+		}
 	}
 }
 
@@ -68,6 +97,8 @@
 	}
 
 	input:checked + & {
+		z-index: 3;
+
 		color: $white-color;
 		background-color: $primary-color;
 		box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5);
@@ -84,6 +115,16 @@
 
 		&:hover {
 			background-color: lighten($color: $primary-color, $amount: 5%);
+		}
+	}
+
+	@include breakpoint(large) {
+		input:not(:checked) + & {
+			transform: translateY(calc(-100% + 56px));
+
+			.subscriptions__item:nth-child(3) & {
+			transform: translateY(calc(-200% + 112px));
+			}
 		}
 	}
 }
