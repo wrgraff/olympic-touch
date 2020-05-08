@@ -1,0 +1,44 @@
+{% set title = 'Обратная связь с Olympic Touch' %}
+{% set description = 'Обратная связь с фитнес-клубом Olympic Touch для отзыва, вопроса или жалобы' %}
+{% set keywords = 'Обратная связь, отзыв, вопрос, жалоба' %}
+{% set activeTopBar = 'feedback' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<header class="page-main__header main-header">
+		<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+			<li class="breadcrumbs__item">
+				<a href="/" class="breadcrumbs__link">
+					<span class="visually-hidden">Главная страница</span>
+				</a>
+			</li>
+			<li class="breadcrumbs__item">
+				<a href="/order/" class="breadcrumbs__link">Оформление карты</a>
+			</li>
+			<li class="breadcrumbs__item">Результат заказа</li>
+		</ul>
+
+		<h1 class="main-header__heading">Результат заказа</h1>
+	</header>
+
+	<section class="page-main__section">
+		<div class="page-main__container">
+			<div class="response response_success">
+				<h2 class="page-main__heading">Ваш заказ №320 успешно оформлен!</h2>
+
+				<p class="response__text">Мы свяжемся с вами в ближайшее время для уточнения деталей оформления карты.</p>
+				<p class="response__text">Вы также можете связаться с нами любым из доступных способов:</p>
+				<ul class="response__contacts contacts">
+					<li class="contacts__item">
+						<a href="tel:89210984646" class="contacts__link">8 921 098-46-46</a>
+					</li>
+					<li class="contacts__item">
+						<a href="mailto:info@olympic-touch.ru" class="contacts__link">info@olympic-touch.ru</a>
+					</li>
+				</ul>
+				<a href="/" class="response__button button">Вернуться на главную</a>
+			</div>
+		</div>
+	</section>
+{% endblock %}
