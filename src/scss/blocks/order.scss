@@ -1,15 +1,20 @@
 .order {
 	fieldset {
+		margin-bottom: 44px;
 		padding: 0;
 
 		border: none;
-
-		&:not(:last-child) {
-			margin-bottom: 24px;
-		}
 	}
 }
 
+.order__length {
+	margin: 0;
+}
+
+.order__form {
+	margin: 0;
+}
+
 .order__total {
-	margin: 0 -20px 20px;
+	margin: 0 0 20px;
 }

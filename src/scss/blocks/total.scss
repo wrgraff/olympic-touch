@@ -1,17 +1,73 @@
 .total {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 20px 20px 0;
+	padding-top: 20px;
 
 	color: $gray-900-color;
 	background-color: $gray-100-color;
 
 	text-align: center;
+
+	@include breakpoint(medium) {
+		padding-top: 26px;
+		text-align: left;
+	}
+}
+
+.total__container {
+	max-width: $page-max-width;
+	margin: 0 auto;
+	padding-right: 20px;
+	padding-left: 20px;
+
+	@include breakpoint(medium) {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		padding-right: 24px;
+		padding-left: 24px;
+	}
+
+	@include breakpoint(large) {
+		padding-right: 32px;
+		padding-left: 32px;
+
+		&::before {
+			content: '';
+			flex-basis: calc(25% - 24px);
+			height: 8px;
+			margin-right: 32px;
+
+			.no-js & {
+				display: none;
+			}
+		}
+	}
+}
+
+.total__text {
+	font-size: 14px;
+
+	@include breakpoint(medium) {
+		flex-basis: 50%;
+		max-width: 300px;
+		margin-right: auto;
+	}
+
+	@include breakpoint(large) {
+		flex-basis: 35%;
+
+		.no-js & {
+			flex-basis: 40%;
+		}
+	}
 }
 
 .total__systems {
 	margin-bottom: 24px;
+
+	@include breakpoint(medium) {
+		justify-content: flex-start;
+		margin-bottom: 0;
+	}
 }
 
 .total__price {
@@ -21,6 +77,21 @@
 		font-size: 26px;
 		font-weight: 800;
 	}
+
+	@include breakpoint(medium) {
+		flex-basis: 50%;
+		margin: -8px 0 0 auto;
+
+		text-align: right;
+	}
+
+	@include breakpoint(large) {
+		flex-basis: 35%;
+
+		.no-js & {
+			flex-basis: 60%;
+		}
+	}
 }
 
 .total__button {
@@ -28,4 +99,9 @@
 	margin-top: -12px;
 
 	transform: translateY(50%);
+
+	@include breakpoint(medium) {
+		margin-top: -18px;
+		margin-left: auto;
+	}
 }

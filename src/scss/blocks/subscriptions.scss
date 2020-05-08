@@ -1,6 +1,6 @@
 .subscriptions {
 	.no-js & {
-		// display: none;
+		display: none;
 	}
 }
 
@@ -42,6 +42,7 @@
 	@include breakpoint(large) {
 		&:not(:last-child) {
 			margin-right: 0;
+			margin-bottom: 16px;
 		}
 	}
 }
@@ -54,27 +55,7 @@
 	background-color: $gray-100-color;
 	border-radius: 10px;
 
-	transition: color 200ms, background-color 200ms, box-shadow 200ms;
-
-	&:not(:last-child) {
-		margin-bottom: 16px;
-	}
-
-	&::before {
-		content: '';
-		position: absolute;
-		top: 17px;
-		left: -16px;
-
-		display: block;
-		width: 32px;
-		height: 32px;
-
-		background-color: $white-color;
-		border: 4px solid $primary-color;
-		border-radius: 50%;
-		opacity: 0;
-	}
+	transition: color 200ms, background-color 200ms, box-shadow 200ms, transform 300ms;
 
 	&::after {
 		content: 'Абонемент';
@@ -97,16 +78,9 @@
 	}
 
 	input:checked + & {
-		z-index: 3;
-
 		color: $white-color;
 		background-color: $primary-color;
 		box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5);
-
-		&::before {
-			opacity: 1;
-			transition: opacity 200ms;
-		}
 
 		&::after {
 			color: rgba($white-color, .7);
@@ -119,12 +93,83 @@
 	}
 
 	@include breakpoint(large) {
-		input:not(:checked) + & {
-			transform: translateY(calc(-100% + 56px));
+		z-index: 0;
+		background-color: $gray-200-color;
 
-			.subscriptions__item:nth-child(3) & {
-			transform: translateY(calc(-200% + 112px));
+		.subscriptions__item:first-child &,
+		.subscriptions__item:last-child & {
+			background-color: $gray-100-color;
+		}
+
+		&::before {
+			content: attr(data-name);
+			position: absolute;
+			top: 50%;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			display: flex;
+			align-items: flex-end;
+			padding: 18px 26px;
+
+			color: $gray-500-color;
+			background-color: $gray-200-color;
+			border-radius: 10px;
+
+			font-size: 18px;
+			font-weight: 600;
+
+			transition: opacity 300ms;
+
+			.subscriptions__item:first-child &,
+			.subscriptions__item:last-child & {
+				background-color: $gray-100-color;
 			}
+
+			.subscriptions__list:hover & {
+				opacity: 0;
+			}
+		}
+
+		$max-cards: 6;
+
+		@for $i from 1 through $max-cards {
+			.subscriptions__item:nth-child(#{$i}) & {
+				z-index: $i;
+
+				@if ($i != 1) {
+					transform: translateY(calc(-#{100% * ($i - 1)} + #{48px * ($i - 1)}));
+				}
+			}
+
+			.subscriptions__item_active ~ .subscriptions__item:nth-child(#{$i}) & {
+				z-index: $max-cards - $i;
+			}
+		}
+
+		.subscriptions__list:hover &,
+		.subscriptions__list:focus-within & {
+			background-color: $gray-100-color;
+			transform: translateY(0);
+		}
+
+		.subscriptions__item input:checked + & {
+			z-index: 20;
+			background-color: $primary-color;
+
+			&::before {
+				opacity: 0;
+			}
+		}
+
+		.subscriptions__list:hover &:hover,
+		.subscriptions__list:focus-within &:hover {
+			background-color: $gray-200-color;
+		}
+
+		.subscriptions__item input:checked + &:hover {
+			background-color: lighten($color: $primary-color, $amount: 5%);
 		}
 	}
 }
@@ -132,7 +177,43 @@
 .subscriptions__heading {
 	margin: 0 26px 10px;
 
+	color: $gray-500-color;
+
+	font-size: 18px;
 	font-weight: 600;
+
+	transition: color 200ms;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 17px;
+		left: -16px;
+
+		display: block;
+		width: 32px;
+		height: 32px;
+
+		background-color: $white-color;
+		border: 4px solid $primary-color;
+		border-radius: 50%;
+		opacity: 0;
+
+		transition: opacity 200ms;
+
+		input:checked + .subscriptions__card & {
+			opacity: 1;
+		}
+	}
+
+	.subscriptions__list:hover &,
+	.subscriptions__list:focus-within & {
+		color: $black-color;
+	}
+
+	.subscriptions__item input:checked + .subscriptions__card & {
+		color: $white-color;
+	}
 }
 
 .subscriptions__schedule {
