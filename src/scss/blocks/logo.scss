@@ -1,5 +1,14 @@
 .logo {
 	display: block;
+	transition: opacity 200ms, transform 200ms;
+
+	&:hover {
+		opacity: .7;
+	}
+
+	&:active {
+		transform: scale(.9);
+	}
 }
 
 .logo__img {
