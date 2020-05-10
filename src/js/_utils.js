@@ -1,5 +1,3 @@
-'use strict';
-
 (function() {
 	window.utils = {
 		addElement: function(elTag, elClass) {

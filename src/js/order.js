@@ -1,5 +1,3 @@
-'use strict';
-
 (function() {
 	const subscriptions = document.querySelectorAll('.subscriptions__item input'),
 		  lengths = document.querySelectorAll('.length__group');
