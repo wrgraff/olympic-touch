@@ -4,13 +4,15 @@
 	const subscriptions = document.querySelectorAll('.subscriptions__item input'),
 		  lengths = document.querySelectorAll('.length__group');
 
-	selectLengthsGroup(subscriptions[0].value);
-	subscriptions.forEach((subscription, i, subscriptions) => {
-		subscription.addEventListener('click', () => {
-			selectSubscription(subscriptions, subscription);
-			selectLengthsGroup(subscription.value);
+	if (subscriptions[0] && lengths[0]) {
+		selectLengthsGroup(subscriptions[0].value);
+		subscriptions.forEach((subscription, i, subscriptions) => {
+			subscription.addEventListener('click', () => {
+				selectSubscription(subscriptions, subscription);
+				selectLengthsGroup(subscription.value);
+			});
 		});
-	});
+	};
 
 	function selectLengthsGroup(active) {
 		lengths.forEach((group) => {

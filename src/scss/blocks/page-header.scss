@@ -1,5 +1,6 @@
 .page-header {
 	padding-bottom: 72px;
+	visibility: hidden;
 
 	color: $white-color;
 	background-color: $secondary-color;
@@ -7,6 +8,7 @@
 	.no-js & {
 		position: relative;
 		width: auto;
+		visibility: visible;
 		transform: translateX(0);
 	}
 
@@ -23,7 +25,7 @@
 		width: calc(100% - 80px);
 
 		transform: translateX(-100%);
-		transition: transform 200ms;
+		transition: transform 200ms, visibility 1ms linear 300ms;
 	}
 
 	@include breakpoint(large) {
@@ -35,7 +37,9 @@
 }
 
 .page-header_opened {
+	visibility: visible;
 	transform: translateX(0);
+	transition: transform 200ms;
 }
 
 .page-header__container {
@@ -93,7 +97,7 @@
 	border-radius: 0;
 
 	transform: translateX(-100%);
-	transition: background-color 200ms, transform 200ms ease-in-out 150ms;
+	transition: background-color 200ms, transform 150ms ease-in-out 150ms;
 
 	.page-header_opened & {
 		transform: translateX(0);

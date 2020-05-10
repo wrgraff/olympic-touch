@@ -13,17 +13,17 @@
 
 		openButton.addEventListener('click', openMenu);
 		closeButton.addEventListener('click', closeMenu);
-	};
 	
-	function openMenu(evt) {
-		evt.preventDefault();
-		pageHeader.classList.add('page-header_opened');
-		mask.classList.add('mask_opened');
-	};
+		function openMenu(evt) {
+			evt.preventDefault();
+			pageHeader.classList.add('page-header_opened');
+			mask.classList.add('mask_opened');
+		};
 
-	function closeMenu(evt) {
-		evt.preventDefault();
-		pageHeader.classList.remove('page-header_opened');
-		mask.classList.remove('mask_opened');
+		function closeMenu(evt) {
+			evt.preventDefault();
+			pageHeader.classList.remove('page-header_opened');
+			mask.classList.remove('mask_opened');
+		};
 	};
 })();
