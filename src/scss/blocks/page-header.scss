@@ -1,10 +1,30 @@
 .page-header {
-	position: relative;
-
 	padding-bottom: 72px;
 
 	color: $white-color;
 	background-color: $secondary-color;
+
+	.no-js & {
+		position: relative;
+		width: auto;
+		transform: translateX(0);
+	}
+
+	@include breakpoint(medium down) {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 100;
+
+		min-width: 260px;
+		max-width: 360px;
+		width: 100%;
+		width: calc(100% - 80px);
+
+		transform: translateX(-100%);
+		transition: transform 200ms;
+	}
 
 	@include breakpoint(large) {
 		padding-bottom: 0;
@@ -12,6 +32,10 @@
 		color: $black-color;
 		background-color: $white-color;
 	}
+}
+
+.page-header_opened {
+	transform: translateX(0);
 }
 
 .page-header__container {
@@ -61,7 +85,26 @@
 }
 
 .page-header__close {
+	position: absolute;
+	top: 0;
+	left: 100%;
+
+	background-color: transparent;
+	border-radius: 0;
+
+	transform: translateX(-100%);
+	transition: background-color 200ms, transform 200ms ease-in-out 150ms;
+
+	.page-header_opened & {
+		transform: translateX(0);
+		transition: background-color 200ms, transform 200ms;
+	}
+
 	.no-js & {
+		display: none;
+	}
+
+	@include breakpoint(large) {
 		display: none;
 	}
 }

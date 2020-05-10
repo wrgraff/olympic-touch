@@ -18,11 +18,16 @@
 }
 
 .length__heading {
+	display: none;
 	margin: 0 0 8px 36px;
 
 	color: $secondary-color;
 
 	font-weight: 600;
+
+	.no-js & {
+		display: block;
+	}
 
 	@include breakpoint(medium) {
 		flex-basis: 100%;

@@ -1,10 +1,28 @@
 .order {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -40px;
+		right: 0;
+		left: 0;
+
+		height: 52px;
+
+		background-color: $gray-100-color;
+	}
+
 	fieldset {
 		margin-bottom: 44px;
 		padding: 0;
 
 		border: none;
 	}
+}
+
+.order__subscriptions {
+	margin-top: -16px;
 }
 
 .order__length {

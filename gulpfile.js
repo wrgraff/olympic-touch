@@ -12,7 +12,9 @@ var gulp = require('gulp'),
 	imageResize = require('gulp-image-resize'),
 	webp = require('gulp-webp'),
 	del = require('del'),
-    browserSync = require('browser-sync').create();
+	browserSync = require('browser-sync').create(),
+	concat = require('gulp-concat'),
+	babel = require('gulp-babel');
 
 gulp.task('scss', () => {
 	return gulp.src('src/scss/style.scss')
@@ -24,6 +26,13 @@ gulp.task('scss', () => {
 		.pipe(csso())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/templates/olympic-touch/css/'));
+});
+
+gulp.task('js', () => {
+	return gulp.src('src/js/*.js')
+		.pipe(babel())
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest('dist/templates/olympic-touch/js/'));
 });
 
 gulp.task('njk', () => {
@@ -41,6 +50,8 @@ gulp.task('fonts', () => {
 	return gulp.src('src/fonts/**/*{woff,woff2}')
         .pipe(gulp.dest('dist/templates/olympic-touch/fonts'));
 });
+
+
 
 gulp.task('img-template', () => {
 	return gulp.src('src/img/template/**/*{jpg,png,svg}')
@@ -232,7 +243,11 @@ gulp.task('serve', () => {
 
     gulp.watch('src/img/**/*{jpg,png,svg}', gulp.series('img'));
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
+    gulp.watch('src/js/*.js', gulp.series('js'));
 	gulp.watch('src/njk/**/*.njk', gulp.series('njk'));
+
+	gulp.watch('dist/template/olympic-touch/js/*.js').on('change', browserSync.reload);
+	gulp.watch('dist/**/*.{jpg,png,svg}').on('change', browserSync.reload);
 });
 
 gulp.task('build', gulp.series(

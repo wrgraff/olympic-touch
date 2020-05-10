@@ -54,6 +54,7 @@
 
 	background-color: $gray-100-color;
 	border-radius: 10px;
+	box-shadow: 0 0 0 4px $white-color;
 
 	transition: color 200ms, background-color 200ms, box-shadow 200ms, transform 300ms;
 
@@ -177,8 +178,6 @@
 .subscriptions__heading {
 	margin: 0 26px 10px;
 
-	color: $gray-500-color;
-
 	font-size: 18px;
 	font-weight: 600;
 
@@ -195,6 +194,9 @@
 		height: 32px;
 
 		background-color: $white-color;
+		background-repeat: no-repeat;
+		background-position: 40% 50%;
+		background-image: url(../img/ico/check.svg);
 		border: 4px solid $primary-color;
 		border-radius: 50%;
 		opacity: 0;
@@ -213,6 +215,10 @@
 
 	.subscriptions__item input:checked + .subscriptions__card & {
 		color: $white-color;
+	}
+
+	@include breakpoint(large) {
+		color: $gray-500-color;
 	}
 }
 

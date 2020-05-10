@@ -1,7 +1,3 @@
-.slider {
-	background-color: $gray-200-color;
-}
-
 .slider__list {
 	max-width: 1400px;
 	margin: 0 auto;
@@ -41,11 +37,27 @@
 
 .slider__controls {
 	display: flex;
-	margin-bottom: 20px;
-	margin-left: 20px;
+	margin-top: -24px;
+	margin-bottom: 40px;
+	padding-left: 20px;
 
 	.no-js & {
 		display: none;
+	}
+
+	@include breakpoint(medium) {
+		margin-top: -88px;
+		margin-left: 24px;
+		padding-left: 32px;
+	}
+
+	@include breakpoint(large) {
+		max-width: $page-max-width;
+		margin-top: -130px;
+		margin-bottom: 88px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 64px;
 	}
 }
 
@@ -56,10 +68,17 @@
 	margin-right: 12px;
 
 	background-color: $primary-color;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-image: url(../img/ico/slider-right.svg);
 	border: none;
 	border-radius: 50%;
 
 	transition: background-color 200ms;
+
+	&:first-child {
+		transform: rotate(180deg);
+	}
 
 	&:hover {
 		background-color: lighten($color: $primary-color, $amount: 5%);

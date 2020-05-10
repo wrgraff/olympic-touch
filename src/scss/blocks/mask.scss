@@ -1,0 +1,28 @@
+.mask {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+
+	display: block;
+	width: 100%;
+	visibility: hidden;
+
+	background-color: rgba($white-color, .8);
+	border: none;
+	opacity: 0;
+
+	transition: background-color 200ms, opacity 200ms, visibility 1ms linear 200ms;
+
+	&:hover {
+		background-color: rgba($white-color, .9);
+	}
+}
+
+.mask_opened {
+	visibility: visible;
+	opacity: 1;
+	transition: background-color 200ms, opacity 200ms;
+}
