@@ -1,19 +1,40 @@
 .length {
+	position: relative;
+	z-index: 2;
 	border-radius: 10px;
 
 	&:focus-within {
-		box-shadow: 0 0 0 4px $white-color, 0 0 0 8px rgba($secondary-color, .3);
+		@include outline;
+		outline-offset: 12px;
+		outline-width: 4px;
 	}
 }
 
 .length__group {
-	&:not(:last-child) {
-		margin-bottom: 24px;
+	display: none;
+
+	.no-js & {
+		display: block;
+
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
 	}
 
 	@include breakpoint(medium) {
-		display: flex;
 		flex-wrap: wrap;
+
+		.no-js & {
+			display: flex;
+		}
+	}
+}
+
+.length__group_active {
+	display: block;
+
+	@include breakpoint(medium) {
+		display: flex;
 	}
 }
 

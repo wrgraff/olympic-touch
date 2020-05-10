@@ -241,18 +241,23 @@ gulp.task('serve', () => {
         server: "dist"
     });
 
-    gulp.watch('src/img/**/*{jpg,png,svg}', gulp.series('img'));
+    gulp.watch('src/img/template/**/*{jpg,png,svg}', gulp.series('img-template'));
+    gulp.watch('src/img/slider/**/*{jpg,png,svg}', gulp.series('img-slider'));
+    gulp.watch('src/img/actions/**/*{jpg,png,svg}', gulp.series('img-actions'));
+	gulp.watch('src/img/contacts/**/*{jpg,png,svg}', gulp.series('img-contacts'));
+
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
     gulp.watch('src/js/*.js', gulp.series('js'));
 	gulp.watch('src/njk/**/*.njk', gulp.series('njk'));
 
-	gulp.watch('dist/template/olympic-touch/js/*.js').on('change', browserSync.reload);
-	gulp.watch('dist/**/*.{jpg,png,svg}').on('change', browserSync.reload);
+	gulp.watch('dist/**/*.js').on('change', browserSync.reload);
+	gulp.watch('dist/**/*{jpg,png,svg}').on('change', browserSync.reload);
 });
 
 gulp.task('build', gulp.series(
 	'del',
 	'scss',
+	'js',
 	'njk',
 	'fonts',
 	'img'

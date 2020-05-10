@@ -8,9 +8,13 @@
 		right: 0;
 		left: 0;
 
-		height: 52px;
+		height: 54px;
 
 		background-color: $gray-100-color;
+
+		.no-js & {
+			display: none;
+		}
 	}
 
 	fieldset {
@@ -22,6 +26,8 @@
 }
 
 .order__subscriptions {
+	position: relative;
+	z-index: 2;
 	margin-top: -16px;
 }
 
