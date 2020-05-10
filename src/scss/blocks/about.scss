@@ -13,7 +13,7 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
-		background-image: url('https://via.placeholder.com/1200x800');
+		background-image: url(../img/bg/about-small.jpg);
 	}
 
 	@include breakpoint(medium) {
@@ -26,6 +26,7 @@
 
 		&::before {
 			margin: 0 -24px -28px;
+			background-image: url(../img/bg/about.jpg);
 		}
 	}
 

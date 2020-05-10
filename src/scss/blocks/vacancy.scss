@@ -33,17 +33,21 @@
 .vacancy__salary {
 	display: inline-block;
 	margin-bottom: 22px;
-	padding-left: 36px;
+	padding-left: 32px;
 
 	color: $gray-500-color;
 	background-repeat: no-repeat;
 	background-position: 0 50%;
-	background-image: url('https://via.placeholder.com/24x24');
 }
 
 .vacancy__employment {
 	margin-right: 32px;
 	margin-bottom: 16px;
+	background-image: url(../img/ico/jobs/employment.svg);
+}
+
+.vacancy__salary {
+	background-image: url(../img/ico/jobs/salary.svg);
 }
 
 .vacancy__text {

@@ -14,6 +14,9 @@
 		margin: 0 auto 24px;
 
 		background-color: $white-color;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: 40px;
 		border-radius: 50%;
 	}
 
@@ -23,6 +26,12 @@
 
 	@include breakpoint(large) {
 		padding: 32px 32px 0;
+	}
+}
+
+.response_success {
+	&::before {
+		background-image: url(../img/ico/check-green.svg);
 	}
 }
 

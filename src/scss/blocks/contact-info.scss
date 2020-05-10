@@ -5,7 +5,10 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: cover;
-	background-image: url('https://via.placeholder.com/1200x350');
+
+	@include breakpoint(large) {
+		margin-top: -32px;
+	}
 }
 
 .contact-info__img {

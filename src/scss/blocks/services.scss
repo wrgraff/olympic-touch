@@ -1,5 +1,22 @@
 .services {
 	background-color: $gray-100-color;
+	background-repeat: no-repeat;
+	background-position: 30% -72px;
+	background-position: calc(50% + 20px) -72px;
+	background-image: url(../img/bg/gradient.png);
+
+	@media (min-resolution: 144dpi) {
+		background-image: url(../img/bg/gradient@2x.png);
+	}
+
+	@include breakpoint(medium) {
+		background-position: 50% 20px;
+	}
+
+	@include breakpoint(large) {
+		background-position: 10% 76px;
+		background-position: calc(50% - 370px) 76px;
+	}
 }
 
 .services__card {
@@ -19,7 +36,7 @@
 		background-repeat: no-repeat;
 		background-position: 50% 32%;
 		background-size: 57% auto, auto auto;
-		background-image: url('https://via.placeholder.com/160x90'), linear-gradient($secondary-color 80%, $primary-color 80%);
+		background-image: url(../img/logo-white.svg), linear-gradient($secondary-color 80%, $primary-color 80%);
 		border-radius: 10px;
 		box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5);
 	}

@@ -18,7 +18,7 @@
 
 	background-repeat: no-repeat;
 	background-position: right 20px top 100%;
-	background-image: url('https://via.placeholder.com/137x134');
+	background-image: url(../img/bg/flame.svg);
 
 	@include breakpoint(medium) {
 		padding-right: 186px;
@@ -32,6 +32,106 @@
 		padding-right: 200px;
 
 		background-position: right 32px top 100%;
+	}
+}
+
+.text-block_training,
+.text-block_equipment {
+	&::before {
+		content: '';
+		display: block;
+		height: 180px;
+		margin: -20px -20px 20px;
+
+		background-color: $gray-200-color;
+		background-size: cover;
+		background-position: 50% 50%;
+		border-radius: 10px 10px 0 0;
+	}
+
+	@include breakpoint(medium) {
+		position: relative;
+		padding-left: calc(37.5% - 12px);
+
+		&::before {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+
+			width: calc(37.5% - 24px);
+			height: auto;
+			margin: 0;
+
+			border-radius: 10px 0 0 10px;
+		}
+	}
+
+	@include breakpoint(large) {
+		display: flex;
+		flex-direction: column;
+		padding-left: 32px;
+
+		&::before {
+			position: static;
+			flex-basis: 230px;
+			flex-grow: 1;
+			align-self: stretch;
+			width: auto;
+			margin: -32px -32px 32px;
+
+			border-radius: 10px 10px 0 0;
+		}
+	}
+}
+
+.text-block_training::before {
+	background-image: url(../img/bg/training-small.jpg);
+
+	@media (min-resolution: 144dpi) {
+		background-image: url(../img/bg/training@2x.jpg);
+	}
+
+	@include breakpoint(medium) {
+		background-image: url(../img/bg/training-medium.jpg);
+
+		@media (min-resolution: 144dpi) {
+			background-image: url(../img/bg/training-medium@2x.jpg);
+		}
+	}
+
+	@include breakpoint(large) {
+		background-image: url(../img/bg/training.jpg);
+
+		@media (min-resolution: 144dpi) {
+			background-image: url(../img/bg/training@2x.jpg);
+		}
+	}
+}
+
+.text-block_equipment::before {
+	background-image: url(../img/bg/equipment-small.jpg);
+
+	@media (min-resolution: 144dpi) {
+		background-image: url(../img/bg/equipment@2x.jpg);
+	}
+
+	@include breakpoint(medium) {
+		@include breakpoint(medium) {
+			background-image: url(../img/bg/equipment-medium.jpg);
+
+			@media (min-resolution: 144dpi) {
+				background-image: url(../img/bg/equipment-medium@2x.jpg);
+			}
+		}
+	}
+
+	@include breakpoint(large) {
+		background-image: url(../img/bg/equipment.jpg);
+
+		@media (min-resolution: 144dpi) {
+			background-image: url(../img/bg/equipment@2x.jpg);
+		}
 	}
 }
 

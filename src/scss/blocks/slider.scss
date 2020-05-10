@@ -1,5 +1,10 @@
+.slider {
+	background-color: $gray-200-color;
+}
+
 .slider__list {
-	margin: 0;
+	max-width: 1400px;
+	margin: 0 auto;
 	padding: 0;
 
 	list-style: none;
@@ -7,7 +12,20 @@
 
 .slider__item {
 	display: none;
-	max-height: 570px;
+	max-height: 320px;
+
+	picture {
+		flex-basis: 100%;
+		display: flex;
+	}
+
+	@include breakpoint(medium) {
+		max-height: 450px;
+	}
+
+	@include breakpoint(large) {
+		max-height: 570px;
+	}
 }
 
 .slider__item_active {
@@ -17,6 +35,7 @@
 .slider__img {
 	display: block;
 	width: 100%;
+	height: 100%;
 	object-fit: cover;
 }
 

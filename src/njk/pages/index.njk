@@ -12,7 +12,38 @@
 		<h2 class="visually-hidden">О клубе Olympic Touch</h2>
 		<div class="promo__slider slider">
 			<ul class="slider__list">
-				<li class="slider__item slider__item_active"><img src="https://via.placeholder.com/1200x800" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
+				<li class="slider__item slider__item_active">
+					<picture>
+						<source
+							srcset="/img/slider/1-small.webp 1x, /img/slider/1-small@2x.webp 2x"
+							media="(max-width: 768px)"
+							type="image/webp"
+						/>
+						<source
+							srcset="/img/slider/1-small.jpg 1x, /img/slider/1-small@2x.jpg 2x"
+							media="(max-width: 768px)"
+						/>
+						<source
+							srcset="/img/slider/1-medium.webp 1x, /img/slider/1-medium@2x.webp 2x"
+							media="(max-width: 1000px)"
+							type="image/webp"
+						/>
+						<source
+							srcset="/img/slider/1-medium.jpg 1x, /img/slider/1-medium@2x.jpg 2x"
+							media="(max-width: 1000px)"
+						/>
+						<source
+							srcset="/img/slider/1.webp 1x"
+							type="image/webp"
+						/>
+						<img
+							src="/img/slider/1.jpg"
+							width="1200" height="800"
+							class="slider__img"
+							alt="Фото зала фитнес-клуба Olympic Touch"
+						/>
+					</picture>
+				</li>
 				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-1" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
 				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-2" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
 				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-3" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
@@ -65,13 +96,71 @@
 		<div class="page-main__container">
 			<ul class="actions__slider">
 				<li class="actions__item actions__item_active">
+					<div class="actions__img">
+						<picture>
+							<source
+								srcset="/img/actions/zozh-small.webp 1x, /img/actions/zozh-small@2x.webp 2x"
+								media="(max-width: 768px)"
+								type="image/webp"
+							/>
+							<source
+								srcset="/img/actions/zozh-small.jpg 1x, /img/actions/zozh-small@2x.jpg 2x"
+								media="(max-width: 768px)"
+							/>
+							<source
+								srcset="/img/actions/zozh-medium.webp 1x, /img/actions/zozh-medium@2x.webp 2x"
+								media="(max-width: 1000px)"
+								type="image/webp"
+							/>
+							<source
+								srcset="/img/actions/zozh-medium.jpg 1x, /img/actions/zozh-medium@2x.jpg 2x"
+								media="(max-width: 1000px)"
+							/>
+							<source
+								srcset="/img/actions/zozh.webp 1x, /img/actions/zozh@2x.webp 2x"
+								type="image/webp"
+							/>
+							<img
+								src="/img/actions/zozh.jpg"
+								srcset="/img/actions/zozh@2x.jpg 2x"
+								width="476" height="287"
+								alt="Инвестируй в ЗОЖ"
+							/>
+						</picture>
+					</div>
+
 					<h3 class="actions__heading">Инвестируй в ЗОЖ</h3>
 					<p class="actions__text">100 клубных карт за <strong class="currency">8 500</strong></p>
 					<p class="actions__details">Безлимитный год: абонемент на полный день</p>
 					<p class="actions__terms">Срок проведения акции до 06.05.2020</p>
 					<a href="/order/" class="actions__button button">Оформить карту</a>
 				</li>
+
 				<li class="actions__item">
+					<div class="actions__img">
+						<picture>
+							<source
+								srcset="/img/actions/brave-small.webp 1x, /img/actions/brave-small@2x.webp 2x"
+								media="(max-width: 768px)"
+								type="image/webp"
+							/>
+							<source
+								srcset="/img/actions/brave-small.jpg 1x, /img/actions/brave-small@2x.jpg 2x"
+								media="(max-width: 768px)"
+							/>
+							<source
+								srcset="/img/actions/brave.webp 1x, /img/actions/brave@2x.webp 2x"
+								type="image/webp"
+							/>
+							<img
+								src="/img/actions/brave.jpg"
+								srcset="/img/actions/brave@2x.jpg 2x"
+								width="476" height="287"
+								alt="Скидка для смелых!"
+							/>
+						</picture>
+					</div>
+
 					<h3 class="actions__heading">Скидка для смелых!</h3>
 					<p class="actions__text">Безлимитный год за <strong class="currency">9 500</strong></p>
 					<p class="actions__details">Стоимость за годовой абонемент на полный день</p>

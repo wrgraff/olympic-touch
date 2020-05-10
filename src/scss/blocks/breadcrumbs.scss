@@ -16,9 +16,11 @@
 		vertical-align: middle;
 		width: 16px;
 		height: 16px;
-		margin: 0 4px;
+		margin: 0 6px 0 4px;
 
-		background-color: red;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-image: url(../img/ico/chevron-right.svg);
 	}
 }
 
@@ -37,7 +39,18 @@
 		vertical-align: middle;
 		width: 16px;
 		height: 16px;
+		margin-right: -2px;
 
-		background-color: green;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-image: url(../img/ico/home.svg);
+		border: none;
+		opacity: .4;
+
+		transition: opacity 200ms;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 }

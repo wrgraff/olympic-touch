@@ -42,6 +42,8 @@
 
 	&[class*='block-list__item_ico']::before {
 		background-color: $secondary-color;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
 		border-radius: 10px;
 
 		transform: translateY(-12px);
@@ -64,4 +66,24 @@
 	.block-list_white & {
 		background-color: $white-color;
 	}
+}
+
+.block-list__item_ico_training::before {
+	background-image: url(../img/ico/promo/training.svg);
+}
+
+.block-list__item_ico_cardio::before {
+	background-image: url(../img/ico/promo/cardio.svg);
+}
+
+.block-list__item_ico_aerobic::before {
+	background-image: url(../img/ico/promo/aerobic.svg);
+}
+
+.block-list__item_ico_sauna::before {
+	background-image: url(../img/ico/promo/sauna.svg);
+}
+
+.block-list__item_ico_box::before {
+	background-image: url(../img/ico/promo/box.svg);
 }

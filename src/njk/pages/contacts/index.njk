@@ -21,12 +21,23 @@
 
 	<section class="page-main__section contact-info">
 		<h2 class="visually-hidden">Карта</h2>
-		<div class="contact-info__map"></div>
+		<div class="contact-info__map" style="background-image: url('/img/contacts/map.png')"></div>
 
 		<div class="page-main__container">
 			<div class="flex-grid">
 				<div class="flex-grid__column flex-grid__column_12 flex-grid__column_medium_6 flex-grid__column_large_5">
-					<img src="https://via.placeholder.com/378x350" alt="Фото входа Olympic Touch" class="contact-info__img">
+					<picture>
+						<source
+							srcset="/img/contacts/entrance.webp"
+							type="image/webp"
+						/>
+						<img
+							src="/img/contacts/entrance.jpg"
+							width="460" height="460"
+							class="contact-info__img"
+							alt="Фото входа Olympic Touch"
+						/>
+					</picture>
 				</div>
 
 				<div class="contact-info__details flex-grid__column">

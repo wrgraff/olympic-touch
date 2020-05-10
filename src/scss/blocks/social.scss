@@ -28,6 +28,8 @@
 	height: 44px;
 
 	background-color: rgba($white-color, .1);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
 	border-radius: 50%;
 
 	transition: background-color 200ms;
@@ -47,5 +49,21 @@
 				background-color: lighten($color: $secondary-color, $amount: 5%);
 			}
 		}
+	}
+}
+
+.social__link_instagram {
+	background-image: url(../img/ico/social/instagram.svg);
+
+	.social_header & {
+		background-size: 18px;
+	}
+}
+
+.social__link_vk {
+	background-image: url(../img/ico/social/vk.svg);
+
+	.social_header & {
+		background-size: 24px;
 	}
 }
