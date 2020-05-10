@@ -29,7 +29,7 @@
 						<ul class="subscriptions__list">
 							<li class="subscriptions__item subscriptions__item_active">
 								<label class="subscriptions__label">
-									<input type="radio" name="tariff" value="all-day" class="visually-hidden" checked>
+									<input type="radio" name="tariff" value="all" class="visually-hidden" checked>
 									<div class="subscriptions__card" data-name="Весь день">
 										<h3 class="subscriptions__heading">Весь день</h3>
 										<ul class="subscriptions__schedule schedule">
@@ -88,7 +88,7 @@
 						<fieldset class="order__length length">
 							<legend class="visually-hidden">Тариф и длительность</legend>
 
-							<div class="length__group">
+							<div class="length__group" data-subscription="all">
 								<h3 class="length__heading">Тариф "Весь день"</h3>
 
 								<input type="radio" name="length" value="all-day_1" id="all-day_1" class="visually-hidden">
@@ -115,7 +115,7 @@
 								</label>
 							</div>
 
-							<div class="length__group">
+							<div class="length__group" data-subscription="day">
 								<h3 class="length__heading">Тариф "День"</h3>
 
 								<input type="radio" name="length" value="day_12" id="day_12" class="visually-hidden">
@@ -126,7 +126,7 @@
 								</label>
 							</div>
 
-							<div class="length__group">
+							<div class="length__group" data-subscription="morning">
 								<h3 class="length__heading">Тариф "Утро"</h3>
 
 								<input type="radio" name="length" value="morning_12" id="morning_12" class="visually-hidden">
