@@ -1,6 +1,5 @@
 .page-header {
 	padding-bottom: 72px;
-	visibility: hidden;
 
 	color: $white-color;
 	background-color: $secondary-color;
@@ -23,9 +22,9 @@
 		max-width: 360px;
 		width: 100%;
 		width: calc(100% - 80px);
+		visibility: hidden;
 
 		transform: translateX(-100%);
-		transition: transform 200ms, visibility 1ms linear 300ms;
 	}
 
 	@include breakpoint(large) {
@@ -40,6 +39,10 @@
 	visibility: visible;
 	transform: translateX(0);
 	transition: transform 200ms;
+}
+
+.page-header_closed {
+	transition: transform 200ms, visibility 1ms linear 300ms;
 }
 
 .page-header__container {

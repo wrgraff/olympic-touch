@@ -1,5 +1,3 @@
-'use strict';
-
 (function(){
 	const pageHeader = document.querySelector('.page-header'),
 		  openButton = document.querySelector('.mobile-bar__menu'),
@@ -17,12 +15,14 @@
 		function openMenu(evt) {
 			evt.preventDefault();
 			pageHeader.classList.add('page-header_opened');
+			pageHeader.classList.remove('page-header_closed');
 			mask.classList.add('mask_opened');
 		};
 
 		function closeMenu(evt) {
 			evt.preventDefault();
 			pageHeader.classList.remove('page-header_opened');
+			pageHeader.classList.add('page-header_closed');
 			mask.classList.remove('mask_opened');
 		};
 	};
