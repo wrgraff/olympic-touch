@@ -11,54 +11,11 @@
 	<section class="page-main__section promo">
 		<h2 class="visually-hidden">О клубе Olympic Touch</h2>
 		<div class="promo__slider slider">
-			<ul class="slider__list">
-				<li class="slider__item slider__item_active">
-					<picture>
-						<source
-							srcset="/img/slider/1-small.webp 1x, /img/slider/1-small@2x.webp 2x"
-							media="(max-width: 768px)"
-							type="image/webp"
-						/>
-						<source
-							srcset="/img/slider/1-small.jpg 1x, /img/slider/1-small@2x.jpg 2x"
-							media="(max-width: 768px)"
-						/>
-						<source
-							srcset="/img/slider/1-medium.webp 1x, /img/slider/1-medium@2x.webp 2x"
-							media="(max-width: 1000px)"
-							type="image/webp"
-						/>
-						<source
-							srcset="/img/slider/1-medium.jpg 1x, /img/slider/1-medium@2x.jpg 2x"
-							media="(max-width: 1000px)"
-						/>
-						<source
-							srcset="/img/slider/1.webp 1x"
-							type="image/webp"
-						/>
-						<img
-							src="/img/slider/1.jpg"
-							width="1200" height="800"
-							class="slider__img"
-							alt="Фото зала фитнес-клуба Olympic Touch"
-						/>
-					</picture>
-				</li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-1" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-2" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-3" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-4" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-5" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-6" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-7" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-8" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-9" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-10" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-11" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-12" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-13" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-				<li class="slider__item"><img src="https://via.placeholder.com/1200x800?text=slide-14" loading="lazy" alt="Описание фото" class="slider__img" width="1200" height="800"></li>
-			</ul>
+			{% include "blocks/slider-list.njk" %}
+
+			<button class="slider__autoplay">
+				<span class="visually-hidden">Запустить/остановить слайдер</span>
+			</button>
 
 			<div class="slider__controls">
 				<button type="button" class="slider__button">

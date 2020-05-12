@@ -1,0 +1,91 @@
+{% set slides = [
+    {
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "1"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "2"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "3"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "4"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "5"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "6"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "7"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "8"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "9"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "10"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "11"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "12"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "13"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "14"
+    },{
+        name: "Фото зала фитнес-клуба Olympic Touch",
+        img: "15"
+    }
+] %}
+
+{% macro addSliderList(name, img) %}
+    <li class="slider__item slider__item_active">
+        <picture>
+            <source
+                srcset="/img/slider/{{img}}-small.webp 1x, /img/slider/{{img}}-small@2x.webp 2x"
+                media="(max-width: 768px)"
+                type="image/webp"
+            />
+            <source
+                srcset="/img/slider/{{img}}-small.jpg 1x, /img/slider/{{img}}-small@2x.jpg 2x"
+                media="(max-width: 768px)"
+            />
+            <source
+                srcset="/img/slider/{{img}}-medium.webp 1x, /img/slider/{{img}}-medium@2x.webp 2x"
+                media="(max-width: 1000px)"
+                type="image/webp"
+            />
+            <source
+                srcset="/img/slider/{{img}}-medium.jpg 1x, /img/slider/{{img}}-medium@2x.jpg 2x"
+                media="(max-width: 1000px)"
+            />
+            <source
+                srcset="/img/slider/{{img}}.webp 1x"
+                type="image/webp"
+            />
+            <img
+                src="/img/slider/{{img}}.jpg"
+                width="1200" height="570"
+                class="slider__img"
+                alt="{{name}}"
+            />
+        </picture>
+    </li>
+{% endmacro %}
+
+<ul class="slider__list">
+    {% for item in slides %}
+		{{ addSliderList(item.name, item.img) }}
+    {% endfor %}
+</ul>
+
+			

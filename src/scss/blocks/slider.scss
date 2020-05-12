@@ -1,3 +1,7 @@
+.slider {
+	position: relative;
+}
+
 .slider__list {
 	max-width: 1400px;
 	margin: 0 auto;
@@ -35,11 +39,78 @@
 	object-fit: cover;
 }
 
+.slider__autoplay {
+	position: absolute;
+	bottom: 0;
+	right: 20px;
+
+	display: block;
+	width: 48px;
+	height: 48px;
+	margin-left: -20px;
+
+	background-color: $primary-color;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-image: url(../img/ico/pause.svg);
+	border: none;
+	border-radius: 50%;
+
+	transition: background-color 200ms;
+
+	&[data-action='start'] {
+		background-image: url(../img/ico/play.svg);
+	}
+
+	.no-js & {
+		display: none;
+	}
+
+	&:hover {
+		background-color: lighten($color: $primary-color, $amount: 5%);
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 4px rgba($primary-color, .3);
+	}
+
+	@include breakpoint(medium) {
+		right: 56px;
+	}
+
+	@include breakpoint(large) {
+		top: 48px;
+		right: auto;
+		bottom: auto;
+		left: 84px;
+
+		opacity: 0;
+
+		transition: opacity 200ms;
+
+		.slider:hover & {
+			opacity: 1;
+		}
+	}
+
+	@include breakpoint($page-max-width) {
+		left: calc(50% - #{$page-max-width / 2 - 84px});
+	}
+}
+
 .slider__controls {
+	position: relative;
+	z-index: 1;
+
 	display: flex;
 	margin-top: -24px;
 	margin-bottom: 40px;
 	padding-left: 20px;
+
+	&:focus {
+		outline: none;
+	}
 
 	.no-js & {
 		display: none;
@@ -84,7 +155,8 @@
 		background-color: lighten($color: $primary-color, $amount: 5%);
 	}
 
-	&:focus {
+	&:focus,
+	.slider__controls:focus & {
 		outline: none;
 		box-shadow: 0 0 0 4px rgba($primary-color, .3);
 	}
