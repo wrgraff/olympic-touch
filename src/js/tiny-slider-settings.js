@@ -1,4 +1,5 @@
 const sliderList = document.querySelector('.slider__list');
+const actionsSlider = document.querySelector('.actions__slider');
 
 if (sliderList) {
 	const slider = tns({
@@ -16,5 +17,15 @@ if (sliderList) {
 				gutter: 4
 			}
 		}
+	});
+};
+
+if (actionsSlider) {
+	const sliderActions = tns({
+		container: actionsSlider,
+		controls: false,
+		navContainer: document.querySelector('.actions__nav'),
+		loop: false,
+		items: 1
 	});
 };

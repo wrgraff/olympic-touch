@@ -70,7 +70,7 @@ gulp.task('img-slider-large', () => {
 	return gulp.src('src/img/slider/*.jpg')
 		.pipe(imageResize({
 			width: 1200,
-			height: 800,
+			height: 570,
 			crop : true
 		}))
 		.pipe(gulp.dest('dist/img/slider'));

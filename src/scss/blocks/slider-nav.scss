@@ -13,6 +13,8 @@
 	border: 2px solid $secondary-color;
 	border-radius: 50%;
 
+	transition: border-color 250ms;
+
 	&:not(:last-child) {
 		margin-right: 8px;
 	}
@@ -28,12 +30,16 @@
 		border-radius: 50%;
 	}
 
+	&:hover {
+		border-color: $primary-color;
+	}
+
 	&:focus {
 		outline: none;
 		box-shadow: 0 0 0 4px rgba($secondary-color, .3);
 	}
-}
 
-.slider-nav__button_active::after {
-	background-color: $primary-color;
+	&.tns-nav-active::after {
+		background-color: $primary-color;
+	}
 }
