@@ -56,3 +56,24 @@
 
 	transform: translateY(50%);
 }
+
+.response__details {
+	margin: 0 -20px 24px;
+	padding: 20px;
+
+	background-color: $gray-200-color;
+
+	text-align: left;
+
+	ul {
+		margin: 0;
+	}
+
+	@include breakpoint(medium) {
+		max-width: 400px;
+		margin: 0 auto 32px;
+		padding: 24px;
+
+		border-radius: 10px;
+	}
+}
