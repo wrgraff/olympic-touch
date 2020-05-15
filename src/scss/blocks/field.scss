@@ -1,3 +1,27 @@
+.field {
+	position: relative;
+
+	&::after {
+		content: attr(data-error);
+		position: absolute;
+		right: 0;
+		top: 100%;
+		top: calc(100% - 10px);
+		z-index: -1;
+
+		padding: 10px 12px 4px;
+
+		border-radius: 0 0 10px 10px;
+
+		font-size: 12px;
+	}
+}
+
+.field_invalid::after {
+	color: $white-color;
+	background-color: lighten($error-color, 30%);
+}
+
 .field__text {
 	margin-bottom: 6px;
 	margin-left: 20px;
@@ -31,6 +55,31 @@
 	&:focus {
 		border-color: $secondary-color;
 		outline: none;
+	}
+
+	.field_invalid & {
+		border-color: lighten($error-color, 30%);
+		box-shadow: none;
+	}
+
+	.field_valid & {
+		border-color: lighten($green-color, 30%);
+	}
+
+	.field_invalid &:hover {
+		border-color: lighten($error-color, 20%);
+	}
+
+	.field_invalid &:focus {
+		border-color: $error-color;
+	}
+
+	.field_valid &:hover {
+		border-color: lighten($green-color, 20%);
+	}
+
+	.field_valid &:focus {
+		border-color: $green-color;
 	}
 }
 

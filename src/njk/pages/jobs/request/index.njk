@@ -29,27 +29,28 @@
 					<form action="/jobs/request/response/" method="post" class="form">
 						<label class="form__label field">
 							<p class="field__text">Имя <small>обязательное поле</small></p>
-							<input type="text" name="name" class="field__input" placeholder="Укажите имя" required>
+							<input type="text" name="name" class="field__input" placeholder="Укажите имя" required minlength="2" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">
 							<p class="field__text">Фамилия <small>обязательное поле</small></p>
-							<input type="text" name="surname" class="field__input" placeholder="Укажите фамилию" required>
+							<input type="text" name="surname" class="field__input" placeholder="Укажите фамилию" required minlength="2" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">
 							<p class="field__text">Отчество</p>
-							<input type="text" name="fathername" class="field__input" placeholder="Укажите отчество">
+							<input type="text" name="fathername" class="field__input" placeholder="Укажите отчество" minlength="2" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">
 							<p class="field__text">Дата рождения <small>обязательное поле</small></p>
-							<input type="date" name="birthday" class="field__input" placeholder="дд.мм.гггг" min="1970-01-01" value="1995-06-15" required>
+							<input type="date" name="birthday" class="field__input" placeholder="дд.мм.гггг" min="1970-01-01" max="2000-12-31" value="1995-06-15" required>
+							<!-- Значение max из расчета текущей даты минус 20 лет -->
 						</label>
 
 						<label class="form__label field">
 							<p class="field__text">Гражданство <small>обязательное поле</small></p>
-							<input type="text" name="citizenship" class="field__input" placeholder="РФ" required>
+							<input type="text" name="citizenship" class="field__input" placeholder="РФ" required minlength="2" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">
@@ -59,17 +60,17 @@
 
 						<label class="form__label field">
 							<p class="field__text">Телефон</p>
-							<input type="tel" name="phone" class="field__input" placeholder="8 999 213-45-67">
+							<input type="tel" name="phone" class="field__input" placeholder="8 999 213-45-67" pattern="^[0-9-+() ]*$">
 						</label>
 
 						<label class="form__label field">
 							<p class="field__text">Образование <small>обязательное поле</small></p>
-							<input type="text" name="education" class="field__input" placeholder="Укажите учебное заведение, факультет, специализацию и год завершения" required>
+							<input type="text" name="education" class="field__input" placeholder="Укажите учебное заведение, факультет, специализацию и год завершения" required minlength="5" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">
 							<p class="field__text">Спортивная квалификация</p>
-							<input type="text" name="qualification" class="field__input" placeholder="Укажите, если претендуете на должность тренера">
+							<input type="text" name="qualification" class="field__input" placeholder="Укажите, если претендуете на должность тренера" minlength="4" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">
@@ -79,7 +80,7 @@
 
 						<label class="form__label field">
 							<p class="field__text">Желаемая должность <small>обязательное поле</small></p>
-							<input type="text" name="post" class="field__input" placeholder="Тренер" required>
+							<input type="text" name="post" class="field__input" placeholder="Тренер" required minlength="4" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">

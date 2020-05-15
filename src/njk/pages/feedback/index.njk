@@ -36,12 +36,12 @@
 
 						<label class="form__label field">
 							<p class="field__text">Имя <small>обязательное поле</small></p>
-							<input type="text" name="name" class="field__input" placeholder="Укажите имя" required>
+							<input type="text" name="name" class="field__input" placeholder="Укажите имя" required minlength="2" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">
 							<p class="field__text">Фамилия</p>
-							<input type="text" name="surname" class="field__input" placeholder="Укажите фамилию">
+							<input type="text" name="surname" class="field__input" placeholder="Укажите фамилию" minlength="2" pattern="^[A-Za-zА-Яа-я0-9_-]*$">
 						</label>
 
 						<label class="form__label field">
@@ -51,7 +51,7 @@
 
 						<label class="form__label field">
 							<p class="field__text">Телефон</p>
-							<input type="tel" name="phone" class="field__input" placeholder="8 999 213-45-67">
+							<input type="tel" name="phone" class="field__input" placeholder="8 999 213-45-67" pattern="^[0-9-+() ]*$">
 						</label>
 
 						<label class="form__label field">
