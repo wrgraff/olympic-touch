@@ -46,6 +46,18 @@
         {% include "blocks/page-footer.njk" %}
     </div>
 
+    <template id="modal" hidden>
+        <div class="modal micromodal-slide is-open" id="modal-window" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true">
+                    <button class="modal__close ico-button ico-button_close" data-micromodal-close>
+                        <span class="visually-hidden">Закрыть окно</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <script src="/templates/olympic-touch/js/scripts.js"></script>
 </body>
 </html>

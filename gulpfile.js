@@ -46,6 +46,11 @@ gulp.task('njk', () => {
         .pipe(browserSync.stream());
 });
 
+gulp.task('json', () => {
+	return gulp.src('src/njk/pages/**/*.json')
+        .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('fonts', () => {
 	return gulp.src('src/fonts/**/*{woff,woff2}')
         .pipe(gulp.dest('dist/templates/olympic-touch/fonts'));
@@ -238,7 +243,15 @@ gulp.task('del', () => {
 
 gulp.task('serve', () => {
 	browserSync.init({
-        server: "dist"
+		server: "dist",
+		routes: {},
+        middleware: function (req, res, next) {
+            if (/\.json|\.txt|\.html/.test(req.url) && req.method.toUpperCase() == 'POST') {
+                console.log('[POST => GET] : ' + req.url);
+                req.method = 'GET';
+            }
+            next();
+        }
     });
 
     gulp.watch('src/img/template/**/*{jpg,png,svg}', gulp.series('img-template'));
@@ -259,6 +272,7 @@ gulp.task('build', gulp.series(
 	'scss',
 	'js',
 	'njk',
+	'json',
 	'fonts',
 	'img'
 ));

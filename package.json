@@ -40,6 +40,7 @@
     "stylelint": "^13.3.3"
   },
   "dependencies": {
+    "micromodal": "^0.4.6",
     "tiny-slider": "^2.9.2"
   }
 }
