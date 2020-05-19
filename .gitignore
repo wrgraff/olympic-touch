@@ -37,6 +37,8 @@ ehthumbs.db
 Thumbs.db
 
 # My own #
+.idea/
 node_modules/
 dist/
+package-lock.json
 .sketch
