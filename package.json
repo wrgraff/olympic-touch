@@ -39,6 +39,7 @@
     "stylelint": "^13.3.3"
   },
   "dependencies": {
+    "gulp-image-resize": "^0.13.1",
     "micromodal": "^0.4.6",
     "tiny-slider": "^2.9.2"
   }

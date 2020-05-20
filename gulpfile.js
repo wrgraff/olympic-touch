@@ -13,7 +13,19 @@ var gulp = require('gulp'),
 	del = require('del'),
 	browserSync = require('browser-sync').create(),
 	concat = require('gulp-concat'),
-	babel = require('gulp-babel');
+	babel = require('gulp-babel'),
+	imageResize = require('gulp-image-resize');
+
+gulp.task('cut-img', () => {
+	return gulp.src('src/img/name/*.jpg')
+		.pipe(imageResize({
+			width: 458 * 2,
+			height: 300 * 2,
+			crop : true
+		}))
+		.pipe(rename({ suffix: '-size' }))
+		.pipe(gulp.dest('src/img/name/size/'));
+});
 
 gulp.task('scss', () => {
 	return gulp.src('src/scss/style.scss')
@@ -74,9 +86,9 @@ gulp.task('img', () => {
 			imagemin.mozjpeg({quality: 75, progressive: true}),
 			imagemin.optipng({optimizationLevel: 3})
 		]))
-		.pipe(gulp.dest('dist/img/slider'))
+		.pipe(gulp.dest('dist/img'))
 		.pipe(webp())
-		.pipe(gulp.dest('dist/img/slider')); 
+		.pipe(gulp.dest('dist/img')); 
 });
 
 gulp.task('del', () => {
