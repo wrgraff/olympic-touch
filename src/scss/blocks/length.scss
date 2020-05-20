@@ -237,6 +237,10 @@
 
 	.length__price_old + & {
 		color: $primary-color;
+
+		&::after {
+			background-image: url(../img/ico/ru/ru-600-primary.svg);
+		}
 	}
 
 	@include breakpoint(medium) {

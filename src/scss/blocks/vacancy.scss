@@ -48,6 +48,10 @@
 
 .vacancy__salary {
 	background-image: url(../img/ico/jobs/salary.svg);
+
+	&::after {
+		background-image: url(../img/ico/ru/ru-600-gray.svg);
+	}
 }
 
 .vacancy__text {

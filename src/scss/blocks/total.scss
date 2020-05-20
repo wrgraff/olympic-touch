@@ -75,7 +75,11 @@
 
 	strong {
 		font-size: 26px;
-		font-weight: 800;
+		font-weight: 600;
+	}
+
+	.currency::after {
+		background-image: url(../img/ico/ru/ru-600-black.svg);
 	}
 
 	@include breakpoint(medium) {

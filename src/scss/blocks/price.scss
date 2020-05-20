@@ -29,6 +29,10 @@
 
 	.price__cost_old + & {
 		color: $primary-color;
+
+		&::after {
+			background-image: url(../img/ico/ru/ru-600-primary.svg);
+		}
 	}
 }
 

@@ -1,0 +1,17 @@
+.currency {
+	&::after {
+		content: '';
+
+		display: inline-block;
+		vertical-align: middle;
+		width: .6em;
+		height: .71em;
+		margin-left: -.1em;
+		margin-top: -.17em;
+
+		background-image: url(../img/ico/ru/ru-600-secondary.svg);
+		background-repeat: no-repeat;
+		background-position: 0 50%;
+		background-size: contain;
+	}
+}

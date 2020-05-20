@@ -81,4 +81,8 @@
 
 	font-size: 14px;
 	font-weight: 600;
+
+	&::after {
+		background-image: url(../img/ico/ru/ru-600-gray.svg);
+	}
 }
