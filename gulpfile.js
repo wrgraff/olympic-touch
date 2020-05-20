@@ -97,9 +97,7 @@ gulp.task('serve', () => {
     });
 
     gulp.watch('src/img/template/**/*{jpg,png,svg}', gulp.series('img-template'));
-    gulp.watch('src/img/slider/**/*{jpg,png,svg}', gulp.series('img-slider'));
-    gulp.watch('src/img/actions/**/*{jpg,png,svg}', gulp.series('img-actions'));
-	gulp.watch('src/img/contacts/**/*{jpg,png,svg}', gulp.series('img-contacts'));
+	gulp.watch('src/img/**/*{jpg,png,svg}', gulp.series('img'));
 
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
     gulp.watch('src/js/*.js', gulp.series('js'));
