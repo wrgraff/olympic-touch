@@ -30,6 +30,8 @@
 }
 
 .modal__container {
+    position: relative;
+
     max-width: 500px;
     max-height: 100vh;
     padding: 20px;
