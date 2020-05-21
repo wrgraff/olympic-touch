@@ -1,8 +1,14 @@
 .modal {
-    visibility: hidden;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    will-change: opacity;
 
     &.is-open {
-        visibility: visible;
+        animation-name: mask-in;
+    }
+
+    &.is-close {
+        animation-name: mask-out;
     }
 }
 
@@ -20,7 +26,7 @@
 
     background-color: rgba($black-color, .7);
 
-    will-change: transform;
+    will-change: transform, opacity;
 }
 
 .modal__container {
@@ -30,8 +36,11 @@
 
     background-color: $white-color;
     border-radius: 10px;
+	box-shadow: 0 10px 20px -10px rgba(10, 10, 10, .5);
 
     will-change: transform;
+    animation-duration: 250ms;
+    animation-fill-mode: forwards;
 
     p:last-child {
         margin-bottom: 0;
@@ -44,6 +53,14 @@
     @include breakpoint(large) {
         max-width: 700px;
         padding: 32px;
+    }
+
+    .is-open & {
+        animation-name: modal-in;
+    }
+
+    .is-close & {
+        animation-name: modal-out;
     }
 }
 
@@ -84,4 +101,48 @@
 	@include breakpoint(large) {
 		font-size: 36px;
 	}
+}
+
+@keyframes modal-in {
+    0% {
+        opacity: 0;
+        transform: translateY(15%) scale(.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes modal-out {
+    0% {
+        opacity: 1;
+        transform: none;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(15%) scale(.8);
+    }
+}
+
+@keyframes mask-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes mask-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }

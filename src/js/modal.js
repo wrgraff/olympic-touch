@@ -15,7 +15,14 @@
 		document.body.append(modal);
 
 		MicroModal.show('modal-window', {
-			onClose: () => modal.remove()
+			onClose: () => {
+				setTimeout(removeModal, 400);
+				modal.classList.add('is-close');
+			}
 		});
+
+		function removeModal() {
+			modal.remove();
+		};
 	};
 })();
