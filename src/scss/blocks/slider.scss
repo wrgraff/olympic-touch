@@ -15,8 +15,16 @@
 }
 
 .slider__item {
-	display: none;
+	display: flex;
 	max-height: 320px;
+
+	.no-js & {
+		display: none;
+
+		&:first-child {
+			display: flex;
+		}
+	}
 
 	picture {
 		flex-basis: 100%;
@@ -31,10 +39,6 @@
 	@include breakpoint(large) {
 		max-height: 570px;
 	}
-}
-
-.slider__item_active {
-	display: flex;
 }
 
 .slider__img {
