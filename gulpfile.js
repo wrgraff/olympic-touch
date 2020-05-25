@@ -16,16 +16,16 @@ var gulp = require('gulp'),
 	babel = require('gulp-babel'),
 	imageResize = require('gulp-image-resize');
 
-gulp.task('cut-img', () => {
-	return gulp.src('src/img/name/*.jpg')
-		.pipe(imageResize({
-			width: 458 * 2,
-			height: 300 * 2,
-			crop : true
-		}))
-		.pipe(rename({ suffix: '-size' }))
-		.pipe(gulp.dest('src/img/name/size/'));
-});
+// gulp.task('cut-img', () => {
+// 	return gulp.src('src/img/name/*.jpg')
+// 		.pipe(imageResize({
+// 			width: 458 * 2,
+// 			height: 300 * 2,
+// 			crop : true
+// 		}))
+// 		.pipe(rename({ suffix: '-size' }))
+// 		.pipe(gulp.dest('src/img/name/size/'));
+// });
 
 gulp.task('scss', () => {
 	return gulp.src('src/scss/style.scss')
