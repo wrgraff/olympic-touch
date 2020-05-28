@@ -3,7 +3,7 @@
 	z-index: 2;
 	border-radius: 10px;
 
-	&:focus-within {
+	.no-js &:focus-within {
 		@include outline;
 		outline-offset: 12px;
 		outline-width: 4px;
@@ -11,6 +11,7 @@
 }
 
 .length__group {
+	position: relative;
 	display: none;
 
 	.no-js & {
@@ -23,6 +24,7 @@
 
 	@include breakpoint(medium) {
 		flex-wrap: wrap;
+		margin: 0 12px;
 
 		.no-js & {
 			display: flex;
@@ -89,7 +91,7 @@
 		border: 6px solid $gray-200-color;
 		border-radius: 50%;
 
-		transition: background-color 200ms, border-color 200ms;
+		transition: background-color 200ms, border-color 200ms, transform 200ms;
 	}
 
 	&::after {
@@ -102,7 +104,7 @@
 		transition: background-color 200ms;
 	}
 
-	&:last-child::after {
+	&:last-of-type::after {
 		display: none;
 	}
 
@@ -123,6 +125,14 @@
 		// on line for every label in group with checked input
 		&::after {
 			background-color: $primary-color;
+
+			@include breakpoint(medium) {
+				background-color: $gray-200-color;
+
+				.no-js & {
+					background-color: $primary-color;
+				}
+			}
 		}
 	}
 
@@ -185,24 +195,26 @@
 		&:last-of-type {
 			flex-basis: 37.5%;
 			justify-content: flex-end;
+			margin-right: -12px;
+
 			text-align: right;
 
 			&::before {
-				right: 0;
-				left: auto;
-				transform: translateX(0);
+				left: 100%;
+				transform: translateX(-100%);
 			}
 		}
 
 		&:first-of-type {
 			flex-basis: 12.5%;
 			justify-content: flex-start;
+			margin-left: -12px;
+
 			text-align: left;
 
 			&::before {
 				left: 0;
-
-				transform: translateX(0);
+				transform: none;
 			}
 
 			&::after {
@@ -214,8 +226,37 @@
 		&:nth-last-of-type(2) {
 			&::after {
 				right: -150%;
+				right: calc(-150% + 10px);
 			}
 		}
+	}
+}
+
+.length__item_over {
+	color: $primary-color;
+
+	&::before {
+		transform: translateX(-50%) scale(1.3);
+	}
+
+	&:first-of-type::before {
+		transform: scale(1.3);
+	}
+
+	&:last-of-type::before {
+		transform: translateX(-100%) scale(1.3);
+	}
+
+	input:checked ~ &::before {
+		transform: translateX(-50%) scale(1.3);
+	}
+
+	input:checked ~ &:first-of-type::before {
+		transform: scale(1.3);
+	}
+
+	input:checked ~ &:last-of-type::before {
+		transform: translateX(-100%) scale(1.3);
 	}
 }
 
@@ -253,4 +294,63 @@
 	order: 1;
 
 	font-size: 14px;
+}
+
+.length__button {
+	position: absolute;
+	top: -14px;
+	left: 100%;
+	z-index: 5;
+
+	width: 64px;
+	height: 40px;
+
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: 50% 100%;
+	background-image: url(../img/ico/fire.svg);
+	border: none;
+
+	transform: translateX(-50%);
+	transition: transform 200ms, box-shadow 200ms;
+
+	&::after {
+		content: '';
+		position: absolute;
+		right: 50%;
+		bottom: 0;
+
+		width: 24px;
+		height: 24px;
+
+		border-radius: 50%;
+
+		transform: translateX(50%);
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.length__button_active,
+	.length__group:focus-within & {
+		transform: translateX(-50%) scale(1.2);
+
+		&::after {
+			box-shadow: 0 0 0 4px rgba($primary-color, .3);
+		}
+	}
+}
+
+.length__connector {
+	position: absolute;
+	top: 12px;
+
+	width: 100%;
+	height: 4px;
+
+	background-color: $primary-color;
 }

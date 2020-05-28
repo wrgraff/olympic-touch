@@ -16,6 +16,10 @@
 				if (active == group.dataset.subscription) {
 					group.querySelector('input:last-of-type').checked = 'true';
 					group.classList.add('length__group_active');
+					if (!group.isInited) {
+						window.initLengthGroup(group);
+						group.isInited = true;
+					};
 				} else {
 					group.classList.remove('length__group_active');
 				};
