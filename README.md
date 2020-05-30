@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c7406640-8899-42c7-b167-bd020a8fb8c3/deploy-status)](https://app.netlify.com/sites/olympic-touch/deploys)
+
 # Olympic Touch site layout
 You can view site progress on [olympic-touch.netlify.app](https://olympic-touch.netlify.app/)
 
