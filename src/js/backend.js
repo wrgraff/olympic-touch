@@ -5,6 +5,7 @@
     
     function sendForm(data, url, onSuccess, onError) {
         var xhr = new XMLHttpRequest();
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhr.responseType = 'json';
 
         xhr.addEventListener('load', function() {
