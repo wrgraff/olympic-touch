@@ -5,7 +5,7 @@
 		form.addEventListener('submit', (evt) => {
 			evt.preventDefault();
 
-			window.backend.sendForm(new FormData(form), form.getAttribute('action') + 'response.json', function(response) {
+			window.backend.sendForm(new FormData(form), form.getAttribute('action'), function(response) {
 				window.modal.show(createResponseText(response), true);
 			}, function(errorText) {
 				window.modal.show(errorText);
