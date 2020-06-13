@@ -5,7 +5,6 @@
     
     function sendForm(data, url, onSuccess, onError) {
         var xhr = new XMLHttpRequest();
-        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhr.responseType = 'json';
 
         xhr.addEventListener('load', function() {
@@ -24,6 +23,7 @@
 
         xhr.timeout = 10000;
         xhr.open('POST', url);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhr.send(data);
     };
 })();
