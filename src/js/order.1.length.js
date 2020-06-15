@@ -12,7 +12,7 @@
 			this.input.checked = true;
 			button.move(this.calcPinPosition(), button.offsetLeft, true);
 			connector.resize(this.calcPinPosition(), button.offsetLeft, true);
-			window.order.setTotalPrice(this.input.dataset.price);
+			window.totalPrice.set(this.input.dataset.price);
 		};
 		this.over = function() {
 			label.classList.add('length__item_over');

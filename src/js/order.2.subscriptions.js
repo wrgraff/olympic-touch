@@ -14,8 +14,20 @@
 		function selectLengthsGroup(active) {
 			lengths.forEach((group) => {
 				if (active == group.dataset.subscription) {
-					group.querySelector('input:last-of-type').checked = 'true';
+					let activeInput = group.querySelector('input:last-of-type');
+					activeInput.checked = 'true';
+					window.totalPrice.set(activeInput.dataset.price);
+
 					group.classList.add('length__group_active');
+
+					let lengthButton = group.querySelector('.length__button');
+					let lengthConnector = group.querySelector('.length__connector');
+					if (lengthButton && lengthConnector) {
+						let groupWidth = lengthButton.parentElement.offsetWidth;
+						lengthButton.move(groupWidth, 0, false);
+						lengthConnector.resize(groupWidth, 0, false);
+					};
+
 					if (!group.isInited) {
 						window.initLengthGroup(group);
 						group.isInited = true;
