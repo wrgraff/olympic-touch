@@ -23,7 +23,7 @@
 					let lengthButton = group.querySelector('.length__button');
 					let lengthConnector = group.querySelector('.length__connector');
 					if (lengthButton && lengthConnector) {
-						let groupWidth = lengthButton.parentElement.offsetWidth;
+						let groupWidth = group.offsetWidth;
 						lengthButton.move(groupWidth, 0, false);
 						lengthConnector.resize(groupWidth, 0, false);
 					};

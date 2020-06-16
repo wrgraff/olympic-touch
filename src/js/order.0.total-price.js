@@ -1,6 +1,6 @@
 (function() {
     const totalPriceContainer = document.querySelector('.total__price .currency'),
-          priceInputs = document.querySelectorAll('input[name="length"]')
+          priceInputs = document.querySelectorAll('.length__group input');
 
     priceInputs.forEach(input => {
         input.addEventListener('change', evt => {
