@@ -12,6 +12,7 @@
 			this.input.checked = true;
 			button.move(this.calcPinPosition(), button.offsetLeft, true);
 			connector.resize(this.calcPinPosition(), button.offsetLeft, true);
+			window.totalPrice.set(this.input.dataset.price);
 		};
 		this.over = function() {
 			label.classList.add('length__item_over');
@@ -42,9 +43,10 @@
 		button.setAttribute('tabindex', '-1');
 		button.move = function(to, from, animate = false) {
 			if (animate) {
-				this.animate([
-					{ left: from + 'px' },
-					{ left: to + 'px' }
+				this.animate(
+					[
+						{ left: from + 'px' },
+						{ left: to + 'px' }
 					], {
 						duration: 200,
 						easing: 'ease-in'
