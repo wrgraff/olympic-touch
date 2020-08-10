@@ -1,0 +1,78 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$this->redirectIfNotPage();
+
+$page = $this->getPage();
+$h1 = trim($page->getValue('h1'));
+try {
+    $result = $this->macros(
+        'webforms',
+        'add',
+        array(
+            'formId' => $page->getValue('form_id')
+        )
+    );
+} catch (Exception $e) {
+    $result = false;
+}
+?>
+<header class="page-main__header main-header">
+    <?php echo $this->render(null, OlympicTouchExtension::assets_breadcrumbs);?>
+
+    <?php if($h1):?>
+        <h1 class="main-header__heading"><?php echo $h1;?></h1>
+    <?php endif;?>
+</header>
+
+<section class="page-main__section">
+    <div class="page-main__container">
+        <div class="content flex-grid flex-grid_8 flex-grid_large_12">
+            <div class="content__text flex-grid__column flex-grid__column_8 flex-grid__column_large_9">
+                <?php if(is_array($result)):
+                    $agreement = false;
+
+                    switch($result['form_id']) {
+                        case SiteWebformsFormFeedbackModel::getObjectTypeId():
+                            $template = 'feedback';
+                            $agreement = $this->getUmiSettingsValue(SiteUmiSettingsOlympicTouchModel::field_agreement_feedback);
+                            break;
+                        case SiteWebformsFormFreezeModel::object_type_id:
+                            $template = 'freeze';
+                            $agreement = $this->getUmiSettingsValue(SiteUmiSettingsOlympicTouchModel::field_agreement_freeze);
+                            break;
+                        case SiteWebformsFormResumeModel::object_type_id:
+                            $template = 'resume';
+                            break;
+                        default:
+                            $template = 'default';
+                            break;
+                    }
+
+                    if(!$agreement) {
+                        $agreement = $this->getUmiSettingsValue(SiteUmiSettingsOlympicTouchModel::field_agreement_default);
+                    }
+                    ?>
+                    <form action="<?php echo OlympicTouchExtension::link_webforms_dispatch;?>" method="post" class="form">
+                        <?php echo $this->render(array(
+                            OlympicTouchExtension::assets_webforms_system_fields_param_form => $result
+                        ), OlympicTouchExtension::assets_webforms_system_fields);?>
+
+                        <?php echo $this->render($result, 'layouts/default/modules/webforms/page/' . $template);?>
+
+                        <?php if($agreement):?>
+                            <label class="form__label checkbox">
+                                <input type="checkbox" name="argeement" class="visually-hidden" required checked />
+                                <div class="checkbox__text">
+                                    <?php echo $this->parseTplMacros($agreement, false, $this->getUmiSettingsObjectId());?>
+                                </div>
+                            </label>
+                        <?php endif;?>
+
+                        <button type="submit" class="form__button button">Отправить</button>
+                    </form>
+                <?php endif;?>
+            </div>
+        </div>
+    </div>
+</section>

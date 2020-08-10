@@ -1,0 +1,115 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+
+$templateResources = $this->getTemplateResources();
+$contactsPageLink = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_page_link);
+$contactsAddress = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_address);
+$contactsWorkingTime = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_working_time);
+$contactsPhone = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_phone);
+$contactsEmail = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_email);
+
+$socialIg = $this->getCommonVar(OlympicTouchExtension::common_var_social_ig);
+$socialVk = $this->getCommonVar(OlympicTouchExtension::common_var_social_vk);
+?>
+<header class="mobile-bar">
+    <button class="mobile-bar__menu ico-button ico-button_menu">
+        <span class="visually-hidden">Открыть меню</span>
+    </button>
+
+    <a href="/" class="mobile-bar__logo logo">
+        <img src="<?php echo $templateResources;?>/img/logo-small.svg" width="180" height="42" alt="Olympic Touch" class="logo__img" />
+    </a>
+
+    <?php if($contactsPageLink):?>
+        <a href="<?php echo $contactsPageLink;?>" class="mobile-bar__contacts ico-button ico-button_address">
+            <span class="visually-hidden">Контакты</span>
+        </a>
+    <?php endif;?>
+
+    <?php if($contactsPageLink || $contactsAddress || $contactsWorkingTime):?>
+        <address class="mobile-bar__address address">
+            <?php if($contactsAddress):?>
+                <p class="address__place"><?php echo $contactsAddress;?></p>
+            <?php endif;?>
+            <?php if($contactsWorkingTime):?>
+                <p class="address__time">Время работы: <?php echo $contactsWorkingTime;?></p>
+            <?php endif;?>
+            <a href="<?php echo $contactsPageLink;?>" class="address__link">
+                <span class="visually-hidden">Посмотреть на&nbsp;карте</span>
+            </a>
+        </address>
+    <?php endif;?>
+</header>
+
+<header class="page__header page-header">
+    <nav class="page-header__nav">
+        <div class="page-header__container top-bar">
+            <?php echo $this->render(null, 'layouts/default/assets/header/menu');?>
+
+            <?php if($orderPageLink = $this->getCommonVar(OlympicTouchExtension::common_var_order_page_link)):?>
+                <a href="<?php echo $orderPageLink;?>" class="page-header__button top-bar__button button button_large_small">Оформить карту</a>
+            <?php endif;?>
+        </div>
+    </nav>
+
+    <div class="page-header__info header-info">
+        <?php if($contactsPageLink):?>
+            <address class="header-info__address address">
+                <?php if($contactsAddress):?>
+                    <p class="address__place"><?php echo $contactsAddress;?></p>
+                <?php endif;?>
+                <?php if($contactsWorkingTime):?>
+                    <p class="address__time">Время работы: <?php echo $contactsWorkingTime;?></p>
+                <?php endif;?>
+                <a href="<?php echo $contactsWorkingTime;?>" class="address__link">Посмотреть на&nbsp;карте</a>
+            </address>
+        <?php endif;?>
+
+        <div class="header-info__logo">
+            <a href="/" class="logo">
+                <img src="<?php echo $templateResources;?>/img/logo.svg" width="180" height="100" alt="Olympic Touch" class="logo__img" />
+            </a>
+        </div>
+
+        <div class="header-info__end">
+            <?php if($contactsPhone || $contactsEmail):?>
+                <ul class="header-info__contacts contacts">
+                    <?php if($contactsPhone):?>
+                        <li class="contacts__item">
+                            <a href="tel:<?php echo $this->preparePhoneLink($contactsPhone);?>" class="contacts__link"><?php echo $contactsPhone;?></a>
+                        </li>
+                    <?php endif;?>
+                    <?php if($contactsEmail):?>
+                        <li class="contacts__item">
+                            <a href="mailto:<?php echo $contactsEmail;?>" class="contacts__link"><?php echo $contactsEmail;?></a>
+                        </li>
+                    <?php endif;?>
+                </ul>
+            <?php endif;?>
+
+            <?php if($socialIg || $socialVk):?>
+                <ul class="header-info__social social social_header">
+                    <?php if($socialIg):?>
+                        <li class="social__item">
+                            <a href="<?php echo $socialIg;?>" class="social__link social__link_instagram" target="_blank">
+                                <span class="visually-hidden">Instagram</span>
+                            </a>
+                        </li>
+                    <?php endif;?>
+                    <?php if($socialVk):?>
+                        <li class="social__item">
+                            <a href="<?php echo $socialVk;?>" class="social__link social__link_vk" target="_blank">
+                                <span class="visually-hidden">В&nbsp;контакте</span>
+                            </a>
+                        </li>
+                    <?php endif;?>
+                </ul>
+            <?php endif;?>
+        </div>
+    </div>
+
+    <button class="page-header__close ico-button ico-button_close">
+        <span class="visually-hidden">Закрыть меню</span>
+    </button>
+</header>

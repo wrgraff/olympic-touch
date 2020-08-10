@@ -1,0 +1,14 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension $this */
+/** @var array $variables */
+
+$templateResources = $this->getTemplateResources();
+$templateVersion = $this->getTemplateVersion();
+
+$title = $this->getSiteMetaTitle();
+$description = $this->getSiteMetaDescription();
+$keywords = $this->getSiteMetaKeywords();
+?>
+<script src="<?php echo $templateResources;?>/js/scripts.js<?php echo $templateVersion;?>"></script>
+
+<?php echo $this->getScriptFiles();?>

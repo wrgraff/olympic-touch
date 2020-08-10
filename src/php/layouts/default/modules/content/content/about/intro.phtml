@@ -1,0 +1,24 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+$title = trim($page->getValue(SiteContentPageAboutModel::field_intro_title));
+$subTitle = trim($page->getValue(SiteContentPageAboutModel::field_intro_sub_title));
+$content = trim($page->getValue(SiteContentPageAboutModel::field_intro_content));
+if($title || $subTitle || $content):?>
+    <section class="page-main__section page-main__section_shrinked about">
+        <?php if($title):?>
+            <h2 class="visually-hidden"><?php echo $title;?></h2>
+        <?php endif;?>
+
+        <?php if($subTitle):?>
+            <p class="about__hero"><?php echo $subTitle;?></p>
+        <?php endif;?>
+        <?php if($content):?>
+            <div class="about__text">
+                <?php echo $this->parseTplMacros($content, $page->getId());?>
+            </div>
+        <?php endif;?>
+    </section>
+<?php endif;?>

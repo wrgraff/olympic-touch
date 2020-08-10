@@ -1,0 +1,54 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+$h1 = trim($page->getValue('h1'));
+$parentId = $page->getParentId();
+
+try {
+    $resultFiles = $this->macros(
+        'filemanager',
+        'getFileManagerPageFiles',
+        array(
+            'pageId' => $page->getId(),
+        )
+    );
+} catch (Exception $e) {
+    $resultFiles = false;
+}
+?>
+<header class="page-main__header main-header">
+    <?php echo $this->render(null, OlympicTouchExtension::assets_breadcrumbs);?>
+
+    <?php if($h1):?>
+        <h1 class="main-header__heading"><?php echo $h1;?></h1>
+    <?php endif;?>
+
+    <?php echo $this->render(array(
+        OlympicTouchExtension::assets_sub_menu_param_page_id => $parentId ? $parentId : $page->getId()
+    ), OlympicTouchExtension::assets_sub_menu);?>
+</header>
+
+<section class="page-main__section">
+    <div class="page-main__container">
+        <div class="content flex-grid flex-grid_8 flex-grid_large_12">
+            <div class="content__text flex-grid__column flex-grid__column_8 flex-grid__column_medium_5 flex-grid__column_large_9">
+                <?php echo $this->parseTplMacros($page->getValue('content'), $page->getId());?>
+            </div>
+
+            <?php if(is_array($resultFiles) && isset($resultFiles['items']) && count($resultFiles['items'])):?>
+                <div class="content__aside flex-grid__column aside">
+                    <h2 class="aside__heading">Загрузите информацию:</h2>
+
+                    <ul class="aside__files files">
+                        <?php foreach($resultFiles['items'] as $item):?>
+                            <li class="files__item">
+                                <a href="<?php echo $item['file'];?>" class="files__link"><?php echo $item['name'];?></a>
+                            </li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+            <?php endif;?>
+        </div>
+    </div>
+</section>

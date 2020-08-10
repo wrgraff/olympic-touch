@@ -1,0 +1,126 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+$title = trim($page->getValue(SiteContentPageIndexModel::field_promo_title));
+$images = $page->getValue(SiteContentPageIndexModel::field_promo_images);
+
+$leftTitle = trim($page->getValue(SiteContentPageIndexModel::field_promo_left_title));
+$leftText = trim($page->getValue(SiteContentPageIndexModel::field_promo_left_text));
+$leftLinkHref = trim($page->getValue(SiteContentPageIndexModel::field_promo_left_link_href));
+$leftLinkText = trim($page->getValue(SiteContentPageIndexModel::field_promo_left_link_text));
+
+$rightTitle = trim($page->getValue(SiteContentPageIndexModel::field_promo_right_title));
+$rightIcons = array();
+foreach(explode(PHP_EOL, trim($page->getValue(SiteContentPageIndexModel::field_promo_right_icons))) as $row) {
+    $row = trim($row);
+    if(!$row) {
+        continue;
+    }
+
+    $rightIcons[] = $row;
+}
+?>
+<section class="page-main__section promo">
+    <?php if($title):?>
+        <h2 class="visually-hidden"><?php echo $title;?></h2>
+    <?php endif;?>
+    <?php if($images):?>
+        <div class="promo__slider slider">
+            <ul class="slider__list">
+                <?php foreach($images as $image):
+                    if(!$image instanceof umiImageFile || $image->getIsBroken()) {
+                        continue;
+                    }
+
+                    $imageFilePath = $image->getFilePath(true);
+
+                    $smallFilePath = $this->makeThumbnailFull($imageFilePath, 412, 412);
+                    $mediumFilePath = $this->makeThumbnailFull($imageFilePath, 1000, 450);
+                    $largeFilePath = $this->makeThumbnailFull($imageFilePath, 1200, 570);
+                    ?>
+                    <li class="slider__item">
+                        <picture>
+                            <?php if($smallFilePath):
+                                $smallFilePath2x = $this->makeThumbnailFull($imageFilePath, 824, 800);
+
+                                $smallWebp = $this->getWebpImage($smallFilePath);
+                                if($smallWebp):
+                                    if($smallFilePath2x) {
+                                        $smallWebp2x = $this->getWebpImage($smallFilePath2x);
+                                    } else {
+                                        $smallWebp2x = false;
+                                    }?>
+                                    <source srcset="<?php echo $smallWebp;?> 1x<?php if($smallWebp2x):?>, <?php echo $smallWebp2x;?> 2x<?php endif;?>" media="(max-width: 768px)" type="image/webp" loading="lazy" />
+                                <?php endif;?>
+                                <source srcset="<?php echo $smallFilePath;?> 1x<?php if($smallFilePath2x):?>, <?php echo $smallFilePath2x;?> 2x<?php endif;?>" media="(max-width: 768px)" loading="lazy" />
+                            <?php endif;?>
+                            <?php if($mediumFilePath):
+                                $mediumFilePath2x = $this->makeThumbnailFull($imageFilePath, 1200, 600);
+                                $mediumWebp = $this->getWebpImage($mediumFilePath);
+                                if($mediumWebp):
+                                    if($mediumFilePath2x) {
+                                        $mediumWebp2x = $this->getWebpImage($mediumFilePath2x);
+                                    } else {
+                                        $mediumWebp2x = false;
+                                    }?>
+                                    <source srcset="<?php echo $mediumWebp;?> 1x<?php if($mediumWebp2x):?>, <?php echo $mediumWebp2x;?> 2x<?php endif;?>" media="(max-width: 1000px)" type="image/webp" loading="lazy" />
+                                <?php endif;?>
+                                <source srcset="<?php echo $mediumFilePath;?> 1x<?php if($mediumFilePath2x):?>, <?php echo $mediumFilePath2x;?> 2x<?php endif;?>" media="(max-width: 1000px)" loading="lazy" />
+                            <?php endif;?>
+                            <?php if($largeFilePath):
+                                $largeWebp = $this->getWebpImage($largeFilePath);
+                                if($largeWebp):?>
+                                    <source srcset="<?php echo $largeWebp;?> 1x" type="image/webp" loading="lazy" />
+                                <?php endif;?>
+                                <img src="<?php echo $largeFilePath;?>" width="1200" height="570" class="slider__img" alt="<?php echo htmlspecialchars($image->getAlt());?>" loading="lazy" />
+                            <?php endif;?>
+                        </picture>
+                    </li>
+                <?php endforeach;?>
+            </ul>
+
+            <button class="slider__autoplay">
+                <span class="visually-hidden">Запустить/остановить слайдер</span>
+            </button>
+
+            <div class="slider__controls">
+                <button type="button" class="slider__button">
+                    <span class="visually-hidden">Предыдущий слайд</span>
+                </button>
+                <button type="button" class="slider__button">
+                    <span class="visually-hidden">Следующий слайд</span>
+                </button>
+            </div>
+        </div>
+    <?php endif;?>
+
+    <div class="page-main__container">
+        <div class="flex-grid flex-grid_align_start">
+            <div class="promo__hero flex-grid__column flex-grid__column_12 flex-grid__column_large_5">
+                <?php if($leftTitle):?>
+                    <p class="promo__heading"><?php echo $leftTitle;?></p>
+                <?php endif;?>
+                <?php if($leftText):?>
+                    <p class="promo__text"><?php echo $leftText;?></p>
+                <?php endif;?>
+                <?php if($leftLinkHref && $leftLinkText):?>
+                    <a href="<?php echo $leftLinkHref;?>" class="promo__button button button_secondary"><?php echo $leftLinkText;?></a>
+                <?php endif;?>
+            </div>
+
+            <?php if($rightTitle):?>
+                <h3 class="visually-hidden"><?php echo $rightTitle;?></h3>
+            <?php endif;?>
+            <?php if($rightIcons):?>
+                <ul class="promo__list flex-grid__column block-list">
+                    <?php foreach($rightIcons as $icon):
+                        $data = explode('|', $icon);?>
+                        <li class="block-list__item<?php if(count($data) == 2):?> block-list__item_ico_<?php echo $data[0];?><?php endif;?>"><?php echo $data[1];?></li>
+                    <?php endforeach;?>
+                </ul>
+            <?php endif;?>
+        </div>
+    </div>
+</section>

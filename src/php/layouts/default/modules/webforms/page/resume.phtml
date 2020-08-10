@@ -1,0 +1,97 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$fields = $this->getAllFormFields($variables);
+if($fields) {
+    foreach ($fields as $fieldName => $field) {
+        $params = array(
+            OlympicTouchExtension::assets_field_param_field => $field
+        );
+
+        switch ($fieldName) {
+            case SiteWebformsFormResumeModel::field_name:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите имя';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormResumeModel::field_surname:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите фамилию';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormResumeModel::field_father_name:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите отчество';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormResumeModel::field_birthday:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'дд.мм.гггг';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'min' => '1970-01-01',
+                    'max' => date('Y-m-d', mktime(0, 0, 0, date('n'), date('j'), date('Y') - 20))
+                );
+                break;
+            case SiteWebformsFormResumeModel::field_nationality:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'РФ';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormResumeModel::field_email:
+                $params[OlympicTouchExtension::assets_field_param_title] = 'Электронная почта';
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'name@email.ru';
+                $params[OlympicTouchExtension::assets_field_param_input_type] = 'email';
+                break;
+            case SiteWebformsFormResumeModel::field_phone:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = '8 999 213-45-67';
+                $params[OlympicTouchExtension::assets_field_param_input_type] = 'tel';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'pattern' => '^[0-9-+() ]*$'
+                );
+                break;
+            case SiteWebformsFormResumeModel::field_education:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите учебное заведение, факультет, специализацию и год завершения';
+                $params[OlympicTouchExtension::assets_field_param_select_default_attributes] = array(
+                    'minlength' => '5',
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormResumeModel::field_qualification:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите, если претендуете на должность тренера';
+                $params[OlympicTouchExtension::assets_field_param_select_default_attributes] = array(
+                    'minlength' => '4',
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormResumeModel::field_experience:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = '5 лет и 8 месяцев';
+                break;
+            case SiteWebformsFormResumeModel::field_position:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Тренер';
+                $params[OlympicTouchExtension::assets_field_param_select_default_attributes] = array(
+                    'minlength' => '4',
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                $vacancyId = getRequest(OlympicTouchExtension::link_resume_query_vacancy_id);
+                if($vacancyId) {
+                    $vacancy = $this->getObjectById($vacancyId);
+                    if($vacancy instanceof umiObject && $vacancy->getMethod() == SDataVacancyItemModel::method && $vacancy->getValue(SDataVacancyItemModel::field_is_active)) {
+                        $params[OlympicTouchExtension::assets_field_param_value] = SDataVacancyItemModel::getName($vacancy);
+                    }
+                }
+                break;
+            case SiteWebformsFormResumeModel::field_comment:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Введите то, что хотите нам сообщить';
+                break;
+        }
+
+        echo $this->render($params, OlympicTouchExtension::assets_field);
+    }
+}

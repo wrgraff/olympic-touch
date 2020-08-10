@@ -1,0 +1,24 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$title = trim($this->getUmiSettingsValue(SiteUmiSettingsOlympicTouchModel::field_404_title));
+if(!$title) {
+    $title = $this->getSiteHeader();
+}
+?>
+<header class="page-main__header main-header">
+    <?php echo $this->render(array(
+        OlympicTouchExtension::assets_breadcrumbs_param_last => $title
+    ), OlympicTouchExtension::assets_breadcrumbs);?>
+
+    <h1 class="main-header__heading"><?php echo $title;?></h1>
+</header>
+
+<section class="page-main__section">
+    <div class="page-main__container">
+        <div class="not-found">
+            <div class="not-found__text"><?php echo $this->parseTplMacros($this->getUmiSettingsValue(SiteUmiSettingsOlympicTouchModel::field_404_content), $this->getUmiSettingsObjectId());?></div>
+            <a href="/" class="not-found__button button">Вернуться на&nbsp;главную</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+
+$this->redirectIfNotPage();
+
+$template = false;
+
+if(!$template) {
+    if($this->getPageIsIndex()) {
+        $template = 'index';
+    }
+}
+
+if(!$template) {
+    switch($this->getPageObjectTypeId()) {
+        case SiteContentPageContactsModel::object_type_id:
+            $template = 'contacts';
+            break;
+    }
+}
+
+if(!$template) {
+    switch($this->getPageObjectTypeGUID()) {
+        case SiteContentPageAboutModel::object_type_guid:
+            $template = 'about';
+            break;
+        case SiteContentPagePaymentModel::object_type_guid:
+            $template = 'payment';
+            break;
+        case SiteContentPageDocumentsModel::object_type_guid:
+            $template = 'documents';
+            break;
+    }
+}
+
+if(!$template) {
+    $template = 'default';
+}
+
+echo $this->render(null, 'layouts/default/modules/content/content/' . $template);

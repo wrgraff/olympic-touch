@@ -1,0 +1,54 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+
+try {
+    $content = $this->render(null, 'layouts/default/modules/' . $this->getModule() . '/' . $this->getMethod());
+} catch (Exception $e) {
+    $buffer = outputBuffer::current('HTTPOutputBuffer');
+    if($buffer instanceof HTTPOutputBuffer) {
+        $buffer->status('503 Service unavailable');
+    }
+    if(permissionsCollection::getInstance()->isSv()) {
+        $message = $e->getMessage();
+    } else {
+        $message = 'Произошла ошибка';
+    }
+
+    $content = $this->render(array(
+        OlympicTouchExtension::assets_errors_param_items => $message
+    ), OlympicTouchExtension::assets_errors);
+}
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <?php echo $this->render(null, 'layouts/default/assets/head');?>
+</head>
+
+<body class="no-js">
+    <div class="page">
+        <?php echo $this->render(null, 'layouts/default/assets/header');?>
+
+        <main class="page__main page-main">
+            <?php echo $content;?>
+        </main>
+
+        <?php echo $this->render(null, 'layouts/default/assets/footer');?>
+    </div>
+
+    <template id="modal" hidden>
+        <div class="modal micromodal-slide is-open" id="modal-window" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true">
+                    <button class="modal__close ico-button ico-button_close" data-micromodal-close>
+                        <span class="visually-hidden">Закрыть окно</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <?php echo $this->render(null, 'layouts/default/assets/scripts');?>
+</body>
+</html>

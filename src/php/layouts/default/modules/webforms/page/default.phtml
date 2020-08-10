@@ -1,0 +1,13 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$fields = $this->getAllFormFields($variables);
+if($fields) {
+    foreach ($fields as $fieldName => $field) {
+        $params = array(
+            OlympicTouchExtension::assets_field_param_field => $field
+        );
+
+        echo $this->render($params, OlympicTouchExtension::assets_field);
+    }
+}

@@ -1,0 +1,61 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+$title = trim($page->getValue(SiteContentPageIndexModel::field_card_title));
+$hiddenTitle = trim($page->getValue(SiteContentPageIndexModel::field_card_hidden_title));
+
+$list = array();
+
+$rawList = trim($page->getValue(SiteContentPageIndexModel::field_card_list));
+if($rawList) {
+    foreach(explode(PHP_EOL, $rawList) as $row) {
+        $row = trim($row);
+        if(!$row) {
+            continue;
+        }
+
+        $list[] = $row;
+    }
+}
+
+$text = trim($page->getValue(SiteContentPageIndexModel::field_card_text));
+?>
+<section class="page-main__section services">
+    <div class="page-main__container">
+        <?php if($title):?>
+            <h2 class="page-main__heading"><?php echo $title;?></h2>
+        <?php endif;?>
+
+        <div class="flex-grid">
+            <div class="flex-grid__column">
+                <div class="services__card"></div>
+            </div>
+
+            <?php if($hiddenTitle || $list || $text):?>
+                <section class="services__included flex-grid__column flex-grid__column_12 flex-grid__column_large_7">
+                    <?php if($hiddenTitle):?>
+                        <h3 class="visually-hidden"><?php echo $hiddenTitle;?></h3>
+                    <?php endif;?>
+
+                    <?php if($list):?>
+                        <ul class="services__list block-list block-list_white">
+                            <?php foreach($list as $row):?>
+                                <li class="block-list__item"><?php echo $row;?></li>
+                            <?php endforeach;?>
+                        </ul>
+                    <?php endif;?>
+
+                    <?php if($text):?>
+                        <p class="services__text"><?php echo $text;?></p>
+                    <?php endif;?>
+                </section>
+            <?php endif;?>
+        </div>
+
+        <?php echo $this->render(null, 'layouts/default/modules/content/content/index/services/tariffs');?>
+
+        <?php echo $this->render(null, 'layouts/default/modules/content/content/index/services/additional');?>
+    </div>
+</section>

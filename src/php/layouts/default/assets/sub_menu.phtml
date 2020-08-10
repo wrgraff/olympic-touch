@@ -1,0 +1,32 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension $this */
+/** @var array $variables */
+$result = false;
+
+$pageId = getArrayKey($variables, OlympicTouchExtension::assets_sub_menu_param_page_id);
+if($pageId) {
+    try {
+        $result = $this->macros(
+            'content',
+            'menu',
+            array(
+                'template' => '',
+                'maxDepth' => 1,
+                'rootPageId' => $pageId
+            )
+        );
+    } catch (Exception $e) {
+        $result = false;
+    }
+}
+if(is_array($result) && isset($result['items'])):?>
+    <div class="main-header__submenu">
+        <ul class="submenu" aria-label="Подменю">
+            <?php foreach($result['items'] as $item):?>
+                <li class="submenu__item<?php if(getArrayKey($item, 'status') == 'active'):?> submenu__item_active<?php endif;?>">
+                    <a href="<?php echo $item['link'];?>" class="submenu__link"><?php echo $item['text'];?></a>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+<?php endif;?>

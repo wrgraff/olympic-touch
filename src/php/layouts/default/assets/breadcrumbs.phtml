@@ -1,0 +1,38 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension $this */
+/** @var array $variables */
+
+$items = getArrayKey($variables, OlympicTouchExtension::assets_breadcrumbs_param_items);;
+$last = getArrayKey($variables, OlympicTouchExtension::assets_breadcrumbs_param_last);
+
+if(!$items) {
+    try {
+        $result = $this->macros(
+            'core',
+            'navibar'
+        );
+        if(is_array($result) && isset($result['items']) && count($result['items']) > 0) {
+            $items = $result['items'];
+            if(!$last) {
+                $lastItem = array_pop($items);
+                $last = $lastItem['text'];
+            }
+        }
+    } catch (Exception $e) {}
+}
+?>
+<ul class="main-header__breadcrumbs breadcrumbs" aria-label="Хлебные крошки">
+    <li class="breadcrumbs__item">
+        <a href="/" class="breadcrumbs__link">
+            <span class="visually-hidden">Главная страница</span>
+        </a>
+    </li>
+    <?php if(is_array($items)):?>
+        <?php foreach($items as $item):?>
+            <li class="breadcrumbs__item">
+                <a href="<?php echo $item['link'];?>" class="breadcrumbs__link"><?php echo $item['text'];?></a>
+            </li>
+        <?php endforeach;?>
+    <?php endif;?>
+    <li class="breadcrumbs__item"><?php echo $last;?></li>
+</ul>

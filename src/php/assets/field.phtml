@@ -1,0 +1,105 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension $this */
+/** @var array $variables */
+
+$field = getArrayKey($variables, OlympicTouchExtension::assets_field_param_field);
+if($field):
+    $id = getArrayKey($variables, OlympicTouchExtension::assets_field_param_id);
+    if(!$id ) {
+        $id = getArrayKey($field, 'name') . '_' . getArrayKey($field, 'id');
+    }
+
+    $title = getArrayKey($variables, OlympicTouchExtension::assets_field_param_title);
+    if(!$title) {
+        $title = getArrayKey($field, 'title');
+    }
+
+    $attributes = getArrayKey($variables, OlympicTouchExtension::assets_field_param_input_attributes);
+    if(!is_array($attributes)) {
+        $attributes = array();
+    }
+
+    $placeholder = getArrayKey($variables, OlympicTouchExtension::assets_field_param_placeholder);
+    if($placeholder) {
+        $attributes['placeholder'] = $placeholder;
+    }
+
+    $required = getArrayKey($field, 'required');
+    if(!$required) {
+        $required = getArrayKey($variables, OlympicTouchExtension::assets_field_param_required);
+    }
+
+    if($required) {
+        $attributes['required'] = 'true';
+    }
+
+    $labelClass = 'form__label field';
+
+    $inputType = getArrayKey($variables, OlympicTouchExtension::assets_field_param_input_type);
+    if(!$inputType) {
+        switch(getArrayKey($field, 'type')) {
+            case 'relation':
+                $inputType = 'select';
+                break;
+            case 'text':
+                $inputType = 'textarea';
+                break;
+            case 'date':
+                $inputType = 'date';
+                break;
+            default:
+                $inputType = 'text';
+        }
+    }
+
+    switch ($inputType) {
+        case 'select':
+            $labelClass .= ' field_select';
+            break;
+        case 'textarea':
+            if (!isset($attributes['rows'])) {
+                $attributes['rows'] = 7;
+            }
+            break;
+    }
+
+    $inputName = getArrayKey($variables, OlympicTouchExtension::assets_field_param_input_name);
+    if(!$inputName) {
+        $inputName = getArrayKey($field, 'input_name');
+    }
+
+    $value = getArrayKey($variables, OlympicTouchExtension::assets_field_param_value);
+    if(!$value) {
+        $value = getArrayKey($field, 'value');
+    }
+    ?>
+    <label class="<?php echo $labelClass;?>">
+        <p class="field__text"><?php echo $title;?><?php if($required):?> <small>обязательное поле</small><?php endif;?></p>
+        <?php switch($inputType):
+            case 'select':
+                $default = getArrayKey($variables, OlympicTouchExtension::assets_field_param_select_default_text);?>
+                <select name="<?php echo $inputName;?>" class="field__input field__input_select">
+                    <?php if($default):?>
+                        <option value="" <?php echo $this->prepareHtmlAttributes(getArrayKey($variables, OlympicTouchExtension::assets_field_param_select_default_attributes));?>><?php echo $default;?></option>
+                    <?php endif;?>
+                    <?php foreach($field['values'] as $item):?>
+                        <option value="<?php echo $item['id'];?>"<?php if($value == $item['id'] || (is_string($value) && $value == $item['name']) || getArrayKey($item, 'selected')):?> selected<?php endif;?>><?php echo $item['name'];?></option>
+                    <?php endforeach;?>
+                </select>
+            <?php break;?>
+            <?php case 'textarea':?>
+                <textarea name="<?php echo $inputName;?>" class="field__input field__input_textarea" <?php echo $this->prepareHtmlAttributes($attributes);?>><?php echo $value;?></textarea>
+            <?php break;?>
+            <?php default:
+                if(!in_array($inputType, array(
+                    'tel', 'email' ,'number', 'date'
+                ))) {
+                    $inputType = 'text';
+                }
+                $attributes['value'] = $value;
+                ?>
+                <input type="<?php echo $inputType;?>" name="<?php echo $inputName;?>" class="field__input" <?php echo $this->prepareHtmlAttributes($attributes);?> />
+            <?php break;?>
+        <?php endswitch;?>
+    </label>
+<?php endif;?>

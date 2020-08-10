@@ -1,0 +1,22 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+
+$this->redirectIfNotPage();
+
+$template = false;
+
+switch($this->getPageObjectTypeGUID()) {
+    case SDataPageOrderModel::object_type_guid:
+        $template = 'order';
+        break;
+    case SDataPageVacanciesModel::object_type_guid:
+        $template = 'vacancies';
+        break;
+}
+
+if(!$template) {
+    $this->redirect('/');
+}
+
+echo $this->render(null, 'layouts/default/modules/sData/sdata_page/' . $template);

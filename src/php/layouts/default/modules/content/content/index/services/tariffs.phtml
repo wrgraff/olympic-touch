@@ -1,0 +1,76 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension|OlympicTouchExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+try {
+    $result = $this->macros(
+        'sData',
+        'getSDataTariffsIndexItems'
+    );
+} catch (Exception $e) {
+    $result = false;
+}
+
+$orderLink = $this->getCommonVar(OlympicTouchExtension::common_var_order_page_link);
+?>
+<?php if(is_array($result) && isset($result['items'])):
+    $title = trim($page->getValue(SiteContentPageIndexModel::field_tariffs_title));?>
+    <section class="services__tariffs tariffs">
+        <?php if($title):?>
+            <h3 class="visually-hidden"><?php echo $title;?></h3>
+        <?php endif;?>
+
+        <ul class="tariffs__list flex-grid flex-grid_1 flex-grid_medium_2 flex-grid_large_3">
+            <?php foreach($result['items'] as $item):?>
+                <li class="tariffs__item flex-grid__column flex-grid__column_1">
+                    <h4 class="tariffs__heading"><?php echo $item['name'];?></h4>
+                    <?php if(isset($item['label'])):?>
+                        <span class="tariffs__label"><?php echo $item['label'];?></span>
+                    <?php endif;?>
+
+                    <h5 class="visually-hidden">Расписание</h5>
+                    <ul class="tariffs__schedule schedule">
+                        <?php if(isset($item['weekdays'])):?>
+                            <li class="schedule__item">
+                                <span class="schedule__days">Будние дни</span>
+                                <b class="schedule__time"><?php echo $item['weekdays'];?></b>
+                            </li>
+                        <?php endif;?>
+                        <?php if(isset($item['holidays'])):?>
+                            <li class="schedule__item">
+                                <span class="schedule__days">Выходные дни</span>
+                                <b class="schedule__time"><?php echo $item['holidays'];?></b>
+                            </li>
+                        <?php endif;?>
+                    </ul>
+
+                    <?php if(isset($item['price'])):?>
+                        <h5 class="visually-hidden">Цены</h5>
+                        <ul class="tariffs__price price">
+                            <?php foreach($item['price'] as $arPrice):
+                                $term = SDataTariffItemModel::getTermName(getArrayKey($arPrice, 'field'));
+                                if(!$term) {
+                                    continue;
+                                }?>
+                                <li class="price__item">
+                                    <b class="price__term"><?php echo $term;?></b>
+                                    <?php if(isset($arPrice['old'])):?>
+                                        <s class="price__cost price__cost_old currency"><span class="visually-hidden">Цена до&nbsp;скидки:</span> <?php echo $this->formatPrice($arPrice['old']);?> <span class="visually-hidden">рублей</span></s>
+                                        <strong class="price__cost currency"><span class="visually-hidden">Цена со&nbsp;скидкой:</span> <?php echo $this->formatPrice($arPrice['value']);?> <span class="visually-hidden">рублей</span></strong>
+                                    <?php else:?>
+                                        <strong class="price__cost currency"><?php echo $this->formatPrice($arPrice['value']);?> <span class="visually-hidden">рублей</span></strong>
+                                    <?php endif;?>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    <?php endif;?>
+
+                    <?php if($orderLink):?>
+                        <a href="<?php echo $orderLink;?>" class="tariffs__button button<?php if(!getArrayKey($item, 'show_button')):?> button_secondary<?php endif;?> button_small">Оформить карту</a>
+                    <?php endif;?>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </section>
+<?php endif;?>

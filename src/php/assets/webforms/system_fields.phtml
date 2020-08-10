@@ -1,0 +1,18 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|OlympicTouchExtension $this */
+/** @var array $variables */
+$form = getArrayKey($variables, OlympicTouchExtension::assets_webforms_system_fields_param_form);
+if($form):
+    $formId = $form['form_id'];
+
+    $refOnSuccess = getArrayKey($variables, OlympicTouchExtension::assets_webforms_system_fields_param_on_success);
+    if(!$refOnSuccess) {
+        $refOnSuccess = '/webforms/posted/' . $formId . '/';
+    }
+    $selected = $this->getArrayItem($form['items'], array('selected' => 'selected'));?>
+<input type="hidden" name="system_form_id" value="<?php echo $formId;?>" />
+<?php if(is_array($selected)):?>
+<input type="hidden" name="system_email_to" value="<?php echo $selected['id'];?>" />
+<?php endif;?>
+<input type="hidden" name="ref_onsuccess" value="<?php echo $refOnSuccess;?>" />
+<?php endif;?>

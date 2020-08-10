@@ -1,0 +1,20 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+$title = trim($page->getValue(SiteContentPageAboutModel::field_equipment_title));
+$content = trim($page->getValue(SiteContentPageAboutModel::field_equipment_content));
+if($title || $content):?>
+    <section class="page-main__text-block flex-grid__column flex-grid__column_1 text-block text-block_equipment">
+        <?php if($title):?>
+            <h2 class="text-block__heading"><?php echo $title;?></h2>
+        <?php endif;?>
+
+        <?php if($content):?>
+            <div class="text-block__text">
+                <?php echo $this->parseTplMacros($content, $page->getId());?>
+            </div>
+        <?php endif;?>
+    </section>
+<?php endif;?>

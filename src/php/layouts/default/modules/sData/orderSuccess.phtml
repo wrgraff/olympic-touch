@@ -1,0 +1,39 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$contactsPhone = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_phone);
+$contactsEmail = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_email);
+?>
+<header class="page-main__header main-header">
+    <?php echo $this->render(array(
+        OlympicTouchExtension::assets_breadcrumbs_param_last => 'Результат заказа'
+    ), OlympicTouchExtension::assets_breadcrumbs);?>
+
+    <h1 class="main-header__heading">Результат заказа</h1>
+</header>
+
+<section class="page-main__section">
+    <div class="page-main__container">
+        <div class="response response_success">
+            <h2 class="page-main__heading">Ваш заказ успешно оформлен!</h2>
+
+            <p class="response__text">Мы&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время для уточнения деталей оформления карты.</p>
+            <?php if($contactsPhone || $contactsEmail):?>
+                <p class="response__comment">Вы&nbsp;также можете связаться с&nbsp;нами любым из&nbsp;доступных способов:</p>
+                <ul class="response__contacts contacts">
+                    <?php if($contactsPhone):?>
+                        <li class="contacts__item">
+                            <a href="tel:<?php echo $this->preparePhoneLink($contactsPhone);?>" class="contacts__link"><?php echo $contactsPhone;?></a>
+                        </li>
+                    <?php endif;?>
+                    <?php if($contactsEmail):?>
+                        <li class="contacts__item">
+                            <a href="mailto:<?php echo $contactsEmail;?>" class="contacts__link"><?php echo $contactsEmail;?></a>
+                        </li>
+                    <?php endif;?>
+                </ul>
+            <?php endif;?>
+            <a href="/" class="response__button button">Вернуться на&nbsp;главную</a>
+        </div>
+    </div>
+</section>

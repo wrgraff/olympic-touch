@@ -1,0 +1,88 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension|OlympicTouchExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+$h1 = trim($page->getValue('h1'));
+
+$asideTitle = $page->getValue(SDataPageVacanciesModel::field_aside_title);
+$asideContent = $page->getValue(SDataPageVacanciesModel::field_aside_content);
+
+try {
+    $result = $this->macros(
+        'sData',
+        'getSDataVacanciesItems'
+    );
+} catch (Exception $e) {
+    $result = false;
+}
+?>
+<header class="page-main__header main-header">
+    <?php echo $this->render(null, OlympicTouchExtension::assets_breadcrumbs);?>
+
+    <?php if($h1):?>
+        <h1 class="main-header__heading"><?php echo $h1;?></h1>
+    <?php endif;?>
+</header>
+
+<section class="page-main__section">
+    <div class="page-main__container">
+        <h2 class="visually-hidden">Список вакансий</h2>
+
+        <div class="jobs flex-grid flex-grid_8 flex-grid_large_12">
+            <div class="jobs__list flex-grid__column flex-grid__column_8 flex-grid__column_large_8">
+                <?php if(is_array($result) && isset($result['items'])):
+                    $resumePage = getArrayKey($this->getUmiSettingsValue(SiteUmiSettingsOlympicTouchModel::field_system_resume_page_id), 0);
+                    if($resumePage instanceof umiHierarchyElement) {
+                        $resumePageLink = $this->getPageLink($resumePage->getId());
+                    } else {
+                        $resumePageLink = false;
+                    }?>
+                    <?php foreach($result['items'] as $item):?>
+                        <article class="jobs__item vacancy">
+                            <h3 class="vacancy__heading"><?php echo $item['name'];?></h3>
+                            <?php if(isset($item['employment'])):?>
+                                <p class="vacancy__employment"><?php echo $item['employment'];?></p>
+                            <?php endif;?>
+                            <?php if(isset($item['salary'])):?>
+                                <p class="vacancy__salary currency"><?php echo $item['salary'];?> <span class="visually-hidden">рублей</span></p>
+                            <?php endif;?>
+                            <?php if(isset($item['text'])):?>
+                                <div class="vacancy__text">
+                                    <?php echo $this->parseTplMacros($item['text'], false, $item['id']);?>
+                                </div>
+                            <?php endif;?>
+                            <?php if(isset($item['duties'])):?>
+                                <ul class="vacancy__responsibilities">
+                                    <?php foreach($item['duties'] as $duty):?>
+                                        <li><?php echo $duty;?></li>
+                                    <?php endforeach;?>
+                                </ul>
+                            <?php endif;?>
+                            <?php if($resumePageLink):?>
+                                <a href="<?php echo $resumePageLink;?>?<?php echo OlympicTouchExtension::link_resume_query_vacancy_id;?>=<?php echo $item['id'];?>" class="vacancy__button button button_secondary">Отправить резюме</a>
+                            <?php endif;?>
+                            <?php if(isset($item['link'])):?>
+                                <a href="<?php echo $item['link']['href'];?>" class="vacancy__link" rel="nofollow" target="_blank"><?php echo $item['link']['text'];?></a>
+                            <?php endif;?>
+                        </article>
+                    <?php endforeach;?>
+                <?php endif;?>
+            </div>
+
+            <?php if($asideTitle || $asideContent):?>
+                <div class="jobs__terms flex-grid__column aside aside_gray">
+                    <?php if($asideTitle):?>
+                        <h2 class="aside__heading"><?php echo $asideTitle;?></h2>
+                    <?php endif;?>
+
+                    <?php if($asideContent):?>
+                        <div class="aside__text">
+                            <?php echo $this->parseTplMacros($asideContent, $page->getId());?>
+                        </div>
+                    <?php endif;?>
+                </div>
+            <?php endif;?>
+        </div>
+    </div>
+</section>

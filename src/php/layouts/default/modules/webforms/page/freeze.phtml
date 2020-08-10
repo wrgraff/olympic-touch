@@ -1,0 +1,59 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$fields = $this->getAllFormFields($variables);
+if($fields) {
+    foreach ($fields as $fieldName => $field) {
+        $params = array(
+            OlympicTouchExtension::assets_field_param_field => $field
+        );
+
+        switch ($fieldName) {
+            case SiteWebformsFormFreezeModel::field_name:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите имя';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormFreezeModel::field_surname:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите фамилию';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormFreezeModel::field_father_name:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите отчество';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormFreezeModel::field_email:
+                $params[OlympicTouchExtension::assets_field_param_title] = 'Электронная почта';
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'name@email.ru';
+                $params[OlympicTouchExtension::assets_field_param_input_type] = 'email';
+                break;
+            case SiteWebformsFormFreezeModel::field_phone:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = '8 999 213-45-67';
+                $params[OlympicTouchExtension::assets_field_param_input_type] = 'tel';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'pattern' => '^[0-9-+() ]*$'
+                );
+                break;
+            case SiteWebformsFormFreezeModel::field_reason:
+                $params[OlympicTouchExtension::assets_field_param_select_default_text] = 'Не&nbsp;указана';
+                $params[OlympicTouchExtension::assets_field_param_select_default_attributes] = array(
+                    'selected' => '',
+                    'disabled' => ''
+                );
+                break;
+            case SiteWebformsFormFreezeModel::field_comment:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Введите то, что хотите нам сообщить';
+                break;
+        }
+
+        echo $this->render($params, OlympicTouchExtension::assets_field);
+    }
+}

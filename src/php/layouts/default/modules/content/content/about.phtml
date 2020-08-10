@@ -1,0 +1,31 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+$h1 = trim($page->getValue('h1'));
+?>
+<header class="page-main__header main-header">
+    <?php echo $this->render(null, OlympicTouchExtension::assets_breadcrumbs);?>
+
+    <?php if($h1):?>
+        <h1 class="main-header__heading"><?php echo $h1;?></h1>
+    <?php endif;?>
+
+    <?php echo $this->render(array(
+        OlympicTouchExtension::assets_sub_menu_param_page_id => $page->getId()
+    ), OlympicTouchExtension::assets_sub_menu);?>
+</header>
+
+<?php echo $this->render(null, 'layouts/default/modules/content/content/about/intro');?>
+
+<section class="page-main__section page-main__section_shrinked">
+    <div class="page-main__container">
+        <?php echo $this->render(null, 'layouts/default/modules/content/content/about/mission');?>
+
+        <div class="flex-grid flex-grid_1 flex-grid_large_2">
+            <?php echo $this->render(null, 'layouts/default/modules/content/content/about/training');?>
+
+            <?php echo $this->render(null, 'layouts/default/modules/content/content/about/equipment');?>
+        </div>
+    </div>
+</section>

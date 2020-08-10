@@ -1,0 +1,35 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+$title = trim($page->getValue(SiteContentPagePaymentModel::field_right_title));
+$content = trim($page->getValue(SiteContentPagePaymentModel::field_right_content));
+if($title || $content):?>
+    <section class="page-main__text-block flex-grid__column flex-grid__column_1 text-block">
+        <?php if($title):?>
+            <h2 class="text-block__heading"><?php echo $title;?></h2>
+        <?php endif;?>
+
+        <?php if($content):?>
+            <div class="text-block__text">
+                <?php echo $this->parseTplMacros($content, $page->getId());?>
+
+                <ul class="text-block__payment-systems payment-systems payment-systems_start">
+                    <li class="payment-systems__item payment-systems__item_mir">
+                        <span class="visually-hidden">МИР</span>
+                    </li>
+                    <li class="payment-systems__item payment-systems__item_visa">
+                        <span class="visually-hidden">VISA International</span>
+                    </li>
+                    <li class="payment-systems__item payment-systems__item_mastercard">
+                        <span class="visually-hidden">Mastercard Worldwide</span>
+                    </li>
+                    <li class="payment-systems__item payment-systems__item_jcb">
+                        <span class="visually-hidden">JCB</span>
+                    </li>
+                </ul>
+            </div>
+        <?php endif;?>
+    </section>
+<?php endif;?>

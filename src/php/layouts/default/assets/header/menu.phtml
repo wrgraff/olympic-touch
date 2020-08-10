@@ -1,0 +1,26 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+try {
+    $result = $this->macros(
+        'menu',
+        'draw',
+        array(
+            'menuId' => 'header'
+        )
+    );
+} catch (Exception $e) {
+    $result = false;
+}
+if(is_array($result) && isset($result['item'])):?>
+    <ul class="top-bar__list">
+        <?php foreach($result['item'] as $item):
+            if(!$this->isMenuItemActive(getArrayKey($item, 'rel'), getArrayKey($item, 'is-active'))) {
+                continue;
+            }?>
+            <li class="top-bar__item<?php if($this->isMenuItemSelected(getArrayKey($item, 'status'))):?> top-bar__item_active<?php endif;?>">
+                <a href="<?php echo $item['link'];?>" class="top-bar__link"><?php echo $item['name'];?></a>
+            </li>
+        <?php endforeach;?>
+    </ul>
+<?php endif;?>

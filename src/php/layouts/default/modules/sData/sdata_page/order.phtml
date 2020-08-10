@@ -1,0 +1,190 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension|OlympicTouchExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+$h1 = trim($page->getValue('h1'));
+
+$resultForm = false;
+$resultTariffs = false;
+try {
+    $resultForm = $this->macros(
+        'sData',
+        'getSDataOrderForm'
+    );
+} catch (Exception $e) {}
+
+if(is_array($resultForm)) {
+    try {
+        $resultTariffs = $this->macros(
+            'sData',
+            'getSDataTariffsItems'
+        );
+    } catch (Exception $e) {}
+}
+?>
+<header class="page-main__header main-header">
+    <?php echo $this->render(null, OlympicTouchExtension::assets_breadcrumbs);?>
+
+    <?php if($h1):?>
+        <h1 class="main-header__heading"><?php echo $h1;?></h1>
+    <?php endif;?>
+</header>
+
+<section class="page-main__section">
+    <?php if($resultForm && is_array($resultTariffs) && isset($resultTariffs['items'])):?>
+        <form action="/sData/checkout/" class="order" method="POST">
+            <div class="page-main__container">
+                <div class="flex-grid">
+                    <fieldset class="order__subscriptions flex-grid__column flex-grid__column_12 flex-grid__column_large_3 subscriptions">
+                        <legend class="visually-hidden">Тип абонемента</legend>
+
+                        <ul class="subscriptions__list">
+                            <?php foreach($resultTariffs['items'] as $i => $item):?>
+                                <li class="subscriptions__item<?php if($i == 0):?> subscriptions__item_active<?php endif;?>">
+                                    <label class="subscriptions__label">
+                                        <input type="radio" name="<?php echo SDataOrderModel::field_service_tariff;?>" value="<?php echo $item['id'];?>" class="visually-hidden"<?php if($i == 0):?> checked<?php endif;?> />
+                                        <div class="subscriptions__card" data-name="<?php echo $item['name'];?>">
+                                            <h3 class="subscriptions__heading"><?php echo $item['name'];?></h3>
+                                            <ul class="subscriptions__schedule schedule">
+                                                <?php if(isset($item['weekdays'])):?>
+                                                    <li class="schedule__item">
+                                                        <span class="schedule__days schedule__days_short_work"><span class="visually-hidden">Будние дни</span></span>
+                                                        <b class="schedule__time"><?php echo $item['weekdays'];?></b>
+                                                    </li>
+                                                <?php endif;?>
+                                                <?php if(isset($item['holidays'])):?>
+                                                    <li class="schedule__item">
+                                                        <span class="schedule__days schedule__days_short_weekend"><span class="visually-hidden">Выходные дни</span></span>
+                                                        <b class="schedule__time"><?php echo $item['holidays'];?></b>
+                                                    </li>
+                                                <?php endif;?>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    </fieldset>
+
+                    <div class="flex-grid__column">
+                        <fieldset class="order__length length">
+                            <legend class="visually-hidden">Тариф и&nbsp;длительность</legend>
+
+                            <?php foreach($resultTariffs['items'] as $item):
+                                $itemId = $item['id'];?>
+                                <div class="length__group" data-subscription="<?php echo $itemId?>">
+                                    <h3 class="length__heading">Тариф &laquo;<?php echo $item['name'];?>&raquo;</h3>
+
+                                    <?php if(isset($item['price'])):?>
+                                        <?php foreach($item['price'] as $arPrice):?>
+                                            <input type="radio" name="<?php echo SDataOrderModel::field_service_field;?>" value="<?php echo $arPrice['field'];?>" id="<?php echo $arPrice['field'] . '_' . $itemId;?>" data-price="<?php echo $this->formatPrice($arPrice['value']);?>" class="visually-hidden" />
+                                        <?php endforeach;?>
+
+                                        <?php foreach($item['price'] as $arPrice):
+                                            $term = SDataTariffItemModel::getTermName(getArrayKey($arPrice, 'field'));
+                                            if(!$term) {
+                                                continue;
+                                            }?>
+                                            <label class="length__item" for="<?php echo $arPrice['field'] . '_' . $itemId;?>">
+                                                <p class="length__text"><?php echo $term;?></p>
+                                                <?php if(isset($arPrice['old'])):?>
+                                                    <s class="length__price length__price_old currency"><span class="visually-hidden">Цена до&nbsp;скидки:</span> <?php echo $this->formatPrice($arPrice['old']);?> <span class="visually-hidden">рублей</span></s>
+                                                    <p class="length__price currency"><span class="visually-hidden">Цена со&nbsp;скидкой:</span> <?php echo $this->formatPrice($arPrice['value']);?> <span class="visually-hidden">рублей</span></p>
+                                                <?php else:?>
+                                                    <p class="length__price currency"><?php echo $this->formatPrice($arPrice['value']);?> <span class="visually-hidden">рублей</span></p>
+                                                <?php endif;?>
+                                            </label>
+                                        <?php endforeach;?>
+                                    <?php endif;?>
+                                </div>
+                            <?php endforeach;?>
+                        </fieldset>
+
+                        <?php if($fields = $this->getAllFormFields($resultForm)):?>
+                            <fieldset class="order__form form">
+                                <legend class="visually-hidden">Контактные данные</legend>
+
+                                <?php echo $this->render(null, OlympicTouchExtension::assets_errors);?>
+
+                                <?php foreach($fields as $fieldName => $field) {
+                                    $params = array(
+                                        OlympicTouchExtension::assets_field_param_field => $field
+                                    );
+
+                                    switch ($fieldName) {
+                                        case SDataOrderModel::field_data_name:
+                                            $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите имя';
+                                            break;
+                                        case SDataOrderModel::field_data_surname:
+                                            $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите фамилию';
+                                            break;
+                                        case SDataOrderModel::field_data_father_name:
+                                            $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите отчество';
+                                            break;
+                                        case SDataOrderModel::field_data_email:
+                                            $params[OlympicTouchExtension::assets_field_param_title] = 'Электронная почта';
+                                            $params[OlympicTouchExtension::assets_field_param_placeholder] = 'name@email.ru';
+                                            $params[OlympicTouchExtension::assets_field_param_input_type] = 'email';
+                                            break;
+                                        case SDataOrderModel::field_data_phone:
+                                            $params[OlympicTouchExtension::assets_field_param_placeholder] = '8 999 213-45-67';
+                                            $params[OlympicTouchExtension::assets_field_param_input_type] = 'tel';
+                                            break;
+                                        case SDataOrderModel::field_data_comment:
+                                            $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Введите то, что хотите нам сообщить';
+                                            break;
+                                    }
+
+                                    echo $this->render($params, OlympicTouchExtension::assets_field);
+                                }
+
+                                $agreement = $this->getUmiSettingsValue(SiteUmiSettingsOlympicTouchModel::field_agreement_order);
+                                if(!$agreement) {
+                                    $agreement = $this->getUmiSettingsValue(SiteUmiSettingsOlympicTouchModel::field_agreement_default);
+                                }
+
+                                if($agreement):?>
+                                    <label class="form__label checkbox">
+                                        <input type="checkbox" name="argeement" class="visually-hidden" required checked />
+                                        <div class="checkbox__text"><?php echo $this->parseTplMacros($agreement, false, $this->getUmiSettingsObjectId());?></div>
+                                    </label>
+                                <?php endif;?>
+                            </fieldset>
+                        <?php endif;?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order__total total">
+                <div class="total__container">
+                    <div class="total__payments">
+                        <p class="total__text">Максимально быстрая и&nbsp;безопасная оплата (PCI DSS, SSL, 3D Secure):</p>
+                        <ul class="total__systems payment-systems">
+                            <li class="payment-systems__item payment-systems__item_mir">
+                                <span class="visually-hidden">МИР</span>
+                            </li>
+                            <li class="payment-systems__item payment-systems__item_visa">
+                                <span class="visually-hidden">VISA International</span>
+                            </li>
+                            <li class="payment-systems__item payment-systems__item_mastercard">
+                                <span class="visually-hidden">Mastercard Worldwide</span>
+                            </li>
+                            <li class="payment-systems__item payment-systems__item_jcb">
+                                <span class="visually-hidden">JCB</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="total__price">
+                        Итого: <strong class="currency"><?php echo $this->formatPrice($resultTariffs['items'][0]['price'][0]['value']);?> <span class="visually-hidden">рублей</span></strong>
+                    </p>
+
+                    <button type="submit" class="total__button button">Перейти к&nbsp;оплате</button>
+                </div>
+            </div>
+        </form>
+    <?php else:?>
+        <p>Произошла ошибка</p>
+    <?php endif;?>
+</section>

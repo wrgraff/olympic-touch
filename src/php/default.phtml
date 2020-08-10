@@ -1,0 +1,22 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension $this */
+/** @var array $variables */
+
+require_once dirname(__FILE__) . '/library/common.php';
+
+$layout = false;
+
+if(!$layout && AjaxHelper::isAjaxRequest()) {
+    $layout = 'ajax';
+}
+
+if(!$layout) {
+    $layout = 'default';
+}
+
+$initFile = dirname(__FILE__) . '/layouts/' . $layout . '/init.php';
+if(file_exists($initFile)) {
+    require_once $initFile;
+}
+
+echo $this->render($variables, 'layouts/' . $layout);

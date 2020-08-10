@@ -1,0 +1,50 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension $this */
+/** @var array $variables */
+
+$errors = array();
+
+$items = getArrayKey($variables, OlympicTouchExtension::assets_errors_param_items);
+if(!is_array($items)) {
+    $items = array($items);
+}
+foreach($items as $item) {
+    $item = trim($item);
+    if(!$item) {
+        continue;
+    }
+
+    $errors[] = $item;
+}
+
+if(!count($errors)) {
+    try {
+        $result = $this->macros('system', 'listErrorMessages');
+        if(is_array($result) && isset($result['items'])) {
+            foreach($result['items'] as $item) {
+                $message = getArrayKey($item, 'message');
+                if(!$message) {
+                    $message = $item;
+                }
+
+                if(mb_substr($message, 0, 1) == '%') {
+                    $message = mb_substr($message, 1);
+                }
+
+                if(mb_substr($message, mb_strlen($message) - 1, 1) == '%') {
+                    $message = mb_substr($message, 0, -1);
+                }
+
+                $errors[] = $message;
+            }
+        }
+        $items = getArrayKey($result, 'items');
+    } catch (Exception $e) {}
+}
+if($errors):?>
+    <div class="alert alert-danger">
+        <?php foreach($errors as $message):?>
+            <p><?php echo $message;?></p>
+        <?php endforeach;?>
+    </div>
+<?php endif;?>

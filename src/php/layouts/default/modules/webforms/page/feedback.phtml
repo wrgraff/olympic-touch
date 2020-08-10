@@ -1,0 +1,50 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$fields = $this->getAllFormFields($variables);
+if($fields) {
+    foreach ($fields as $fieldName => $field) {
+        $params = array(
+            OlympicTouchExtension::assets_field_param_field => $field
+        );
+
+        switch ($fieldName) {
+            case SiteWebformsFormFeedbackModel::field_theme:
+                $params[OlympicTouchExtension::assets_field_param_select_default_text] = 'Без темы';
+                $params[OlympicTouchExtension::assets_field_param_select_default_attributes] = array(
+                    'selected' => '',
+                );
+                break;
+            case SiteWebformsFormFeedbackModel::field_name:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите имя';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormFeedbackModel::field_surname:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Укажите фамилию';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'minlength' => 2,
+                    'pattern' => '^[A-Za-zА-Яа-я0-9_-]*$'
+                );
+                break;
+            case SiteWebformsFormFeedbackModel::field_email:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'name@email.ru';
+                $params[OlympicTouchExtension::assets_field_param_input_type] = 'email';
+                break;
+            case SiteWebformsFormFeedbackModel::field_phone:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = '8 999 213-45-67';
+                $params[OlympicTouchExtension::assets_field_param_input_type] = 'tel';
+                $params[OlympicTouchExtension::assets_field_param_input_attributes] = array(
+                    'pattern' => '^[0-9-+() ]*$'
+                );
+                break;
+            case SiteWebformsFormFeedbackModel::field_message:
+                $params[OlympicTouchExtension::assets_field_param_placeholder] = 'Введите то, что хотите нам сообщить';
+                break;
+        }
+
+        echo $this->render($params, OlympicTouchExtension::assets_field);
+    }
+}

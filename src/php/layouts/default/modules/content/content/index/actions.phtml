@@ -1,0 +1,105 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+try {
+    $result = $this->macros(
+        'sData',
+        'getSDataActionsItems'
+    );
+} catch (Exception $e) {
+    $result = false;
+}
+if(is_array($result) && isset($result['items'])):?>
+    <section class="page-main__section actions">
+        <h2 class="visually-hidden">Акции</h2>
+
+        <div class="page-main__container">
+            <ul class="actions__slider">
+                <?php foreach($result['items'] as $i => $item):
+                    $image = getArrayKey($item, 'image');
+                    if(!$image instanceof umiImageFile || $image->getIsBroken()) {
+                        continue;
+                    }
+
+                    $imageFilePath = $image->getFilePath(true);
+
+                    $smallFilePath = $this->makeThumbnailFull($imageFilePath, 372, 236);
+                    $mediumFilePath = $this->makeThumbnailFull($imageFilePath, 400, 350);
+                    $largeFilePath = $this->makeThumbnailFull($imageFilePath, 458, 300);
+                    ?>
+                    <li class="actions__item<?php if($i == 0):?> actions__item_active<?php endif;?>">
+                        <div class="actions__img">
+                            <picture>
+                                <?php if($smallFilePath):
+                                    $smallFilePath2x = $this->makeThumbnailFull($imageFilePath, 744, 472);
+
+                                    $smallWebp = $this->getWebpImage($smallFilePath);
+                                    if($smallWebp):
+                                        if($smallFilePath2x) {
+                                            $smallWebp2x = $this->getWebpImage($smallFilePath2x);
+                                        } else {
+                                            $smallWebp2x = false;
+                                        }?>
+                                        <source srcset="<?php echo $smallWebp;?> 1x<?php if($smallWebp2x):?>, <?php echo $smallWebp2x;?> 2x<?php endif;?>" media="(max-width: 768px)" type="image/webp" loading="lazy" />
+                                    <?php endif;?>
+                                    <source srcset="<?php echo $smallFilePath;?> 1x<?php if($smallFilePath2x):?>, <?php echo $smallFilePath2x;?> 2x<?php endif;?>" media="(max-width: 768px)" loading="lazy" />
+                                <?php endif;?>
+                                <?php if($mediumFilePath):
+                                    $mediumFilePath2x = $this->makeThumbnailFull($imageFilePath, 800, 700);
+                                    $mediumWebp = $this->getWebpImage($mediumFilePath);
+                                    if($mediumWebp):
+                                        if($mediumFilePath2x) {
+                                            $mediumWebp2x = $this->getWebpImage($mediumFilePath2x);
+                                        } else {
+                                            $mediumWebp2x = false;
+                                        }?>
+                                        <source srcset="<?php echo $mediumWebp;?> 1x<?php if($mediumWebp2x):?>, <?php echo $mediumWebp2x;?> 2x<?php endif;?>" media="(max-width: 1000px)" type="image/webp" loading="lazy" />
+                                    <?php endif;?>
+                                    <source srcset="<?php echo $mediumFilePath;?> 1x<?php if($mediumFilePath2x):?>, <?php echo $mediumFilePath2x;?> 2x<?php endif;?>" media="(max-width: 1000px)" loading="lazy" />
+                                <?php endif;?>
+
+                                <?php if($largeFilePath):
+                                    $largeFilePath2x = $this->makeThumbnailFull($imageFilePath, 916, 600);
+                                    $largeWebp = $this->getWebpImage($largeFilePath);
+                                    if($largeWebp):
+                                        if($largeFilePath2x) {
+                                            $largeWebp2x = $this->getWebpImage($largeFilePath2x);
+                                        } else {
+                                            $largeWebp2x = false;
+                                        }?>
+                                        <source srcset="<?php echo $largeWebp;?> 1x<?php if($largeWebp2x):?>, <?php echo $largeWebp2x;?> 2x<?php endif;?>" type="image/webp" loading="lazy" />
+                                    <?php endif;?>
+                                    <img src="<?php echo $largeFilePath;?><?php if($largeFilePath2x):?> 1x, <?php echo $largeFilePath2x;?> 2x<?php endif;?>" width="458" height="300" class="slider__img" alt="<?php echo htmlspecialchars($image->getAlt());?>" loading="lazy" />
+                                <?php endif;?>
+                            </picture>
+                        </div>
+
+                        <?php if(isset($item['name'])):?>
+                            <h3 class="actions__heading"><?php echo $item['name'];?></h3>
+                        <?php endif;?>
+                        <?php if(isset($item['text'])):?>
+                            <p class="actions__text"><?php echo $item['text'];?></p>
+                        <?php endif;?>
+                        <?php if(isset($item['details'])):?>
+                            <p class="actions__details"><?php echo $item['details'];?></p>
+                        <?php endif;?>
+                        <?php if(isset($item['terms'])):?>
+                            <p class="actions__terms"><?php echo $item['terms'];?></p>
+                        <?php endif;?>
+                        <?php if(isset($item['link'])):?>
+                            <a href="<?php echo $item['link']['href'];?>" class="actions__button button"><?php echo $item['link']['text'];?></a>
+                        <?php endif;?>
+                    </li>
+                <?php endforeach;?>
+            </ul>
+
+            <div class="actions__nav slider-nav">
+                <?php foreach($result['items'] as $i => $item):?>
+                    <button type="button" class="slider-nav__button">
+                        <span class="visually-hidden">Акция №<?php echo ($i + 1);?></span>
+                    </button>
+                <?php endforeach;?>
+            </div>
+        </div>
+    </section>
+<?php endif;?>

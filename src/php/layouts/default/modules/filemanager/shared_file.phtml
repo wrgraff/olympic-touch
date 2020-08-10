@@ -1,0 +1,6 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$this->redirectIfNotPage();
+
+$this->redirect('/filemanager/download/' . $this->getPageId() . '/');

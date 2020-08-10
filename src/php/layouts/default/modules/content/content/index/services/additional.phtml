@@ -1,0 +1,36 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension|OlympicTouchExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+try {
+    $result = $this->macros(
+        'content',
+        'getContentPageIndexAdditionalServicesItems',
+        array(
+            'pageId' => $page->getId()
+        )
+    );
+} catch (Exception $e) {
+    $result = false;
+}
+?>
+<?php if(is_array($result) && isset($result['items'])):
+    $title = trim($page->getValue(SiteContentPageIndexModel::field_additional_services_title));?>
+    <section class="services__additional additional">
+        <?php if($title):?>
+            <h3 class="additional__heading"><?php echo $title;?></h3>
+        <?php endif;?>
+
+        <ul class="additional__list">
+            <?php foreach($result['items'] as $item):?>
+                <li class="additional__item">
+                    <p class="additional__title"><?php echo $item['title'];?></p>
+                    <?php if(isset($item['price'])):?>
+                        <strong class="additional__price currency"><?php echo $item['price'];?></strong>
+                    <?php endif;?>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </section>
+<?php endif;?>

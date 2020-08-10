@@ -1,0 +1,82 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+
+$templateResources = $this->getTemplateResources();
+$contactsPageLink = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_page_link);
+$contactsAddress = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_address);
+$contactsWorkingTime = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_working_time);
+$contactsPhone = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_phone);
+$contactsEmail = $this->getCommonVar(OlympicTouchExtension::common_var_contacts_email);
+
+$socialIg = $this->getCommonVar(OlympicTouchExtension::common_var_social_ig);
+$socialVk = $this->getCommonVar(OlympicTouchExtension::common_var_social_vk);
+?>
+<footer class="page__footer page-footer">
+    <div class="page-footer__container">
+        <div class="page-footer__logo">
+            <a href="/" class="logo">
+                <img src="<?php echo $templateResources;?>/img/logo-small-white.svg" width="180" height="42" alt="Olympic Touch" class="logo__img" />
+            </a>
+        </div>
+
+        <?php if($contactsAddress || $contactsWorkingTime || $contactsPageLink):?>
+            <address class="page-footer__address address">
+                <?php if($contactsAddress):?>
+                    <p class="address__place"><?php echo $contactsAddress;?></p>
+                <?php endif;?>
+                <?php if($contactsWorkingTime):?>
+                    <p class="address__time">Время работы: <?php echo $contactsWorkingTime;?></p>
+                <?php endif;?>
+                <?php if($contactsPageLink):?>
+                    <a href="<?php echo $contactsPageLink;?>" class="address__link">Посмотреть на&nbsp;карте</a>
+                <?php endif;?>
+            </address>
+        <?php endif;?>
+
+        <?php if($socialIg || $socialVk):?>
+            <ul class="page-footer__social social social_center">
+                <?php if($socialIg):?>
+                    <li class="social__item">
+                        <a href="<?php echo $socialIg;?>" class="social__link social__link_instagram" target="_blank">
+                            <span class="visually-hidden">Instagram</span>
+                        </a>
+                    </li>
+                <?php endif;?>
+                <?php if($socialVk):?>
+                    <li class="social__item">
+                        <a href="<?php echo $socialVk;?>" class="social__link social__link_vk" target="_blank">
+                            <span class="visually-hidden">В&nbsp;контакте</span>
+                        </a>
+                    </li>
+                <?php endif;?>
+            </ul>
+        <?php endif;?>
+
+        <?php if($contactsPhone || $contactsEmail):?>
+            <ul class="page-footer__contacts contacts">
+                <?php if($contactsPhone):?>
+                    <li class="contacts__item">
+                        <a href="tel:<?php echo $this->preparePhoneLink($contactsPhone);?>" class="contacts__link"><?php echo $contactsPhone;?></a>
+                    </li>
+                <?php endif;?>
+                <?php if($contactsEmail):?>
+                    <li class="contacts__item">
+                        <a href="mailto:<?php echo $contactsEmail;?>" class="contacts__link"><?php echo $contactsEmail;?></a>
+                    </li>
+                <?php endif;?>
+            </ul>
+        <?php endif;?>
+
+        <?php if($orderPageLink = $this->getCommonVar(OlympicTouchExtension::common_var_order_page_link)):?>
+            <a href="<?php echo $orderPageLink;?>" class="page-footer__button button">Оформить карту</a>
+        <?php endif;?>
+    </div>
+
+    <div class="page-footer__info">
+        <div class="page-footer__container">
+            <p class="page-footer__copyright">&copy; <?php echo date('Y');?> OLYMPIC TOUCH</p>
+            <p class="page-footer__dev dev">dev by&nbsp;<a href="https://frontend-design.ru/" class="dev__link" target="_blank" rel="nofollow">Artur Trifonov</a></p>
+        </div>
+    </div>
+</footer>

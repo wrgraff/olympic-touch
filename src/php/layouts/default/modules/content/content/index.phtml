@@ -1,0 +1,16 @@
+<?php
+/** @var umiTemplaterPHP|BaseExtension|PageExtension|UmiSettingsExtension $this */
+/** @var array $variables */
+$page = $this->getPage();
+
+$h1 = trim($page->getValue('h1'));
+?>
+<?php if($h1):?>
+    <h1 class="visually-hidden"><?php echo $h1;?></h1>
+<?php endif;?>
+
+<?php echo $this->render(null, 'layouts/default/modules/content/content/index/promo');?>
+
+<?php echo $this->render(null, 'layouts/default/modules/content/content/index/actions');?>
+
+<?php echo $this->render(null, 'layouts/default/modules/content/content/index/services');?>
