@@ -21,6 +21,10 @@ $flex-grid-gaps: (
 	align-items: flex-start;
 }
 
+.flex-grid_justify_center {
+	justify-content: center;
+}
+
 .flex-grid_justify_end {
 	justify-content: flex-end;
 }
