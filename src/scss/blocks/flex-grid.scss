@@ -38,7 +38,7 @@ $flex-grid-gaps: (
 			margin: 0 ($gap / 2);
 
 			// add columns sizes
-			@for $i from 2 through $flex-grid-columns {
+			@for $i from 1 through $flex-grid-columns {
 				@if ($breakpoint == small) {
 					// columns sizes for each grid size
 					.flex-grid > &_#{$i} {
