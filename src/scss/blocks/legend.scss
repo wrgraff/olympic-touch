@@ -1,0 +1,45 @@
+.legend {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+
+    list-style: none;
+
+    font-size: 14px;
+}
+
+.legend__item {
+    position: relative;
+    padding-left: 24px;
+
+    &::before {
+        content: '';
+
+        position: absolute;
+        top: 1px;
+        left: 0;
+
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+
+        background-color: $hall-big-color;
+        border-radius: 5px;
+    }
+
+    & + & {
+        margin-left: 16px;
+    }
+}
+
+.legend__item_hall_big::before {
+    background-color: $hall-big-color;
+}
+
+.legend__item_hall_small::before {
+    background-color: $hall-small-color;
+}
+
+.legend__item_hall_martial::before {
+    background-color: $hall-martial-color;
+}

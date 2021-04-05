@@ -1,0 +1,22 @@
+.schedule-body__sessions {
+    padding: 2px;
+}
+
+.schedule-body__session {
+    min-height: 113px;
+
+    & + & {
+        margin-top: 4px;
+    }
+}
+
+.schedule-body__header {
+    padding: 12px 12px 2px 2px;
+}
+
+.schedule-body__time {
+    color: $gray-500-color;
+
+    font-size: 14px;
+    font-weight: 400;
+}

@@ -159,19 +159,19 @@
 		</div>
 	</section>
 
-	<section class="page-main__section schedule">
+	<section class="page-main__section sessions-schedule">
 		<div class="page-main__container">
-			<header class="schedule__header">
-				<h2 class="page-main__heading schedule__heading">Расписание занятий</h2>
+			<header class="sessions-schedule__header">
+				<h2 class="page-main__heading sessions-schedule__heading">Расписание занятий</h2>
 
-				<ul class="schedule__legend legend" aria-hidden="true">
+				<ul class="sessions-schedule__legend legend" aria-hidden="true">
 					<li class="legend__item legend__item_hall_big">Большой зал</li>
 					<li class="legend__item legend__item_hall_small">Малый зал</li>
 					<li class="legend__item legend__item_hall_martial">Зал для единоборств</li>
 				</ul>
 			</header>
 
-			<table class="schedule__body schedule-table">
+			<table class="sessions-schedule__body schedule-table">
 				<thead class="schedule-table__thead">
 					<tr>
 						<td></td>
@@ -231,7 +231,7 @@
 						<th class="schedule-body__header">
 							<time class="schedule-body__time">9:00</time>
 						</th>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Yoga',
 								trainer: 'Наталья',
@@ -242,7 +242,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Pilates',
 								trainer: 'Ксения',
@@ -256,18 +256,18 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
 					</tr>
 
 					<tr>
 						<th class="schedule-body__header">
 							<time class="schedule-body__time">10:00</time>
 						</th>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Бокс',
 								trainer: 'Денис',
@@ -281,7 +281,7 @@
 								hall: 'martial'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Bums+Tabs',
 								trainer: 'Ксения',
@@ -295,7 +295,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Татьяна Ю.',
@@ -319,7 +319,7 @@
 								hall: 'martial'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'UB+Tabs',
 								trainer: 'Николай',
@@ -330,7 +330,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Татьяна К.',
@@ -354,7 +354,7 @@
 								hall: 'martial'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Татьяна Ю.',
@@ -375,7 +375,7 @@
 								hall: 'small'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Людмила',
@@ -392,7 +392,7 @@
 						<th class="schedule-body__header">
 							<time class="schedule-body__time">11:00</time>
 						</th>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Ксения',
@@ -406,8 +406,8 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Fitball Pilates',
 								trainer: 'Татьяна Ю.',
@@ -418,7 +418,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'F-Training',
 								trainer: 'Николай',
@@ -429,7 +429,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Flex',
 								trainer: 'Татьяна К.',
@@ -440,7 +440,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Fitball',
 								trainer: 'Татьяна Ю.',
@@ -451,7 +451,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Stretching',
 								trainer: 'Людмила',
@@ -468,7 +468,7 @@
 						<th class="schedule-body__header">
 							<time class="schedule-body__time">13:00</time>
 						</th>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Tabs+Flex',
 								trainer: 'Ксения',
@@ -482,9 +482,9 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Yoga',
 								trainer: 'Евгений',
@@ -495,9 +495,9 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Евгений',
 								trainer: 'Виктория',
@@ -514,7 +514,7 @@
 						<th class="schedule-body__header">
 							<time class="schedule-body__time">18:00</time>
 						</th>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Соня',
@@ -525,7 +525,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Татьяна Ю.',
@@ -536,7 +536,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'UB+Tabs',
 								trainer: 'Татьяна К.',
@@ -547,7 +547,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Татьяна Ю.',
@@ -558,7 +558,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'F-Training',
 								trainer: 'Соня',
@@ -569,15 +569,15 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
 					</tr>
 
 					<tr>
 						<th class="schedule-body__header">
 							<time class="schedule-body__time">19:00</time>
 						</th>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Tae-bo',
 								trainer: 'Соня',
@@ -588,7 +588,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Pilates',
 								trainer: 'Татьяна Ю.',
@@ -609,7 +609,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Pilates',
 								trainer: 'Татьяна Ю.',
@@ -630,7 +630,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Super Sculpt',
 								trainer: 'Татьяна Ю.',
@@ -651,7 +651,7 @@
 								hall: 'small'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'F-Training',
 								trainer: 'Соня',
@@ -672,15 +672,15 @@
 								hall: 'small'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
 					</tr>
 
 					<tr>
 						<th class="schedule-body__header">
 							<time class="schedule-body__time">20:00</time>
 						</th>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Бокс',
 								trainer: 'Дима',
@@ -691,8 +691,8 @@
 								hall: 'martial'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Бокс',
 								trainer: 'Дима',
@@ -703,7 +703,7 @@
 								hall: 'martial'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Бокс',
 								trainer: 'Дима',
@@ -714,16 +714,16 @@
 								hall: 'martial'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
 					</tr>
 
 					<tr>
 						<th class="schedule-body__header">
 							<time class="schedule-body__time">21:00</time>
 						</th>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Stretching',
 								trainer: 'Соня',
@@ -734,7 +734,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Zumba',
 								trainer: 'Николай',
@@ -748,7 +748,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Zumba',
 								trainer: 'Дарья',
@@ -762,7 +762,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Pump',
 								trainer: 'Татьяна Ю.',
@@ -773,7 +773,7 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session">
+						<td class="schedule-body__sessions">
 							{{ schedule.session({
 								type: 'Stretching',
 								trainer: 'Мария',
@@ -784,8 +784,8 @@
 								hall: 'big'
 							}, halls) }}
 						</td>
-						<td class="schedule-body__session"></td>
-						<td class="schedule-body__session"></td>
+						<td class="schedule-body__sessions"></td>
+						<td class="schedule-body__sessions"></td>
 					</tr>
 				</tbody>
 			</table>

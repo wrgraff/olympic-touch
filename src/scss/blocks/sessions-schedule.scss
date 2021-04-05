@@ -1,0 +1,17 @@
+.sessions-schedule__header {
+    display: flex;
+    align-items: center;
+}
+
+.sessions-schedule__heading {
+    padding-right: 32px;
+}
+
+.sessions-schedule__legend {
+    margin: 6px 0 28px auto;
+}
+
+.sessions-schedule__body {
+    width: calc(100% + 56px);
+    margin-left: -56px;
+}

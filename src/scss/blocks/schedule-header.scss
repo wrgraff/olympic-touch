@@ -1,0 +1,48 @@
+.schedule-header {
+    padding: 16px 12px 12px;
+}
+
+.schedule-header__heading {
+    margin: 0;
+
+    color: $secondary-color;
+
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.schedule-header__heading_day_monday::before {
+    content: 'ПН';
+}
+
+.schedule-header__heading_day_tuesday::before {
+    content: 'ВТ';
+}
+
+.schedule-header__heading_day_wednesday::before {
+    content: 'СР';
+}
+
+.schedule-header__heading_day_thursday::before {
+    content: 'ЧТ';
+}
+
+.schedule-header__heading_day_friday::before {
+    content: 'ПТ';
+}
+
+.schedule-header__heading_day_saturday::before {
+    content: 'СБ';
+}
+
+.schedule-header__heading_day_sunday::before {
+    content: 'ВС';
+}
+
+.schedule-header__date {
+    color: $gray-500-color;
+
+    font-size: 14px;
+    font-weight: 400;
+}
