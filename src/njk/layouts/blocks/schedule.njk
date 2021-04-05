@@ -1,0 +1,27 @@
+{% macro session(props, halls) %}
+    <div class="session session_hall_{{ props.hall }}">
+        <strong class="session__heading">{{ props.type }}</strong>
+        <p class="session__trainer">{{ props.trainer }}</p>
+
+        {% if props.labels.length %}
+            <p class="session__labels labels">
+                {% for label in props.labels %}
+                    {% set labelMod = 'labels__item_' + label.type %}
+
+                    <span class="labels__item {{ labelMod if label.type != 'base' }}">
+                        <span class="labels__text">{{ label.text }}</span>
+                    </span>
+                {% endfor %}
+            </p>
+        {% endif %}
+
+        <p class="session__placetime">
+            <time datetime="{{ props.date }} {{ props.timeStart }}">{{ props.timeStart }}</time> &ndash; <time datetime="{{ props.date }} {{ props.timeEnd }}">{{ props.timeEnd }}</time>
+            <span class="session__place">{{ halls[props.hall] }}</span>
+        </p>
+
+        <a href="#" class="session__sign">
+            <span class="visually-hidden">Записаться</span>
+        </a>
+    </div>
+{% endmacro %}

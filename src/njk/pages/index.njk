@@ -159,6 +159,639 @@
 		</div>
 	</section>
 
+	<section class="page-main__section schedule">
+		<div class="page-main__container">
+			<header class="schedule__header">
+				<h2 class="page-main__heading schedule__heading">Расписание занятий</h2>
+
+				<ul class="schedule__legend legend" aria-hidden="true">
+					<li class="legend__item legend__item_hall_big">Большой зал</li>
+					<li class="legend__item legend__item_hall_small">Малый зал</li>
+					<li class="legend__item legend__item_hall_martial">Зал для единоборств</li>
+				</ul>
+			</header>
+
+			<table class="schedule__body schedule-table">
+				<thead class="schedule-table__thead">
+					<tr>
+						<td></td>
+						<th class="schedule-table__header schedule-header">
+							<h3 class="schedule-header__heading schedule-header__heading_day_monday">
+								<span class="visually-hidden">Понедельник</span>
+							</h3>
+							<time class="schedule-header__date" datetime="2021-08-03">3 августа</time>
+						</th>
+						<th class="schedule-table__header schedule-header">
+							<h3 class="schedule-header__heading schedule-header__heading_day_tuesday">
+								<span class="visually-hidden">Вторник</span>
+							</h3>
+							<time class="schedule-header__date" datetime="2021-08-04">4 августа</time>
+						</th>
+						<th class="schedule-table__header schedule-header">
+							<h3 class="schedule-header__heading schedule-header__heading_day_wednesday">
+								<span class="visually-hidden">Среда</span>
+							</h3>
+							<time class="schedule-header__date" datetime="2021-08-05">5 августа</time>
+						</th>
+						<th class="schedule-table__header schedule-header">
+							<h3 class="schedule-header__heading schedule-header__heading_day_thursday">
+								<span class="visually-hidden">Четверг</span>
+							</h3>
+							<time class="schedule-header__date" datetime="2021-08-06">6 августа</time>
+						</th>
+						<th class="schedule-table__header schedule-header">
+							<h3 class="schedule-header__heading schedule-header__heading_day_friday">
+								<span class="visually-hidden">Пятница</span>
+							</h3>
+							<time class="schedule-header__date" datetime="2021-08-07">7 августа</time>
+						</th>
+						<th class="schedule-table__header schedule-header">
+							<h3 class="schedule-header__heading schedule-header__heading_day_saturday">
+								<span class="visually-hidden">Суббота</span>
+							</h3>
+							<time class="schedule-header__date" datetime="2021-08-08">8 августа</time>
+						</th>
+						<th class="schedule-table__header schedule-header">
+							<h3 class="schedule-header__heading schedule-header__heading_day_sunday">
+								<span class="visually-hidden">Воскресенье</span>
+							</h3>
+							<time class="schedule-header__date" datetime="2021-08-09">9 августа</time>
+						</th>
+					</tr>
+				</thead>
+
+				{% import '../layouts/blocks/schedule.njk' as schedule %}
+				{% set halls = {
+					big: 'Большой зал',
+					small: 'Малый зал',
+					martial: 'Зал для единоборств'
+				} %}
+				<tbody class="schedule-table__body schedule-body">
+					<tr>
+						<th class="schedule-body__header">
+							<time class="schedule-body__time">9:00</time>
+						</th>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Yoga',
+								trainer: 'Наталья',
+								labels: [],
+								date: '2021-08-03',
+								timeStart: '9:30',
+								timeEnd: '11:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Pilates',
+								trainer: 'Ксения',
+								labels: [{
+									type: 'base',
+									text: 'Смена тренера'
+								}],
+								date: '2021-08-04',
+								timeStart: '9:00',
+								timeEnd: '10:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+					</tr>
+
+					<tr>
+						<th class="schedule-body__header">
+							<time class="schedule-body__time">10:00</time>
+						</th>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Бокс',
+								trainer: 'Денис',
+								labels: [{
+									type: 'paid',
+									text: 'Платное занятие'
+								}],
+								date: '2021-08-03',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'martial'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Bums+Tabs',
+								trainer: 'Ксения',
+								labels: [{
+									type: 'cancelled',
+									text: 'Занятие отменено'
+								}],
+								date: '2021-08-04',
+								timeStart: '10:30',
+								timeEnd: '11:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-05',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'big'
+							}, halls) }}
+
+							{{ schedule.session({
+								type: 'Бокс',
+								trainer: 'Денис',
+								labels: [{
+									type: 'paid',
+									text: 'Платное занятие'
+								}],
+								date: '2021-08-03',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'martial'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'UB+Tabs',
+								trainer: 'Николай',
+								labels: [],
+								date: '2021-08-06',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Татьяна К.',
+								labels: [],
+								date: '2021-08-07',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'big'
+							}, halls) }}
+
+							{{ schedule.session({
+								type: 'Бокс',
+								trainer: 'Денис',
+								labels: [{
+									type: 'paid',
+									text: 'Платное занятие'
+								}],
+								date: '2021-08-03',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'martial'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-08',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'big'
+							}, halls) }}
+
+							{{ schedule.session({
+								type: 'Pilates',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-03',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'small'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Людмила',
+								labels: [],
+								date: '2021-08-09',
+								timeStart: '10:00',
+								timeEnd: '11:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+					</tr>
+
+					<tr>
+						<th class="schedule-body__header">
+							<time class="schedule-body__time">11:00</time>
+						</th>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Ксения',
+								labels: [{
+									type: 'paid',
+									text: 'Платное занятие'
+								}],
+								date: '2021-08-03',
+								timeStart: '10:30',
+								timeEnd: '12:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Fitball Pilates',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-05',
+								timeStart: '11:30',
+								timeEnd: '12:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'F-Training',
+								trainer: 'Николай',
+								labels: [],
+								date: '2021-08-06',
+								timeStart: '11:30',
+								timeEnd: '12:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Flex',
+								trainer: 'Татьяна К.',
+								labels: [],
+								date: '2021-08-07',
+								timeStart: '11:30',
+								timeEnd: '12:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Fitball',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-08',
+								timeStart: '11:30',
+								timeEnd: '12:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Stretching',
+								trainer: 'Людмила',
+								labels: [],
+								date: '2021-08-09',
+								timeStart: '11:30',
+								timeEnd: '12:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+					</tr>
+
+					<tr>
+						<th class="schedule-body__header">
+							<time class="schedule-body__time">13:00</time>
+						</th>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Tabs+Flex',
+								trainer: 'Ксения',
+								labels: [{
+									type: 'base',
+									text: 'Смена тренера'
+								}],
+								date: '2021-08-03',
+								timeStart: '13:00',
+								timeEnd: '14:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Yoga',
+								trainer: 'Евгений',
+								labels: [],
+								date: '2021-08-06',
+								timeStart: '13:00',
+								timeEnd: '14:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Евгений',
+								trainer: 'Виктория',
+								labels: [],
+								date: '2021-08-09',
+								timeStart: '13:00',
+								timeEnd: '14:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+					</tr>
+
+					<tr>
+						<th class="schedule-body__header">
+							<time class="schedule-body__time">18:00</time>
+						</th>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Соня',
+								labels: [],
+								date: '2021-08-03',
+								timeStart: '18:00',
+								timeEnd: '19:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-04',
+								timeStart: '18:00',
+								timeEnd: '19:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'UB+Tabs',
+								trainer: 'Татьяна К.',
+								labels: [],
+								date: '2021-08-05',
+								timeStart: '18:00',
+								timeEnd: '19:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-06',
+								timeStart: '18:00',
+								timeEnd: '19:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'F-Training',
+								trainer: 'Соня',
+								labels: [],
+								date: '2021-08-07',
+								timeStart: '18:00',
+								timeEnd: '19:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+					</tr>
+
+					<tr>
+						<th class="schedule-body__header">
+							<time class="schedule-body__time">19:00</time>
+						</th>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Tae-bo',
+								trainer: 'Соня',
+								labels: [],
+								date: '2021-08-03',
+								timeStart: '19:30',
+								timeEnd: '20:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Pilates',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-04',
+								timeStart: '19:00',
+								timeEnd: '20:00',
+								hall: 'small'
+							}, halls) }}
+
+							{{ schedule.session({
+								type: 'Step 0',
+								trainer: 'Ксения',
+								labels: [],
+								date: '2021-08-04',
+								timeStart: '19:30',
+								timeEnd: '20:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Pilates',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-05',
+								timeStart: '19:00',
+								timeEnd: '20:00',
+								hall: 'small'
+							}, halls) }}
+
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Татьяна К.',
+								labels: [],
+								date: '2021-08-04',
+								timeStart: '19:30',
+								timeEnd: '20:30',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-06',
+								timeStart: '19:00',
+								timeEnd: '20:00',
+								hall: 'big'
+							}, halls) }}
+
+							{{ schedule.session({
+								type: 'Step 2',
+								trainer: 'Евгений',
+								labels: [],
+								date: '2021-08-06',
+								timeStart: '19:30',
+								timeEnd: '20:30',
+								hall: 'small'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'F-Training',
+								trainer: 'Соня',
+								labels: [],
+								date: '2021-08-07',
+								timeStart: '19:00',
+								timeEnd: '20:00',
+								hall: 'big'
+							}, halls) }}
+
+							{{ schedule.session({
+								type: 'Super Sculpt',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-07',
+								timeStart: '19:30',
+								timeEnd: '20:30',
+								hall: 'small'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+					</tr>
+
+					<tr>
+						<th class="schedule-body__header">
+							<time class="schedule-body__time">20:00</time>
+						</th>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Бокс',
+								trainer: 'Дима',
+								labels: [],
+								date: '2021-08-03',
+								timeStart: '20:00',
+								timeEnd: '21:30',
+								hall: 'martial'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Бокс',
+								trainer: 'Дима',
+								labels: [],
+								date: '2021-08-05',
+								timeStart: '20:00',
+								timeEnd: '21:30',
+								hall: 'martial'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Бокс',
+								trainer: 'Дима',
+								labels: [],
+								date: '2021-08-06',
+								timeStart: '20:00',
+								timeEnd: '21:30',
+								hall: 'martial'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+					</tr>
+
+					<tr>
+						<th class="schedule-body__header">
+							<time class="schedule-body__time">21:00</time>
+						</th>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Stretching',
+								trainer: 'Соня',
+								labels: [],
+								date: '2021-08-03',
+								timeStart: '21:00',
+								timeEnd: '22:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Zumba',
+								trainer: 'Николай',
+								labels: [{
+									type: 'base',
+									text: 'Смена тренера'
+								}],
+								date: '2021-08-04',
+								timeStart: '21:00',
+								timeEnd: '22:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Zumba',
+								trainer: 'Дарья',
+								labels: [{
+									type: 'base',
+									text: 'Смена тренера'
+								}],
+								date: '2021-08-05',
+								timeStart: '21:00',
+								timeEnd: '22:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Pump',
+								trainer: 'Татьяна Ю.',
+								labels: [],
+								date: '2021-08-06',
+								timeStart: '21:00',
+								timeEnd: '22:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session">
+							{{ schedule.session({
+								type: 'Stretching',
+								trainer: 'Мария',
+								labels: [],
+								date: '2021-08-07',
+								timeStart: '21:00',
+								timeEnd: '22:00',
+								hall: 'big'
+							}, halls) }}
+						</td>
+						<td class="schedule-body__session"></td>
+						<td class="schedule-body__session"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
 	<section class="page-main__section services">
 		<div class="page-main__container">
 			<h2 class="page-main__heading">Клубная карта</h2>
