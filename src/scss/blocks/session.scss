@@ -1,21 +1,161 @@
 .session {
-    padding: 16px 12px 14px;
+    position: relative;
+    z-index: 0;
 
-    background-color: $hall-big-color;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+
+    color: $gray-900-color;
+    background-color: $gray-100-color;
     border-radius: 15px;
+
+    transition: color 200ms;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-name: session-out;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -64px;
+        right: -80px;
+        bottom: -64px;
+        left: -80px;
+        z-index: -1;
+
+        background-color: $primary-color;
+        border-radius: 15px;
+        opacity: 0;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+
+        transition:
+            transform 300ms cubic-bezier(.16, 1, .3, 1),
+            opacity 450ms cubic-bezier(.16, 1, .3, 1) 0ms;
+        transform: scale(.4);
+    }
+
+    &:hover {
+        z-index: 2;
+        color: $white-color;
+        animation-name: session-in;
+        transition-delay: 150ms;
+
+        &::after {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 150ms;
+        }
+    }
+}
+
+.session_hall_big {
+    background-color: $hall-big-color;
+}
+
+.session_hall_small {
+    background-color: $hall-small-color;
+}
+
+.session_hall_martial {
+    background-color: $hall-martial-color;
 }
 
 .session__heading {
-    margin: 0;
+    margin: 0 0 4px;
     font-size: 14px;
+    line-height: 1;
+
+    transition: transform 300ms cubic-bezier(.16, 1, .3, 1);
+
+    .session:hover & {
+        transform: translate(-72px, -56px);
+        transition-delay: 150ms;
+    }
 }
 
 .session__trainer {
     margin: 0;
     font-size: 11px;
+
+    transition: transform 300ms cubic-bezier(.16, 1, .3, 1);
+
+    .session:hover & {
+        transform: translate(-72px, -56px);
+        transition-delay: 150ms;
+    }
 }
 
 .session__placetime {
     margin: 0;
+    margin-top: auto;
+
+    color: $gray-500-color;
+
     font-size: 12px;
+
+    transition:
+        transform 300ms cubic-bezier(.16, 1, .3, 1),
+        color 200ms;
+
+    .session:hover & {
+        color: $white-color;
+        transform: translate(-72px, 38px);
+        transition-delay: 150ms;
+    }
+}
+
+.session__place {
+    position: absolute;
+    display: block;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-18px);
+
+    transition:
+        transform 300ms cubic-bezier(.16, 1, .3, 1),
+        opacity 300ms cubic-bezier(.16, 1, .3, 1);
+
+    .session:hover & {
+        color: $white-color;
+        opacity: 1;
+        transform: translate(0);
+        transition-delay: 150ms;
+    }
+}
+
+@keyframes session-in {
+    0% {
+        z-index: 0;
+    }
+
+    15% {
+        z-index: 1;
+    }
+
+    99% {
+        z-index: 2;
+    }
+
+    100% {
+        z-index: 2;
+    }
+}
+
+@keyframes session-out {
+    0% {
+        z-index: 2;
+    }
+
+    1% {
+        z-index: 1;
+    }
+
+    80% {
+        z-index: 0;
+    }
+
+    100% {
+        z-index: 0;
+    }
 }
