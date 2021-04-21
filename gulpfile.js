@@ -13,7 +13,9 @@ var gulp = require('gulp'),
 	del = require('del'),
 	browserSync = require('browser-sync').create(),
 	concat = require('gulp-concat'),
-	babel = require('gulp-babel');
+	babel = require('gulp-babel'),
+    cheerio = require('gulp-cheerio'),
+	svgSprite = require('gulp-svg-sprite');
 
 gulp.task('scss', () => {
 	return gulp.src('src/scss/style.scss')
@@ -77,6 +79,27 @@ gulp.task('img', () => {
 		.pipe(gulp.dest('dist/img'))
 		.pipe(webp())
 		.pipe(gulp.dest('dist/img')); 
+});
+
+gulp.task('icons', () => {
+	return gulp.src('src/img/ico/*.svg')
+		.pipe(cheerio({
+			run: function ($) {
+				$('svg').attr('fill', 'currentColor');
+			},
+			parserOptions: { xmlMode: true }
+		}))
+		.pipe(svgSprite(
+			{
+				mode: {
+					stack: {
+						sprite: 'sprite.svg',
+						dest: 'ico'
+					}
+				}
+			}
+		))
+		.pipe(gulp.dest('dist/templates/olympic-touch/img')); 
 });
 
 gulp.task('del', () => {

@@ -87,8 +87,11 @@
 }
 
 .session__placetime {
+    position: relative;
+
     margin: 0;
     margin-top: auto;
+    padding-left: 24px;
 
     color: $gray-500-color;
 
@@ -98,10 +101,40 @@
         transform 300ms cubic-bezier(.16, 1, .3, 1),
         color 200ms;
 
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: calc(50% - 9px);
+
+        width: 18px;
+        height: 18px;
+
+        background-color: $gray-500-color;
+        mask: url('../img/ico/sprite.svg#query_builder');
+        mask-size: cover;
+
+        transition: background-color 200ms;
+    }
+
     .session:hover & {
         color: $white-color;
         transform: translate(-72px, 38px);
         transition-delay: 150ms;
+
+        &::before {
+            background-color: $white-color;
+            transition-delay: 150ms;
+        }
+    }
+}
+
+.stupid {
+    background-color: coral;
+    color: #fff;
+
+    &:hover {
+        color: cornflowerblue;
     }
 }
 
