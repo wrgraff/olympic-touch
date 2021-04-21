@@ -4,12 +4,12 @@
         <p class="session__trainer">{{ props.trainer }}</p>
 
         {% if props.labels.length %}
-            <p class="session__labels labels">
+            <p class="session__labels">
                 {% for label in props.labels %}
-                    {% set labelMod = 'labels__item_' + label.type %}
+                    {% set labelMod = 'session__label_' + label.type %}
 
-                    <span class="labels__item {{ labelMod if label.type != 'base' }}">
-                        <span class="labels__text">{{ label.text }}</span>
+                    <span class="session__label {{ labelMod if label.type != 'base' }}">
+                        <span class="session__label-text">{{ label.text }}</span>
                     </span>
                 {% endfor %}
             </p>
